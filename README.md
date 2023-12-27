@@ -6,7 +6,7 @@ Useful code snippets, primarily for LeetCode.
 
 **Minimum Requirement: C++ 17**
 
-| file     | description                    |
-| -------- | ------------------------------ |
-| pow2.hpp | Base 2 exponentiation % MODULO |
+| file                   | description                                      |
+| ---------------------- | ------------------------------------------------ |
+| modular_arithmetic.hpp | `MODULO` is fixed, which is enough for LeetCode. |
 
