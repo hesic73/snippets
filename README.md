@@ -4,9 +4,10 @@ Useful code snippets, primarily for LeetCode.
 
 ## C++
 
-**Minimum Requirement: C++ 17**
+**Requirement: C++ 20**
 
 | file                   | description                                      |
 | ---------------------- | ------------------------------------------------ |
 | modular_arithmetic.hpp | `MODULO` is fixed, which is enough for LeetCode. |
+| num_digits.hpp         |                                                  |
 

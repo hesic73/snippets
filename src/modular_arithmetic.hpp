@@ -1,5 +1,5 @@
-#ifndef POW2_H
-#define POW2_H
+#ifndef MODULAR_ARITHMETIC_H
+#define MODULAR_ARITHMETIC_H
 
 #include <cstdint>
 #include <array>
