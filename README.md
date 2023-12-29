@@ -10,4 +10,5 @@ Useful code snippets, primarily for LeetCode.
 | ---------------------- | ------------------------------------------------ |
 | modular_arithmetic.hpp | `MODULO` is fixed, which is enough for LeetCode. |
 | num_digits.hpp         |                                                  |
+| varadic_numeric.hpp    |                                                  |
 
