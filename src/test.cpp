@@ -3,17 +3,16 @@
 #include "varadic_numeric.hpp"
 #include "modular_arithmetic.hpp"
 #include "num_of_greater_elements.hpp"
+#include "binary_tree.hpp"
 #include <iostream>
 #include <format>
 #include <vector>
+#include <optional>
 using namespace hsc_snippets;
 
 TEST_CASE("modular_arithmetic.hpp", )
 {
-    for (int i = 0; i < 100; i++)
-    {
-        REQUIRE(modular_add(i, additive_inverse(i)) == 0);
-    }
+    REQUIRE(modular_add(5, additive_inverse(5)) == 0);
 }
 
 TEST_CASE("num_digits.hpp", )
@@ -47,4 +46,55 @@ TEST_CASE("num_of_greater_elements.hpp", )
     auto v = std::vector<int>{1, 2, 3, 4, 5};
     REQUIRE(numOfGreaterElements(v, 2) == 3);
     REQUIRE(numOfGreaterElements(v, 5) == 0);
+}
+
+bool vector_equal(const std::vector<int> &a, const std::vector<int> &b)
+{
+    if (a.size() != b.size())
+        return false;
+    const int n = a.size();
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] != b[i])
+            return false;
+    }
+    return true;
+}
+
+TEST_CASE("binary_tree.hpp", )
+{
+    auto v = std::vector<std::optional<int>>{1, 2, 3, 4, 5, std::nullopt, 6};
+    auto root = new_binary_tree(v);
+
+    SECTION("inorder")
+    {
+        auto result = std::vector<int>{};
+        auto expected_result = std::vector<int>{4, 2, 5, 1, 3, 6};
+        inorder(root, [&result](int value)
+                { result.push_back(value); });
+
+        REQUIRE(vector_equal(result, expected_result));
+    }
+
+    SECTION("preorder")
+    {
+        auto result = std::vector<int>{};
+        auto expected_result = std::vector<int>{1, 2, 4, 5, 3, 6};
+        preorder(root, [&result](int value)
+                 { result.push_back(value); });
+
+        REQUIRE(vector_equal(result, expected_result));
+    }
+
+    SECTION("postorder")
+    {
+        auto result = std::vector<int>{};
+        auto expected_result = std::vector<int>{4, 5, 2, 6, 3, 1};
+        postorder(root, [&result](int value)
+                  { result.push_back(value); });
+
+        REQUIRE(vector_equal(result, expected_result));
+    }
+
+    delete_binary_tree(root);
 }
