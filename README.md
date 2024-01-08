@@ -13,6 +13,7 @@
 | num_digits.hpp              |                                                  |
 | varadic_numeric.hpp         |                                                  |
 | num_of_greater_elements.hpp |                                                  |
+| binary_tree.hpp             |                                                  |
 
 ## Test
 
