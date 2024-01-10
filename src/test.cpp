@@ -48,19 +48,6 @@ TEST_CASE("num_of_greater_elements.hpp", )
     REQUIRE(numOfGreaterElements(v, 5) == 0);
 }
 
-bool vector_equal(const std::vector<int> &a, const std::vector<int> &b)
-{
-    if (a.size() != b.size())
-        return false;
-    const int n = a.size();
-    for (int i = 0; i < n; i++)
-    {
-        if (a[i] != b[i])
-            return false;
-    }
-    return true;
-}
-
 TEST_CASE("binary_tree.hpp", )
 {
     auto v = std::vector<std::optional<int>>{1, 2, 3, 4, 5, std::nullopt, 6};
@@ -73,7 +60,7 @@ TEST_CASE("binary_tree.hpp", )
         inorder(root, [&result](int value)
                 { result.push_back(value); });
 
-        REQUIRE(vector_equal(result, expected_result));
+        REQUIRE(result == expected_result);
     }
 
     SECTION("preorder")
@@ -83,7 +70,7 @@ TEST_CASE("binary_tree.hpp", )
         preorder(root, [&result](int value)
                  { result.push_back(value); });
 
-        REQUIRE(vector_equal(result, expected_result));
+        REQUIRE(result == expected_result);
     }
 
     SECTION("postorder")
@@ -93,7 +80,7 @@ TEST_CASE("binary_tree.hpp", )
         postorder(root, [&result](int value)
                   { result.push_back(value); });
 
-        REQUIRE(vector_equal(result, expected_result));
+        REQUIRE(result == expected_result);
     }
 
     delete_binary_tree(root);

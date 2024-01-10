@@ -6,6 +6,7 @@
 #include <optional>
 #include <queue>
 #include <cassert>
+#include <unordered_map>
 
 namespace hsc_snippets
 {
@@ -95,6 +96,37 @@ namespace hsc_snippets
         postorder(root->left, func);
         postorder(root->right, func);
         func(root->val);
+    }
+
+    // elements of the binary tree should be unique
+    std::unordered_map<int, std::vector<int>> binary_tree_to_adjacency_list(TreeNode *root)
+    {
+        auto adjacencyList = std::unordered_map<int, std::vector<int>>{};
+        if (root == nullptr)
+        {
+            return adjacencyList;
+        }
+        auto q = std::queue<TreeNode *>{};
+        q.push(root);
+        while (!q.empty())
+        {
+            auto node = q.front();
+            q.pop();
+            if (node->left != nullptr)
+            {
+                adjacencyList[node->left->val].push_back(node->val);
+                adjacencyList[node->val].push_back(node->left->val);
+                q.push(node->left);
+            }
+            if (node->right != nullptr)
+            {
+                adjacencyList[node->right->val].push_back(node->val);
+                adjacencyList[node->val].push_back(node->right->val);
+                q.push(node->right);
+            }
+        }
+
+        return adjacencyList;
     }
 
 }
