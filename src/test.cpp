@@ -5,7 +5,6 @@
 #include "num_of_greater_elements.hpp"
 #include "binary_tree.hpp"
 #include <iostream>
-#include <format>
 #include <vector>
 #include <optional>
 using namespace hsc_snippets;
