@@ -21,10 +21,10 @@
 I'm unfamiliar with CMake and ctest, thus the test appears in this manner:
 
 ```bash
-mkdir build
+mkdir -p build
 cd build
-cmake ../src
-cmake --build . --config Release
-./Release/tests
+cmake ..
+cmake --build . 
+./test/tests
 ```
 
