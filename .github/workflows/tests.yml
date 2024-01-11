@@ -29,5 +29,5 @@ jobs:
       - name: Test
         run: |
           cd build
-          ./Release/tests
+          ./build/Release/tests
           # ctest -R spatial_dyn_tests --output-on-failure
