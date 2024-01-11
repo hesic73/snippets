@@ -30,4 +30,4 @@ jobs:
         run: |
           cd build
           ls
-          # ./build/Release/tests
+          ./Release/tests
