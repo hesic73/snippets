@@ -1,13 +1,15 @@
 cmake_minimum_required(VERSION 3.18.0)
-project(snippets-test)
+
+project(snippets
+LANGUAGES CXX
+)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+
+add_subdirectory(src)
 
 add_subdirectory(lib/Catch2)
-# These tests can use the Catch2-provided main
-add_executable(tests src/test.cpp)
+add_subdirectory(test)
 
-target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
-
-# enable_testing()
-# add_test(NAME SnippetsTests COMMAND tests.exe)
