@@ -29,5 +29,4 @@ jobs:
       - name: Test
         run: |
           cd build
-          ls
-          ./test/tests
+          ctest -v -C Release

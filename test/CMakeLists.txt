@@ -1,9 +1,18 @@
-# These tests can use the Catch2-provided main
-add_executable(tests test.cpp)
+file(GLOB TEST_FILES "*.cpp")
 
-# Include the src directory
-target_include_directories(tests PRIVATE ${PROJECT_SOURCE_DIR}/src)
+foreach(TEST_FILE ${TEST_FILES})
+    get_filename_component(EXECUTABLE_NAME ${TEST_FILE} NAME_WE)
+    add_executable(${EXECUTABLE_NAME} ${TEST_FILE})
+    target_include_directories(${EXECUTABLE_NAME} PRIVATE ${PROJECT_SOURCE_DIR}/src)
+    target_link_libraries(${EXECUTABLE_NAME} PRIVATE Catch2::Catch2WithMain)
+    add_test(NAME ${EXECUTABLE_NAME} COMMAND ${EXECUTABLE_NAME})
+endforeach()
 
 
-target_link_libraries(tests PRIVATE Catch2::Catch2WithMain)
+
+
+
+
+
+
 

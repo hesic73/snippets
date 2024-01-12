@@ -18,13 +18,13 @@
 
 ## Test
 
-I'm unfamiliar with CMake and ctest, thus the test appears in this manner:
+The test appears in this manner:
 
 ```bash
 mkdir -p build
 cd build
 cmake ..
-cmake --build . 
-./test/tests
+cmake --build . --config Release
+ctest -v -C Release
 ```
 
