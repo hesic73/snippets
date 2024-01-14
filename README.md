@@ -7,14 +7,15 @@
 
 ## C++
 
-| file                        | description                                      |
-| --------------------------- | ------------------------------------------------ |
-| modular_arithmetic.hpp      | `MODULO` is fixed, which is enough for LeetCode. |
-| num_digits.hpp              |                                                  |
-| varadic_numeric.hpp         |                                                  |
-| num_of_greater_elements.hpp |                                                  |
-| binary_tree.hpp             |                                                  |
-| graph.hpp                   |                                                  |
+| file                   | description                                      |
+| ---------------------- | ------------------------------------------------ |
+| modular_arithmetic.hpp | `MODULO` is fixed, which is enough for LeetCode. |
+| num_digits.hpp         |                                                  |
+| varadic_numeric.hpp    |                                                  |
+| bounds.hpp             |                                                  |
+| binary_tree.hpp        |                                                  |
+| graph.hpp              |                                                  |
+| string_utils.hpp       |                                                  |
 
 ## Test
 
