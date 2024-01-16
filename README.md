@@ -10,12 +10,12 @@
 | file                   | description                                      |
 | ---------------------- | ------------------------------------------------ |
 | modular_arithmetic.hpp | `MODULO` is fixed, which is enough for LeetCode. |
-| num_digits.hpp         |                                                  |
+| number_utils.hpp       |                                                  |
 | varadic_numeric.hpp    |                                                  |
-| bounds.hpp             |                                                  |
+| sorted_utils.hpp       |                                                  |
 | binary_tree.hpp        |                                                  |
 | graph.hpp              |                                                  |
-| string_utils.hpp       |                                                  |
+| string_utils.hpp       | Some functions are written by ChatGPT            |
 
 ## Test
 
