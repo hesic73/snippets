@@ -78,6 +78,20 @@ namespace hsc_snippets
         return result;
     }
 
+    bool isPalindrome(const std::string &s)
+    {
+        assert(!s.empty());
+        const int n = s.size();
+        for (int i = 0; i < n / 2; i++)
+        {
+            if (s[i] != s[n - 1 - i])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
 
 #endif // STRING_UTILS_H
