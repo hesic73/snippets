@@ -16,6 +16,7 @@
 | binary_tree.hpp        |                                                  |
 | graph.hpp              |                                                  |
 | string_utils.hpp       | Some functions are written by ChatGPT            |
+| monotonic_stack.hpp    |                                                  |
 
 ## Test
 
