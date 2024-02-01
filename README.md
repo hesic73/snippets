@@ -7,16 +7,17 @@
 
 ## C++
 
-| file                   | description                                      |
-| ---------------------- | ------------------------------------------------ |
-| modular_arithmetic.hpp | `MODULO` is fixed, which is enough for LeetCode. |
-| number_utils.hpp       |                                                  |
-| varadic_numeric.hpp    |                                                  |
-| sorted_utils.hpp       |                                                  |
-| binary_tree.hpp        |                                                  |
-| graph.hpp              |                                                  |
-| string_utils.hpp       | Some functions are written by ChatGPT            |
-| monotonic_stack.hpp    |                                                  |
+| file                   | description                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| modular_arithmetic.hpp | `MODULO` is fixed, which is enough for LeetCode.             |
+| number_utils.hpp       |                                                              |
+| varadic_numeric.hpp    |                                                              |
+| sorted_utils.hpp       |                                                              |
+| binary_tree.hpp        |                                                              |
+| graph.hpp              |                                                              |
+| string_utils.hpp       | Some functions are written by ChatGPT                        |
+| monotonic_stack.hpp    |                                                              |
+| dominant_tracker.hpp   | [LeetCode 2780](https://leetcode.com/problems/minimum-index-of-a-valid-split/description/) |
 
 ## Test
 
