@@ -18,6 +18,7 @@
 | string_utils.hpp       | Some functions are written by ChatGPT                        |
 | monotonic_stack.hpp    |                                                              |
 | dominant_tracker.hpp   | [LeetCode 2780](https://leetcode.com/problems/minimum-index-of-a-valid-split/description/) |
+| segment_tree.hpp       | adapted from https://oi-wiki.org/ds/seg/                     |
 
 ## Test
 
