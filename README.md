@@ -19,6 +19,7 @@
 | monotonic_stack.hpp    |                                                              |
 | dominant_tracker.hpp   | [LeetCode 2780](https://leetcode.com/problems/minimum-index-of-a-valid-split/description/) |
 | segment_tree.hpp       | adapted from https://oi-wiki.org/ds/seg/                     |
+| sliding_window.hpp     | with the help of GPT-4                                       |
 
 ## Test
 
