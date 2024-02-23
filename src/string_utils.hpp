@@ -7,6 +7,7 @@
 #include <queue>
 #include <cassert>
 #include <unordered_map>
+#include <sstream>
 
 namespace hsc_snippets
 {
@@ -90,6 +91,78 @@ namespace hsc_snippets
             }
         }
         return true;
+    }
+
+    /**
+     * Convert a vector of integral type T to its string representation.
+     *
+     * @tparam T The integral type of elements in the vector.
+     * @param vec The vector to convert.
+     * @return The string representation of the vector.
+     */
+    template <std::integral T>
+    std::string to_string(const std::vector<T> &vec)
+    {
+        std::stringstream ss;
+        ss << "[";
+        for (size_t i = 0; i < vec.size(); ++i)
+        {
+            ss << vec[i];
+            if (i < vec.size() - 1)
+            { // Check if it's not the last element
+                ss << ", ";
+            }
+        }
+        ss << "]";
+        return ss.str();
+    }
+
+    /**
+     * Convert a vector of strings to its string representation, with elements separated by commas.
+     * The resulting string is enclosed in square brackets.
+     *
+     * @param vec The vector of strings to convert. Each element in the vector is expected to be a string.
+     * @return A string that represents the vector's contents, formatted as "[element1, element2, ...]".
+     *         If the vector is empty, the returned string will be "[]".
+     */
+    std::string to_string(const std::vector<std::string> &vec)
+    {
+        std::stringstream ss;
+        ss << "[";
+        for (size_t i = 0; i < vec.size(); ++i)
+        {
+            ss << vec[i];
+            if (i < vec.size() - 1)
+            { // Check if it's not the last element
+                ss << ", ";
+            }
+        }
+        ss << "]";
+        return ss.str();
+    }
+
+    /**
+     * Convert a vector of vectors of integral type T to its string representation.
+     *
+     * @tparam T The integral type of elements in the vectors.
+     * @param vec The vector of vectors to convert.
+     * @return The string representation of the vector of vectors.
+     */
+    template <std::integral T>
+    std::string to_string(const std::vector<std::vector<T>> &vec)
+    {
+        std::stringstream ss;
+        ss << "[";
+        for (size_t i = 0; i < vec.size(); ++i)
+        {
+            ss << to_string(vec[i]);
+            if (i < vec.size() - 1)
+            { // Check if it's not the last element
+                ss << ", ";
+            }
+        }
+        ss << "]";
+        return ss.str();
     }
 
 }
