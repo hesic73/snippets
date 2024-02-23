@@ -14,8 +14,8 @@
 | varadic_numeric.hpp    |                                                              |
 | sorted_utils.hpp       |                                                              |
 | binary_tree.hpp        |                                                              |
-| graph.hpp              |                                                              |
-| string_utils.hpp       | Some functions are written by ChatGPT                        |
+| graph.hpp              | with the help of GPT-4                                       |
+| string_utils.hpp       | with the help of GPT-4                                       |
 | monotonic_stack.hpp    |                                                              |
 | dominant_tracker.hpp   | [LeetCode 2780](https://leetcode.com/problems/minimum-index-of-a-valid-split/description/) |
 | segment_tree.hpp       | adapted from https://oi-wiki.org/ds/seg/                     |
