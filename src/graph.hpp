@@ -230,6 +230,74 @@ namespace hsc_snippets
         return dist[dst] == std::numeric_limits<int>::max() ? -1 : dist[dst];
     }
 
+    /**
+     * Finds an Eulerian path or circuit in a directed graph.
+     *
+     * This function assumes that the given graph has an Eulerian path or circuit,
+     * which means the graph is connected and either:
+     * <p>
+     * - All vertices have equal in-degrees and out-degrees (Eulerian circuit), or
+     * <p>
+     * - All but two vertices have equal in-degrees and out-degrees, and one of those
+     *   two vertices has out-degree = in-degree + 1 (start), and the other has
+     *   in-degree = out-degree + 1 (end) (Eulerian path).
+     *
+     * @param edges A vector of pairs representing directed edges in the graph. Each pair (a, b)
+     *              represents a directed edge from a to b.
+     * @return A vector representing the Eulerian path or circuit as a sequence of vertex
+     *         indices. If a circuit exists, the path can start from any vertex in the circuit.
+     */
+    std::vector<int> find_euler_path_directed(const std::vector<std::vector<int>> &edges)
+    {
+        std::unordered_map<int, std::stack<int>> adj;
+        std::unordered_map<int, int> in;
+        std::unordered_map<int, int> out;
+        for (auto &&edge : edges)
+        {
+            int from = edge[0];
+            int to = edge[1];
+            adj[from].push(to);
+            in[to] += 1;
+            out[from] += 1;
+        }
+
+        int start = adj.begin()->first; // Default start node
+        for (auto &&p : adj)
+        {
+            if (out[p.first] - in[p.first] == 1)
+            { // Find the actual start node for Euler Path
+                start = p.first;
+                break;
+            }
+        }
+
+        std::stack<int> current_path;
+        std::vector<int> circuit;
+        current_path.push(start);
+
+        while (!current_path.empty())
+        {
+            int current_vertex = current_path.top();
+
+            if (!adj[current_vertex].empty())
+            { // If current vertex has neighbors
+                int next_vertex = adj[current_vertex].top();
+                adj[current_vertex].pop();      // Remove the edge from current to next
+                current_path.push(next_vertex); // Move to next vertex
+            }
+            else
+            {                                      // Backtrack
+                circuit.push_back(current_vertex); // Add to Euler circuit/path
+                current_path.pop();                // Remove the vertex as it has no more neighbors
+            }
+        }
+
+        // Reverse the circuit to get the Euler path
+        std::reverse(circuit.begin(), circuit.end());
+
+        return circuit;
+    }
+
 }
 
 #endif // GRAPH_H
