@@ -8,6 +8,7 @@
 #include <stack>
 #include <cassert>
 #include <unordered_set>
+#include <unordered_map>
 
 namespace hsc_snippets
 {
@@ -123,6 +124,44 @@ namespace hsc_snippets
      *                 and the index of the current node.
      */
     void breadth_first_search(std::vector<std::vector<int>> &adjacency_list, int root, std::function<void(int, int)> callback)
+    {
+        auto visited = std::unordered_set<int>{};
+        auto q = std::queue<std::pair<int, int>>{}; // Regular queue for BFS
+        q.emplace(0, root);                         // Initialize queue with root node at distance 0
+        while (!q.empty())
+        {
+            auto [dist, node] = q.front(); // Extract node at the front of the queue
+            q.pop();
+
+            if (visited.contains(node)) // Skip if node has already been visited
+            {
+                continue;
+            }
+            visited.insert(node); // Mark current node as visited
+
+            callback(dist, node); // Invoke callback for the current node
+
+            for (auto adjacent_node : adjacency_list[node]) // Explore adjacent nodes
+            {
+                if (visited.contains(adjacent_node)) // Skip if adjacent node has already been visited
+                {
+                    continue;
+                }
+                q.emplace(dist + 1, adjacent_node); // Enqueue adjacent node with distance incremented by 1
+            }
+        }
+    }
+    /**
+     * Performs a breadth-first search (BFS) on an undirected graph starting from a given root node.
+     * It uses a queue to explore nodes level by level, ensuring each node is visited exactly once.
+     *
+     * @param adjacency_list The graph represented as an adjacency list, where each key-value pair corresponds to
+     *                       a node and its list of adjacent nodes.
+     * @param root The starting node for the BFS.
+     * @param callback A function to be called for each visited node. It takes the distance from the root
+     *                 and the node itself as arguments.
+     */
+    void breadth_first_search(std::unordered_map<int, std::vector<int>> &adjacency_list, int root, std::function<void(int, int)> callback)
     {
         auto visited = std::unordered_set<int>{};
         auto q = std::queue<std::pair<int, int>>{}; // Regular queue for BFS
@@ -298,6 +337,42 @@ namespace hsc_snippets
         return circuit;
     }
 
+    /**
+     * Finds and returns all connected components in an undirected graph.
+     * It iterates over all nodes, using a BFS starting from each unvisited node to discover all nodes
+     * in the same connected component.
+     *
+     * @param adj The graph represented as an adjacency list, where keys are node identifiers and
+     *            values are lists of adjacent nodes.
+     * @return A vector of vectors, where each inner vector represents a connected component of the graph
+     *         and contains all node identifiers within that component.
+     */
+    std::vector<std::vector<int>> findConnectedComponents(std::unordered_map<int, std::vector<int>> &adj)
+    {
+        std::unordered_map<int, bool> visited{}; // Tracks whether each node has been visited
+        for (auto &&p : adj)
+        {
+            visited.insert({p.first, false}); // Initialize all nodes as unvisited
+        }
+
+        std::vector<std::vector<int>> connectedComponents; // Stores the connected components
+
+        for (auto &&p : visited)
+        {
+            if (!p.second)
+            {                               // For each unvisited node
+                std::vector<int> component; // Stores the current component's nodes
+                breadth_first_search(adj, p.first, [&visited, &component](int, int node)
+                                     {
+                                         visited[node] = true;      // Mark the node as visited
+                                         component.push_back(node); // Add the node to the current component
+                                     });                            // Perform BFS to find all nodes in this component
+                connectedComponents.push_back(component);           // Add the current component to the list
+            }
+        }
+
+        return connectedComponents; // Return all found connected components
+    }
 }
 
 #endif // GRAPH_H
