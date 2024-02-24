@@ -44,3 +44,12 @@ TEST_CASE("custom functions", )
                                { return -10 + i; }) == 5);
     }
 }
+
+TEST_CASE("sortThree")
+{
+    int a = 3, b = 1, c = 2;
+    sortThree(a, b, c);
+    REQUIRE(a == 1);
+    REQUIRE(b == 2);
+    REQUIRE(c == 3);
+}

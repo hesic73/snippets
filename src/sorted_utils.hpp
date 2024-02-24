@@ -73,9 +73,9 @@ namespace hsc_snippets
     // func should return values in anon-decreasing order for the indices in the range [low, high]
     // return the greatest integer num in the range [low, high], such that func(num)<=value
     I greatest_index(I low,
-               I high,
-               const T &value,
-               auto &&func)
+                     I high,
+                     const T &value,
+                     auto &&func)
     {
 
         while (low <= high)
@@ -93,6 +93,31 @@ namespace hsc_snippets
         }
 
         return high;
+    }
+
+    /**
+     * Sorts three elements in non-decreasing order using a simple comparison and swap algorithm.
+     *
+     * @tparam T The type of the elements to be sorted. Must be an integral type.
+     * @param a Reference to the first element, will be the smallest after sorting.
+     * @param b Reference to the second element, will be the middle element after sorting.
+     * @param c Reference to the third element, will be the largest after sorting.
+     */
+    template <std::integral T>
+    void sortThree(T &a, T &b, T &c)
+    {
+        if (a > b)
+        {
+            std::swap(a, b);
+        }
+        if (b > c)
+        {
+            std::swap(b, c);
+        }
+        if (a > b)
+        {
+            std::swap(a, b);
+        }
     }
 
 }
