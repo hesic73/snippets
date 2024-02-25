@@ -43,6 +43,16 @@ TEST_CASE("custom functions", )
         REQUIRE(greatest_index(0, 5, 3, [](int i)
                                { return -10 + i; }) == 5);
     }
+
+    SECTION("smallest_index"){
+        REQUIRE(smallest_index(0, 5, 3, [](int i)
+                               { return i; }) == 3);
+        REQUIRE(smallest_index(0, 5, 3, [](int i)
+                               { return 10 + i; }) == 0);
+        REQUIRE(smallest_index(0, 5, 3, [](int i)
+                               { return -10 + i; }) == -1);
+    
+    }
 }
 
 TEST_CASE("sortThree")
