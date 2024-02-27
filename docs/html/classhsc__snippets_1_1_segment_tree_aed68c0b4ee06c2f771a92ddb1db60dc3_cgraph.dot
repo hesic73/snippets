@@ -1,0 +1,11 @@
+digraph "hsc_snippets::SegmentTree::SegmentTree"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="hsc_snippets::SegmentTree\l::SegmentTree",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="hsc_snippets::SegmentTree\l::build",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classhsc__snippets_1_1_segment_tree.html#a0744036bc1a2b62ed2df6a119a431cbc",tooltip=" "];
+}

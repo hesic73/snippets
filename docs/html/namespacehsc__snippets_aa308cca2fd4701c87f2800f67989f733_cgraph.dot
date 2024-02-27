@@ -1,0 +1,11 @@
+digraph "hsc_snippets::findConnectedComponents"
+{
+ // INTERACTIVE_SVG=YES
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="hsc_snippets::findConnected\lComponents",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="hsc_snippets::breadth\l_first_search",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$namespacehsc__snippets.html#a7a0a80e48e879d3c68dda0b5a8055afa",tooltip=" "];
+}
