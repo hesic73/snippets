@@ -102,6 +102,11 @@ namespace hsc_snippets
         return depth;
     }
 
+    /**
+     * In-order traversal of a binary tree.
+     * @param root Root node of the binary tree.
+     * @param func Function to process each node's value.
+     */
     void inorder(TreeNode *root, std::function<void(int)> func)
     {
         if (root == nullptr)
@@ -111,6 +116,11 @@ namespace hsc_snippets
         inorder(root->right, func);
     }
 
+    /**
+     * Pre-order traversal of a binary tree.
+     * @param root Root node of the binary tree.
+     * @param func Function to process each node's value.
+     */
     void preorder(TreeNode *root, std::function<void(int)> func)
     {
         if (root == nullptr)
@@ -120,6 +130,11 @@ namespace hsc_snippets
         preorder(root->right, func);
     }
 
+    /**
+     * Post-order traversal of a binary tree.
+     * @param root Root node of the binary tree.
+     * @param func Function to process each node's value.
+     */
     void postorder(TreeNode *root, std::function<void(int)> func)
     {
         if (root == nullptr)
