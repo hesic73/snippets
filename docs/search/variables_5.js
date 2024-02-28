@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['right_212',['right',['../structhsc__snippets_1_1_tree_node.html#a00cd6b39aab8c4d952318b5ef8efbc11',1,'hsc_snippets::TreeNode::right()'],['../structhsc__snippets_1_1___interval.html#ad3ea43f41c9a0c416c803b1a8f8c9685',1,'hsc_snippets::_Interval::right()']]]
+  ['parent_223',['parent',['../classhsc__snippets_1_1_union_find.html#afac97b63051e30e13409e410844f96f3',1,'hsc_snippets::UnionFind']]]
 ];

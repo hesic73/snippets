@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['window_217',['window',['../classhsc__snippets_1_1_sliding_window_max.html#aece031b30af2019505129dbb743f573f',1,'hsc_snippets::SlidingWindowMax']]]
+  ['val_229',['val',['../structhsc__snippets_1_1_tree_node.html#ae4adc73d360964a927493f3e257a334a',1,'hsc_snippets::TreeNode']]]
 ];

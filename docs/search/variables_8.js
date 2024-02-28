@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['val_216',['val',['../structhsc__snippets_1_1_tree_node.html#ae4adc73d360964a927493f3e257a334a',1,'hsc_snippets::TreeNode']]]
+  ['update_5fpolicy_228',['update_policy',['../classhsc__snippets_1_1_interval_map.html#a568b71cdfa51201cdddad9a1bf298156',1,'hsc_snippets::IntervalMap']]]
 ];
