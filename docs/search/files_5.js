@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['number_5futils_2ehpp_130',['number_utils.hpp',['../number__utils_8hpp.html',1,'']]]
+  ['modular_5farithmetic_2ehpp_137',['modular_arithmetic.hpp',['../modular__arithmetic_8hpp.html',1,'']]],
+  ['monotonic_5fstack_2ehpp_138',['monotonic_stack.hpp',['../monotonic__stack_8hpp.html',1,'']]]
 ];

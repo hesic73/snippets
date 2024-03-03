@@ -14,6 +14,7 @@
 | varadic_numeric.hpp    |                                                              |
 | sorted_utils.hpp       |                                                              |
 | binary_tree.hpp        |                                                              |
+| linked_list.hpp        |                                                              |
 | graph.hpp              | with the help of GPT-4                                       |
 | string_utils.hpp       | with the help of GPT-4                                       |
 | monotonic_stack.hpp    |                                                              |

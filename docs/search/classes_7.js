@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unionfind_122',['UnionFind',['../classhsc__snippets_1_1_union_find.html',1,'hsc_snippets']]]
+  ['treenode_129',['TreeNode',['../structhsc__snippets_1_1_tree_node.html',1,'hsc_snippets']]]
 ];
