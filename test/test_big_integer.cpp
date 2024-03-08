@@ -343,3 +343,400 @@ TEST_CASE("BigInteger to<T>() conversion with random long long", "[BigInteger][C
         }
     }
 }
+
+TEST_CASE("BigInteger::abs method", "[abs]") {
+    SECTION("Absolute value of positive numbers") {
+        for (int i = 0; i < 1000; ++i) {
+            auto a = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a < 0 ? -a : a); // Ensure a is positive
+            REQUIRE(bigA.abs().to_string() == bigA.to_string());
+        }
+    }
+
+    SECTION("Absolute value of negative numbers") {
+        for (int i = 0; i < 1000; ++i) {
+            auto a = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a > 0 ? -a : a); // Ensure a is negative
+            BigInteger bigAPositive = BigInteger::from_integer(a > 0 ? a : -a); // Corresponding positive value
+            REQUIRE(bigA.abs() == bigAPositive);
+        }
+    }
+}
+
+TEST_CASE("BigInteger::max method", "[max]") {
+    SECTION("Maximum of two BigIntegers") {
+        for (int i = 0; i < 1000; ++i) {
+            auto a = dist(rng);
+            auto b = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+
+            BigInteger expectedMax = a > b ? bigA : bigB; // Expected maximum based on integer comparison
+            REQUIRE(BigInteger::max(bigA, bigB) == expectedMax);
+        }
+    }
+}
+
+TEST_CASE("BigInteger::min method", "[min]") {
+    SECTION("Minimum of two BigIntegers") {
+        for (int i = 0; i < 1000; ++i) {
+            auto a = dist(rng);
+            auto b = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+
+            BigInteger expectedMin = a < b ? bigA : bigB; // Expected minimum based on integer comparison
+            REQUIRE(BigInteger::min(bigA, bigB) == expectedMin);
+        }
+    }
+}
+
+
+TEST_CASE("BigInteger increment and decrement operators", "[BigInteger][Increment][Decrement]") {
+
+    SECTION("Prefix increment") {
+        for (int i = 0; i < 1000; ++i) {
+            auto a = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger &ref = ++bigA; // Prefix increment
+
+            // bigA should be one more than its original value
+            REQUIRE(bigA.to_string() == BigInteger::from_integer(a + 1).to_string());
+            // Ref should be the same as bigA
+            REQUIRE(&ref == &bigA);
+        }
+    }
+
+    SECTION("Postfix increment") {
+        for (int i = 0; i < 1000; ++i) {
+            auto a = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger prevValue = bigA++;
+
+            // prevValue should be the original value of bigA
+            REQUIRE(prevValue.to_string() == BigInteger::from_integer(a).to_string());
+            // bigA should be one more than its original value
+            REQUIRE(bigA.to_string() == BigInteger::from_integer(a + 1).to_string());
+        }
+    }
+
+    SECTION("Prefix decrement") {
+        for (int i = 0; i < 1000; ++i) {
+            auto a = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger &ref = --bigA; // Prefix decrement
+
+            // bigA should be one less than its original value
+            REQUIRE(bigA.to_string() == BigInteger::from_integer(a - 1).to_string());
+            // Ref should be the same as bigA
+            REQUIRE(&ref == &bigA);
+        }
+    }
+
+    SECTION("Postfix decrement") {
+        for (int i = 0; i < 1000; ++i) {
+            auto a = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger prevValue = bigA--;
+
+            // prevValue should be the original value of bigA
+            REQUIRE(prevValue.to_string() == BigInteger::from_integer(a).to_string());
+            // bigA should be one less than its original value
+            REQUIRE(bigA.to_string() == BigInteger::from_integer(a - 1).to_string());
+        }
+    }
+}
+
+TEST_CASE("BigInteger multiplication", "[BigInteger][Multiplication]") {
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> dist(-100000, 100000); // Adjust range as needed for more intensive testing
+
+    SECTION("Multiplying with zero") {
+        BigInteger zero = BigInteger::from_integer(0);
+        for (int i = 0; i < 10000; ++i) {
+            BigInteger randomNum = BigInteger::from_integer(dist(rng));
+            REQUIRE((zero * randomNum) == BigInteger::zero());
+            REQUIRE((randomNum * zero) == BigInteger::zero());
+        }
+    }
+
+    SECTION("Multiplying positive numbers") {
+        for (int i = 0; i < 10000; ++i) {
+            int a = std::abs(dist(rng));
+            int b = std::abs(dist(rng));
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            REQUIRE((bigA * bigB).to_string() == std::to_string(static_cast<long long>(a) * b));
+        }
+    }
+
+    SECTION("Multiplying negative numbers") {
+        for (int i = 0; i < 10000; ++i) {
+            int a = dist(rng);
+            int b = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(-std::abs(a));
+            BigInteger bigB = BigInteger::from_integer(-std::abs(b));
+            REQUIRE((bigA * bigB).to_string() == std::to_string(static_cast<long long>(std::abs(a)) * std::abs(b)));
+        }
+    }
+
+    SECTION("Multiplying positive and negative numbers") {
+        for (int i = 0; i < 10000; ++i) {
+            int a = std::abs(dist(rng));
+            int b = -std::abs(dist(rng));
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            REQUIRE((bigA * bigB).to_string() == std::to_string(static_cast<long long>(a) * b));
+            REQUIRE((bigB * bigA).to_string() == std::to_string(static_cast<long long>(b) * a));
+        }
+    }
+}
+
+TEST_CASE("BigInteger division", "[BigInteger][Division]") {
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> dist(-100000, 100000); // Adjust range as needed for more intensive testing
+
+    SECTION("Dividing by zero throws exception") {
+        BigInteger randomNum = BigInteger::from_integer(dist(rng));
+        REQUIRE_THROWS_AS(randomNum / BigInteger::zero(), std::runtime_error);
+    }
+
+    SECTION("Zero divided by any number") {
+        BigInteger zero = BigInteger::zero();
+        for (int i = 0; i < 10000; ++i) {
+            int a;
+            while ((a = dist(rng)) == 0);
+            BigInteger bigA = BigInteger::from_integer(a);
+            REQUIRE((zero / bigA) == BigInteger::zero());
+        }
+    }
+
+    SECTION("Dividing positive numbers") {
+        for (int i = 0; i < 10000; ++i) {
+            int a = std::abs(dist(rng)) + 1; // Avoid zero to prevent division by zero
+            int b = std::abs(dist(rng)) + 1;
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            REQUIRE((bigA / bigB).to_string() == std::to_string(a / b));
+        }
+    }
+
+    SECTION("Dividing negative numbers") {
+        for (int i = 0; i < 10000; ++i) {
+            int a = -std::abs(dist(rng)) - 1; // Avoid zero
+            int b = -std::abs(dist(rng)) - 1;
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            REQUIRE((bigA / bigB).to_string() == std::to_string(std::abs(a) / std::abs(b)));
+        }
+    }
+
+    SECTION("Dividing positive and negative numbers") {
+        for (int i = 0; i < 10000; ++i) {
+            int a = std::abs(dist(rng)) + 1;
+            int b = -std::abs(dist(rng)) - 1;
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            REQUIRE((bigA / bigB).to_string() == std::to_string(a / b));
+        }
+    }
+}
+
+
+TEST_CASE("BigInteger modular operator", "[BigInteger][Modulo]") {
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> dist(-100000, 100000);
+
+    SECTION("Modulo with zero divisor throws exception") {
+        BigInteger randomNum = BigInteger::from_integer(dist(rng));
+        REQUIRE_THROWS_AS(randomNum % BigInteger::zero(), std::runtime_error);
+    }
+
+    SECTION("Zero modulo any number") {
+        BigInteger zero = BigInteger::zero();
+        for (int i = 0; i < 10000; ++i) {
+            int a;
+            while ((a = dist(rng)) == 0);
+            BigInteger bigA = BigInteger::from_integer(a);
+            REQUIRE((zero % bigA) == BigInteger::zero());
+        }
+    }
+
+    SECTION("Positive numbers modulo operation") {
+        for (int i = 0; i < 10000; ++i) {
+            int a = std::abs(dist(rng));
+            int b = std::abs(dist(rng)) + 1; // Ensure b is not zero
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            REQUIRE((bigA % bigB).to_string() == std::to_string(a % b));
+        }
+    }
+
+    SECTION("Negative numbers modulo operation") {
+        for (int i = 0; i < 1000; ++i) {
+            int a = -std::abs(dist(rng));
+            int b = std::abs(dist(rng)) + 1; // Ensure b is not zero
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+
+            int expectedRemainder = a % b;
+
+            REQUIRE((bigA % bigB).to_string() == std::to_string(expectedRemainder));
+        }
+    }
+
+    SECTION("Mixed sign numbers modulo operation") {
+        for (int i = 0; i < 1000; ++i) {
+            int a = std::abs(dist(rng));
+            int b = -std::abs(dist(rng)) - 1; // Ensure b is not zero
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+
+            int expectedRemainder = a % b;
+            if (expectedRemainder < 0) {
+                expectedRemainder += std::abs(b); // Adjust the expected remainder to have the same sign as the divisor
+            }
+
+            REQUIRE((bigA % bigB).to_string() == std::to_string(expectedRemainder));
+
+            // Swapping signs
+            BigInteger negA = BigInteger::from_integer(-a);
+            BigInteger negB = BigInteger::from_integer(-b);
+            expectedRemainder = -a % -b;
+
+            REQUIRE((negA % negB).to_string() == std::to_string(expectedRemainder));
+        }
+    }
+}
+
+TEST_CASE("BigInteger divmod method", "[BigInteger][DivMod]") {
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> dist(-100000, 100000);
+
+    SECTION("divmod with zero divisor throws exception") {
+        BigInteger randomNum = BigInteger::from_integer(dist(rng));
+        REQUIRE_THROWS_AS(randomNum.divmod(BigInteger::zero()), std::runtime_error);
+    }
+
+    SECTION("Zero divmod any number") {
+        BigInteger zero = BigInteger::zero();
+        for (int i = 0; i < 1000; ++i) {
+            int a;
+            while ((a = dist(rng)) == 0);
+            BigInteger bigA = BigInteger::from_integer(a);
+            auto [quotient, remainder] = zero.divmod(bigA);
+            REQUIRE(quotient == BigInteger::zero());
+            REQUIRE(remainder == BigInteger::zero());
+        }
+    }
+
+    SECTION("Divmod operation on positive numbers") {
+        for (int i = 0; i < 1000; ++i) {
+            int a = std::abs(dist(rng));
+            int b = std::abs(dist(rng)) + 1; // Ensure b is not zero
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            auto [quotient, remainder] = bigA.divmod(bigB);
+            REQUIRE(quotient.to_string() == std::to_string(a / b));
+            REQUIRE(remainder.to_string() == std::to_string(a % b));
+        }
+    }
+
+    SECTION("Divmod operation with negative numbers") {
+        for (int i = 0; i < 100; ++i) {
+            int a = -std::abs(dist(rng)); // Ensure a is negative
+            int b;
+            while ((b = std::abs(dist(rng))) == 0); // Ensure b is positive and not zero
+
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            auto [quotient, remainder] = bigA.divmod(bigB);
+
+            int expectedQuotient = a / b;
+            int expectedRemainder = a % b;
+
+
+            REQUIRE(quotient.to_string() == std::to_string(expectedQuotient));
+            REQUIRE(remainder.to_string() == std::to_string(expectedRemainder));
+        }
+    }
+
+
+    SECTION("Divmod operation with mixed sign numbers") {
+        for (int i = 0; i < 100; ++i) {
+            int a = dist(rng);
+            int b;
+            while ((b = dist(rng)) == 0); // Ensure b is not zero
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            auto [quotient, remainder] = bigA.divmod(bigB);
+
+            int expectedQuotient = a / b;
+            int expectedRemainder = a % b;
+
+
+            REQUIRE(quotient.to_string() == std::to_string(expectedQuotient));
+            REQUIRE(remainder.to_string() == std::to_string(expectedRemainder));
+        }
+    }
+}
+
+
+TEST_CASE("BigInteger += and -= operators", "[BigInteger][Operators]") {
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> dist(-100000, 100000);
+
+    SECTION("+= operator with positive and negative numbers") {
+        for (int i = 0; i < 1000; ++i) {
+            int a = dist(rng);
+            int b = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            bigA += bigB;
+            REQUIRE(bigA.to_string() == BigInteger::from_integer(a + b).to_string());
+        }
+    }
+
+    SECTION("-= operator with positive and negative numbers") {
+        for (int i = 0; i < 1000; ++i) {
+            int a = dist(rng);
+            int b = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+            bigA -= bigB;
+            REQUIRE(bigA.to_string() == BigInteger::from_integer(a - b).to_string());
+        }
+    }
+}
+
+
+TEST_CASE("BigInteger consistency between %, /, and divmod", "[BigInteger][Arithmetic]") {
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> dist(-100000, 100000);
+
+    SECTION("Consistency test for non-zero divisors") {
+        for (int i = 0; i < 100; ++i) {
+            int a_val = dist(rng);
+            int b_val;
+            while ((b_val = dist(rng)) == 0); // Ensure b is not zero
+
+            BigInteger a = BigInteger::from_integer(a_val);
+            BigInteger b = BigInteger::from_integer(b_val);
+
+            BigInteger quotient = a / b;
+            BigInteger remainder = a % b;
+            auto [divmod_quotient, divmod_remainder] = a.divmod(b);
+
+            // Check for consistency between / and divmod for the quotient
+            REQUIRE(quotient == divmod_quotient);
+
+            // Check for consistency between % and divmod for the remainder
+            REQUIRE(remainder == divmod_remainder);
+
+            // Verify the equation a = (a / b) * b + (a % b)
+            BigInteger lhs = a;
+            BigInteger rhs = quotient * b + remainder;
+            REQUIRE(lhs == rhs);
+        }
+    }
+}

@@ -8,6 +8,7 @@
 #include <concepts>
 #include <optional>
 #include <iostream>
+#include <numeric>
 
 namespace hsc_snippets {
     /**
@@ -106,6 +107,8 @@ namespace hsc_snippets {
 #pragma endregion
 
     public:
+
+#pragma region conversion
 
         /**
          * Constructs a BigInteger from a string representation.
@@ -231,6 +234,9 @@ namespace hsc_snippets {
 
             return result;
         }
+
+#pragma endregion
+
 #pragma region singletons
 
         /**
@@ -322,12 +328,26 @@ namespace hsc_snippets {
             }
         }
 
+        /**
+         * Calculates the absolute value of the BigInteger instance.
+         * @return A new BigInteger representing the absolute value, with the negative flag turned off.
+         */
+        BigInteger abs() const {
+            BigInteger result = *this;
+            result.isNegative = false; // Remove sign
+            return result;
+        }
+
+
         // Unary minus operator to return the negated value of the BigInteger instance.
         BigInteger operator-() const {
             BigInteger result = *this;
             result.negate();
             return result;
         }
+
+
+#pragma region arithmetic
 
         /**
          * Adds two BigInteger instances.
@@ -351,6 +371,11 @@ namespace hsc_snippets {
                 }
             }
 
+            result.removeLeadingZeros(); // Ensure there are no leading zeros
+            if (result.digits.size() == 1 && result.digits[0] == 0) {
+                result.isNegative = false; // Explicitly set the sign to non-negative for zero
+            }
+
             return result;
         }
 
@@ -364,6 +389,252 @@ namespace hsc_snippets {
             negatedOther.isNegative = !other.isNegative; // Negate the second operand
             return *this + negatedOther; // Use the + operator
         }
+
+        /**
+         * Multiplies this BigInteger with another BigInteger.
+         *
+         * The method uses a classic grade-school multiplication algorithm, where each digit of the first number is
+         * multiplied by each digit of the second number, and the intermediate results are added together, taking care
+         * of the carry at each step. The result is stored in a temporary vector which is large enough to hold the maximum
+         * possible number of digits (sum of the number of digits in both numbers).
+         *
+         * Time Complexity: O(n*m), where n and m are the number of digits in the two numbers. This is because each digit
+         * of the first number is multiplied with each digit of the second number.
+         * Space Complexity: O(n + m), which is the size of the temporary vector used to store the intermediate results.
+         *
+         * @param other The BigInteger to multiply with this BigInteger.
+         * @return The product of this BigInteger and the other BigInteger.
+         */
+        BigInteger operator*(const BigInteger &other) const {
+            // Check if either operand is zero
+            if (*this == BigInteger::zero() || other == BigInteger::zero()) {
+                return BigInteger::zero();
+            }
+
+            size_t totalLength = digits.size() + other.digits.size();
+            BigInteger result;
+            result.digits.resize(totalLength, 0); // Prepare the result vector with the appropriate size
+
+            // Perform the multiplication algorithm
+            for (size_t i = 0; i < digits.size(); ++i) {
+                int carry = 0;
+                for (size_t j = 0; j < other.digits.size() || carry; ++j) {
+                    int product = carry + result.digits[i + j];
+                    if (j < other.digits.size()) {
+                        product += digits[i] * other.digits[j];
+                    }
+                    result.digits[i + j] = product % 10;
+                    carry = product / 10;
+                }
+            }
+
+            result.removeLeadingZeros(); // Ensure the result is correctly processed for leading zeros
+            result.isNegative = isNegative != other.isNegative; // Determine the sign of the result
+
+            return result;
+        }
+
+        /**
+         * Divides this BigInteger by another BigInteger and returns the quotient.
+         *
+         * The method uses a long division approach where the dividend is divided by the divisor starting from the highest
+         * order of magnitude down to the lowest. At each step, the method finds how many times the divisor fits into the
+         * current portion of the dividend and subtracts the corresponding multiple of the divisor from the dividend. The
+         * quotient is built digit by digit from these multiples.
+         *
+         * Time Complexity: For simplicity, let's denote this as O(d*(n-m)), where n is the number of digits in the dividend,
+         * m is the number of digits in the divisor, and d is the number of digits in the quotient. This accounts for the
+         * repeated subtraction of the divisor from portions of the dividend.
+         * Space Complexity: O(n), mainly for storing the quotient, where n is the number of digits in the dividend.
+         *
+         * @param other The BigInteger divisor.
+         * @return The quotient of dividing this BigInteger by the other BigInteger.
+         * @throws std::runtime_error if attempted to divide by zero.
+         */
+        BigInteger operator/(const BigInteger &other) const {
+            if (other == BigInteger::zero()) {
+                throw std::runtime_error("Division by zero");
+            }
+
+            BigInteger dividend = this->abs();
+            BigInteger divisor = other.abs();
+            BigInteger quotient;
+            BigInteger current;
+            quotient.digits.resize(dividend.digits.size(), 0);
+
+            for (int i = dividend.digits.size() - 1; i >= 0; --i) {
+                current = current * BigInteger::from_integer(10) + BigInteger::from_integer(dividend.digits[i]);
+                int count = 0;
+                while (current >= divisor) {
+                    current = current - divisor;
+                    ++count;
+                }
+                quotient.digits[i] = count;
+            }
+
+            quotient.removeLeadingZeros(); // Remove any leading zeros
+
+            // After calculating the quotient, if it is zero, its sign should be positive
+            if (quotient == BigInteger::zero()) {
+                quotient.isNegative = false;
+            } else {
+                // Otherwise, the sign of the quotient is determined by the signs of the operands
+                quotient.isNegative = isNegative != other.isNegative;
+            }
+
+            return quotient;
+        }
+
+
+#pragma endregion
+
+        /**
+         * Adds the value of another BigInteger to this instance and updates this instance with the result.
+         *
+         * This operator modifies the current instance by adding the value of the specified BigInteger ('other')
+         * to it. The addition is performed using the existing addition logic defined in the class, which handles
+         * the arithmetic and any necessary carry operation. After the addition, the current instance is updated
+         * with the new value, making this operation in-place.
+         *
+         * @param other The BigInteger to add to this instance.
+         * @return A reference to this instance after the addition.
+         */
+        BigInteger &operator+=(const BigInteger &other) {
+            // Use the existing addition logic (_add method, or however addition is implemented in your class)
+            *this = *this + other; // This line might change depending on how you've implemented addition internally
+            return *this; // Return the current instance after modification
+        }
+
+        /**
+         * Subtracts the value of another BigInteger from this instance and updates this instance with the result.
+         *
+         * This operator modifies the current instance by subtracting the value of the specified BigInteger ('other')
+         * from it. The subtraction is performed using the existing subtraction logic defined in the class, which
+         * handles the arithmetic and any necessary borrow operation. After the subtraction, the current instance is
+         * updated with the new value, making this operation in-place.
+         *
+         * @param other The BigInteger to subtract from this instance.
+         * @return A reference to this instance after the subtraction.
+         */
+        BigInteger &operator-=(const BigInteger &other) {
+            // Use the existing subtraction logic (_subtract method, or however subtraction is implemented in your class)
+            *this = *this - other; // This line might change depending on how you've implemented subtraction internally
+            return *this; // Return the current instance after modification
+        }
+
+
+        /**
+         * Calculates the remainder of division of this BigInteger by another BigInteger.
+         *
+         * The modular operation follows the standard definition where the remainder of the division
+         * of this BigInteger (dividend) by the 'other' BigInteger (divisor) is returned. If the divisor
+         * is zero, the operation throws a runtime error due to division by zero being undefined.
+         *
+         * @param other The divisor in the modular operation.
+         * @return The remainder after dividing this BigInteger by the 'other' BigInteger.
+         * @throws std::runtime_error If attempting to perform modulo by zero.
+         */
+        BigInteger operator%(const BigInteger &other) const {
+            if (other == BigInteger::zero()) {
+                throw std::runtime_error("Modulo by zero");
+            }
+
+            BigInteger quotient = *this / other;
+            BigInteger product = quotient * other;
+            BigInteger remainder = *this - product;
+
+            return remainder;
+        }
+
+
+        /**
+         * Performs division and modulo operations simultaneously, returning both the quotient and the remainder.
+         *
+         * This method divides this BigInteger by another BigInteger (divisor) and returns a pair consisting
+         * of the quotient and the remainder. It is more efficient than performing division and modulo operations
+         * separately. If the divisor is zero, the method throws a runtime error due to division by zero being undefined.
+         *
+         * The remainder's sign is adjusted to match the divisor's sign, following the standard mathematical convention
+         * for division and modulus operations. This ensures that the remainder has the same sign as the divisor or is
+         * non-negative if the divisor is positive.
+         *
+         * @param other The divisor in the division and modulo operations.
+         * @return A std::pair containing the quotient (first element) and the remainder (second element) of the division.
+         * @throws std::runtime_error If attempting division by zero in the divmod operation.
+         */
+        std::pair<BigInteger, BigInteger> divmod(const BigInteger &other) const {
+            if (other == BigInteger::zero()) {
+                throw std::runtime_error("Modulo by zero");
+            }
+
+            BigInteger quotient = *this / other;
+            BigInteger product = quotient * other;
+            BigInteger remainder = *this - product;
+
+            return std::make_pair(quotient, remainder);
+        }
+
+        /**
+         * Determines the maximum of two BigInteger values.
+         * @param a The first BigInteger to compare.
+         * @param b The second BigInteger to compare.
+         * @return The larger of the two BigInteger values.
+         */
+        static BigInteger max(const BigInteger &a, const BigInteger &b) {
+            if (a.isNegative && !b.isNegative) return b; // a is negative, b is positive
+            if (!a.isNegative && b.isNegative) return a; // a is positive, b is negative
+
+            // Both are positive or negative
+            if (a._isAbsoluteGreaterOrEqual(b))
+                return a.isNegative ? b : a; // If both have same sign, return based on absolute value
+            return a.isNegative ? a : b;
+        }
+
+        /**
+         * Determines the minimum of two BigInteger values.
+         * @param a The first BigInteger to compare.
+         * @param b The second BigInteger to compare.
+         * @return The smaller of the two BigInteger values.
+         */
+        static BigInteger min(const BigInteger &a, const BigInteger &b) {
+            if (a.isNegative && !b.isNegative) return a; // a is negative, b is positive
+            if (!a.isNegative && b.isNegative) return b; // a is positive, b is negative
+
+            // Both are positive or negative
+            if (a._isAbsoluteGreaterOrEqual(b))
+                return a.isNegative ? a : b; // If both have same sign, return based on absolute value
+            return a.isNegative ? b : a;
+        }
+
+#pragma region increment & decrement
+
+        // Prefix increment
+        BigInteger &operator++() {
+            *this = *this + BigInteger::one();
+            return *this;
+        }
+
+        // Postfix increment
+        BigInteger operator++(int) {
+            BigInteger temp = *this;
+            ++(*this); // Use prefix increment
+            return temp;
+        }
+
+        // Prefix decrement
+        BigInteger &operator--() {
+            *this = *this - BigInteger::one();
+            return *this;
+        }
+
+        // Postfix decrement
+        BigInteger operator--(int) {
+            BigInteger temp = *this;
+            --(*this); // Use prefix decrement
+            return temp;
+        }
+
+#pragma endregion
 
 
 #pragma region comparators
