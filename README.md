@@ -23,6 +23,7 @@
 | sliding_window.hpp     | with the help of GPT-4                                       |
 | interval_map.hpp       | Initially, I aimed for a simplified interval tree, but it turned out differently. Although it's not thoroughly tested and might have some bugs, I managed to use it successfully to solve LeetCode 218's Skyline Problem. Check out the solution here: [LeetCode Submission](https://leetcode.com/problems/the-skyline-problem/submissions/1172986139/). |
 | union_find.hpp         | with the help of GPT-4                                       |
+| big_integer.hpp        | with the help of GPT-4; in progress; despite designing comprehensive test cases for it, I cannot assure that it is completely free of bugs. |
 
 ## Test
 
