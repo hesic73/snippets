@@ -1,9 +1,10 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
+#include <vector>
+
 namespace hsc_snippets
 {
-#include <vector>
 
     struct ListNode
     {
