@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['size_0',['size',['../classhsc__snippets_1_1SegmentTree.html#ab888b5ebc96b4d7a9fa44bd8c43212da',1,'hsc_snippets::SegmentTree::size()'],['../classhsc__snippets_1_1SlidingWindowMax.html#a74b88c2c536e866afa36ebfe22601e6c',1,'hsc_snippets::SlidingWindowMax::size() const']]],
-  ['slidingwindowmax_1',['SlidingWindowMax',['../classhsc__snippets_1_1SlidingWindowMax.html#a1ef1c1a9e171567e21696ed1e004ba8d',1,'hsc_snippets::SlidingWindowMax']]]
+  ['range_5fadd_0',['range_add',['../classhsc__snippets_1_1SegmentTree.html#a133fe306063af78434469d8c9ea0def9',1,'hsc_snippets::SegmentTree']]],
+  ['range_5fset_1',['range_set',['../classhsc__snippets_1_1SegmentTree.html#abf50243d652264f5d710bd6e92b8b642',1,'hsc_snippets::SegmentTree']]],
+  ['range_5fsum_2',['range_sum',['../classhsc__snippets_1_1SegmentTree.html#a9254a4a7d413e0887fb7cfea28775cb7',1,'hsc_snippets::SegmentTree']]]
 ];

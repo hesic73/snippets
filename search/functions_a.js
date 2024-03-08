@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['to_0',['to',['../classhsc__snippets_1_1BigInteger.html#a0e0531e00ec577e7dde87cfbbdf42642',1,'hsc_snippets::BigInteger']]],
-  ['to_5fstring_1',['to_string',['../classhsc__snippets_1_1BigInteger.html#a5ab2386bef45b0f583c54b29e278a097',1,'hsc_snippets::BigInteger']]],
-  ['top_2',['top',['../classhsc__snippets_1_1MonotonicStack.html#a89a08fe8021d1c07f545efa956e411a8',1,'hsc_snippets::MonotonicStack']]]
+  ['size_0',['size',['../classhsc__snippets_1_1SegmentTree.html#ab888b5ebc96b4d7a9fa44bd8c43212da',1,'hsc_snippets::SegmentTree::size()'],['../classhsc__snippets_1_1SlidingWindowMax.html#a74b88c2c536e866afa36ebfe22601e6c',1,'hsc_snippets::SlidingWindowMax::size() const']]],
+  ['slidingwindowmax_1',['SlidingWindowMax',['../classhsc__snippets_1_1SlidingWindowMax.html#a1ef1c1a9e171567e21696ed1e004ba8d',1,'hsc_snippets::SlidingWindowMax']]]
 ];
