@@ -684,6 +684,97 @@ namespace hsc_snippets {
         }
 
 #pragma endregion
+
+        /**
+         * Calculates the Greatest Common Divisor (GCD) of two BigInteger values using the Euclidean algorithm.
+         *
+         * The Euclidean algorithm is based on the principle that the gcd of two numbers also divides their difference.
+         * This method repeatedly replaces the larger number by its difference with the smaller number until one of
+         * the numbers becomes zero. The non-zero number at this point is the gcd of the original two numbers.
+         *
+         * @param a The first BigInteger for which to find the gcd.
+         * @param b The second BigInteger for which to find the gcd.
+         * @return The gcd of BigInteger a and BigInteger b.
+         */
+        static BigInteger gcd(const BigInteger &a, const BigInteger &b) {
+            BigInteger zero = BigInteger::from_integer(0);
+            BigInteger x = a.abs(); // Work with absolute values to ensure non-negativity
+            BigInteger y = b.abs();
+
+            while (y != zero) {
+                BigInteger temp = y;
+                y = x % y; // Replace y with the remainder of x divided by y
+                x = temp;  // Replace x with the old value of y
+            }
+
+            return x; // x contains the gcd when y becomes zero
+        }
+
+
+        /**
+         * Calculates the Least Common Multiple (LCM) of two BigInteger values using the formula lcm(a, b) = |a * b| / gcd(a, b).
+         *
+         * The lcm of two numbers is calculated using their gcd with the above formula. This works because the gcd of two
+         * numbers also divides their lcm. The method ensures the result is non-negative, as the lcm is defined as a non-negative
+         * value. In case both a and b are zero, the lcm is defined to be zero.
+         *
+         * @param a The first BigInteger for which to find the lcm.
+         * @param b The second BigInteger for which to find the lcm.
+         * @return The lcm of BigInteger a and BigInteger b.
+         */
+        static BigInteger lcm(const BigInteger &a, const BigInteger &b) {
+            if (a == BigInteger::zero() && b == BigInteger::zero()) {
+                return BigInteger::zero(); // LCM of zero and zero is defined as zero
+            }
+
+            BigInteger product = a * b; // Calculate the product of a and b
+            BigInteger gcdValue = gcd(a, b); // Calculate the gcd of a and b
+            BigInteger lcmValue = product / gcdValue; // Calculate the lcm using the product and gcd
+
+            return lcmValue.abs(); // Ensure the lcm is non-negative
+        }
+
+        /**
+         * Calculates the factorial of a non-negative integer.
+         *
+         * @param n The non-negative integer for which to compute the factorial.
+         * @return The factorial of n as a BigInteger.
+         */
+        static BigInteger factorial(unsigned int n) {
+            BigInteger result = BigInteger::from_integer(1); // Start with 1 as 0! = 1 and 1! = 1
+
+            for (unsigned int i = 2; i <= n; ++i) {
+                result = result * BigInteger::from_integer(i); // Multiply result by i for each step from 2 to n
+            }
+
+            return result;
+        }
+
+        /**
+         * Computes a raised to the power of n using the fast powering algorithm.
+         *
+         * @param a The base as a BigInteger.
+         * @param n The exponent as an unsigned integer.
+         * @return The result of a^n as a BigInteger.
+         */
+        static BigInteger pow(const BigInteger& a, unsigned int n) {
+            if (n == 0) {
+                return BigInteger::from_integer(1); // a^0 = 1 for any a
+            }
+
+            BigInteger result = BigInteger::from_integer(1);
+            BigInteger base = a;
+            while (n > 0) {
+                if (n % 2 == 1) { // If n is odd
+                    result = result * base; // Multiply result by current base
+                }
+                base = base * base; // Square the base
+                n /= 2; // Halve the exponent
+            }
+
+            return result;
+        }
+
     };
 }
 

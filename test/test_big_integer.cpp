@@ -740,3 +740,68 @@ TEST_CASE("BigInteger consistency between %, /, and divmod", "[BigInteger][Arith
         }
     }
 }
+
+
+TEST_CASE("BigInteger gcd and lcm", "[BigInteger][gcd][lcm]") {
+    std::mt19937 rng(std::random_device{}());
+    std::uniform_int_distribution<int> dist(-10000, 10000); // Adjust range as needed
+
+    SECTION("gcd with various numbers") {
+        for (
+                int i = 0;
+                i < 1000; ++i) {
+            int a = dist(rng);
+            int b = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+
+// Compute gcd using BigInteger and std::integral implementations
+            BigInteger bigGcd = BigInteger::gcd(bigA, bigB);
+            int intGcd = std::gcd(std::abs(a), std::abs(b)); // std::gcd always returns a non-negative result
+
+            REQUIRE(bigGcd.to_string() == std::to_string(intGcd));
+        }
+    }
+
+    SECTION("lcm with various numbers") {
+        for (
+                int i = 0;
+                i < 1000; ++i) {
+            int a = dist(rng);
+            int b = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+
+// Avoid lcm computation for both a and b being zero as std::lcm(0, 0) is undefined pre C++20
+            if (a == 0 && b == 0) {
+                REQUIRE(BigInteger::lcm(bigA, bigB) == BigInteger::zero());
+                continue;
+            }
+
+// Compute lcm using BigInteger and a manual implementation (std::lcm might not be available pre C++17 or when a, b are both 0)
+            BigInteger bigLcm = BigInteger::lcm(bigA, bigB);
+            int intLcm = (a == 0 || b == 0) ? 0 : std::abs(a * b) / std::gcd(std::abs(a), std::abs(b));
+
+            REQUIRE(bigLcm.to_string() == std::to_string(intLcm));
+        }
+    }
+
+    SECTION("gcd and lcm properties") {
+        for (
+                int i = 0;
+                i < 1000; ++i) {
+            int a = dist(rng);
+            int b = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger bigB = BigInteger::from_integer(b);
+
+            BigInteger bigGcd = BigInteger::gcd(bigA, bigB);
+            BigInteger bigLcm = BigInteger::lcm(bigA, bigB);
+
+// Test gcd(a, b) * lcm(a, b) == |a * b|
+            BigInteger product = bigGcd * bigLcm;
+            BigInteger absProduct = (bigA * bigB).abs();
+            REQUIRE(product == absProduct);
+        }
+    }
+}

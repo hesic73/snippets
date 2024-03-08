@@ -25,7 +25,7 @@
 | union_find.hpp         | with the help of GPT-4                                       |
 | big_integer.hpp        | with the help of GPT-4; in progress; despite designing comprehensive test cases for it, I cannot assure that it is completely free of bugs. |
 
-## Test
+## Running Tests
 
 The test appears in this manner:
 
