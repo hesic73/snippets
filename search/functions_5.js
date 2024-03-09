@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['max_0',['max',['../classhsc__snippets_1_1BigInteger.html#adb8ab0726c9b0c06aa406a27b865d0ca',1,'hsc_snippets::BigInteger']]],
-  ['min_1',['min',['../classhsc__snippets_1_1BigInteger.html#a97f37e03980a728d40608abec948d4d5',1,'hsc_snippets::BigInteger']]]
+  ['lcm_0',['lcm',['../classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9',1,'hsc_snippets::BigInteger']]]
 ];
