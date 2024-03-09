@@ -5,7 +5,11 @@
 
 (hopefully) useful code snippets for LeetCode.
 
-## C++
+## TO DO
+
+- [ ] Implement `sqrt` and `log` functions similar to the ones in [rgroshanrg's bigint](https://github.com/rgroshanrg/bigint/blob/main/bigint_function_definitions.h#L566)
+
+## Overview
 
 | file                   | description                                                  |
 | ---------------------- | ------------------------------------------------------------ |
@@ -24,6 +28,40 @@
 | interval_map.hpp       | Initially, I aimed for a simplified interval tree, but it turned out differently. Although it's not thoroughly tested and might have some bugs, I managed to use it successfully to solve LeetCode 218's Skyline Problem. Check out the solution here: [LeetCode Submission](https://leetcode.com/problems/the-skyline-problem/submissions/1172986139/). |
 | union_find.hpp         | with the help of GPT-4                                       |
 | big_integer.hpp        | with the help of GPT-4; in progress; despite designing comprehensive test cases for it, I cannot assure that it is completely free of bugs. |
+
+## Usage
+
+To incorporate `snippets` into your C++ project, you can use CMake's `FetchContent` module as shown below:
+
+```cmake
+cmake_minimum_required(VERSION 3.11)
+project(YourProject)
+
+include(FetchContent)
+FetchContent_Declare(
+    snippets
+    GIT_REPOSITORY https://github.com/hesic73/snippets.git
+    GIT_TAG        main  # or any specific tag/version you prefer
+)
+FetchContent_MakeAvailable(snippets)
+
+add_executable(YourApplication ...)
+target_link_libraries(YourApplication PRIVATE snippets)
+```
+
+You can then include the desired header files from `snippets` directly in your project's source files:
+
+```C++
+#include <iostream>
+#include "big_integer.h"
+
+int main() {
+    auto a = hsc_snippets::BigInteger::factorial(100);
+    auto b = hsc_snippets::BigInteger::pow(hsc_snippets::BigInteger::from_integer(3), 100);
+    std::cout << a.to_string() << std::endl;
+    std::cout << b.to_string() << std::endl;
+}
+```
 
 ## Running Tests
 
