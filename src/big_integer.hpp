@@ -33,12 +33,12 @@ namespace hsc_snippets {
             }
         }
 
-        bool _isAbsoluteGreaterOrEqual(const BigInteger &other) const {
+        [[nodiscard]] bool _isAbsoluteGreaterOrEqual(const BigInteger &other) const {
             if (digits.size() != other.digits.size()) {
                 return digits.size() > other.digits.size();
             }
 
-            for (int i = digits.size() - 1; i >= 0; --i) {
+            for (int i = static_cast<int>(digits.size()) - 1; i >= 0; --i) {
                 if (digits[i] != other.digits[i]) {
                     return digits[i] > other.digits[i];
                 }
@@ -58,7 +58,7 @@ namespace hsc_snippets {
 
 #pragma region add&subtract
 
-        BigInteger _add(const BigInteger &other) const {
+        [[nodiscard]] BigInteger _add(const BigInteger &other) const {
             BigInteger result;
             result.digits.clear(); // Ensure the result starts with an empty digit vector
 
@@ -82,7 +82,7 @@ namespace hsc_snippets {
             return result;
         }
 
-        BigInteger _subtract(const BigInteger &other) const {
+        [[nodiscard]] BigInteger _subtract(const BigInteger &other) const {
             BigInteger result;
             result.digits.clear();
 
@@ -166,7 +166,7 @@ namespace hsc_snippets {
          * Converts the BigInteger to its string representation.
          * @return A string representation of the BigInteger.
          */
-        std::string to_string() const {
+        [[nodiscard]] std::string to_string() const {
             if (digits.empty()) {
                 return "0";
             }
@@ -259,6 +259,15 @@ namespace hsc_snippets {
         }
 
         /**
+         * Provides a singleton instance representing two.
+         * @return A const reference to the BigInteger instance representing two.
+         */
+        static const BigInteger &two() {
+            static BigInteger twoInstance(false, {2}); // Two is not negative and has a single digit '2'
+            return twoInstance;
+        }
+
+        /**
          * Provides a singleton instance representing the minimum value of an integral type.
          * @tparam T The integral type for which the minimum value is requested.
          * @return A const reference to the BigInteger instance representing the minimum value of the integral type T.
@@ -332,7 +341,7 @@ namespace hsc_snippets {
          * Calculates the absolute value of the BigInteger instance.
          * @return A new BigInteger representing the absolute value, with the negative flag turned off.
          */
-        BigInteger abs() const {
+        [[nodiscard]] BigInteger abs() const {
             BigInteger result = *this;
             result.isNegative = false; // Remove sign
             return result;
@@ -462,7 +471,7 @@ namespace hsc_snippets {
             BigInteger current;
             quotient.digits.resize(dividend.digits.size(), 0);
 
-            for (int i = dividend.digits.size() - 1; i >= 0; --i) {
+            for (int i = static_cast<int>(dividend.digits.size()) - 1; i >= 0; --i) {
                 current = current * BigInteger::from_integer(10) + BigInteger::from_integer(dividend.digits[i]);
                 int count = 0;
                 while (current >= divisor) {
@@ -562,7 +571,7 @@ namespace hsc_snippets {
          * @return A std::pair containing the quotient (first element) and the remainder (second element) of the division.
          * @throws std::runtime_error If attempting division by zero in the divmod operation.
          */
-        std::pair<BigInteger, BigInteger> divmod(const BigInteger &other) const {
+        [[nodiscard]] std::pair<BigInteger, BigInteger> divmod(const BigInteger &other) const {
             if (other == BigInteger::zero()) {
                 throw std::runtime_error("Modulo by zero");
             }
@@ -659,7 +668,7 @@ namespace hsc_snippets {
                 return isNegative ? digits.size() > other.digits.size() : digits.size() < other.digits.size();
             }
 
-            for (int i = digits.size() - 1; i >= 0; --i) {
+            for (int i = static_cast<int>(digits.size()) - 1; i >= 0; --i) {
                 if (digits[i] != other.digits[i]) {
                     return isNegative ? digits[i] > other.digits[i] : digits[i] < other.digits[i];
                 }
@@ -757,7 +766,7 @@ namespace hsc_snippets {
          * @param n The exponent as an unsigned integer.
          * @return The result of a^n as a BigInteger.
          */
-        static BigInteger pow(const BigInteger& a, unsigned int n) {
+        static BigInteger pow(const BigInteger &a, unsigned int n) {
             if (n == 0) {
                 return BigInteger::from_integer(1); // a^0 = 1 for any a
             }
@@ -774,6 +783,125 @@ namespace hsc_snippets {
 
             return result;
         }
+
+        /**
+         * Calculates the square root of a BigInteger.
+         *
+         * @param number The BigInteger to find the square root of.
+         * @return The square root of the given BigInteger.
+         * @throws std::runtime_error if the given BigInteger is negative.
+         */
+        static BigInteger sqrt(const BigInteger &number) {
+            if (number.isNegative) {
+                throw std::runtime_error("Square root of a negative number is not defined.");
+            }
+
+            if (number == zero() || number == one()) {
+                return number;
+            }
+
+            BigInteger low = one();
+            BigInteger high = number;
+            BigInteger mid;
+            BigInteger prev;
+            BigInteger square;
+
+            while (low <= high) {
+                mid = (low + high) / two();
+                square = mid * mid;
+
+                if (square == number) {
+                    return mid;
+                } else if (square < number) {
+                    low = mid + one();
+                    prev = mid;
+                } else {
+                    high = mid - one();
+                }
+            }
+
+            return prev;
+        }
+
+
+        /**
+         * Calculates the base-2 logarithm of a BigInteger.
+         *
+         * @param number The BigInteger for which to calculate the base-2 logarithm.
+         * @return The base-2 logarithm of the given BigInteger.
+         * @throws std::out_of_range If the input is zero (log2(0) is undefined) or negative (log2 of a negative number is not allowed).
+         */
+        static BigInteger log2(const BigInteger &number) {
+            if (number == BigInteger::zero()) {
+                throw std::out_of_range("log2(0) is undefined");
+            }
+            if (number.isNegative) {
+                throw std::out_of_range("log2(negative) is not allowed");
+            }
+
+            BigInteger logVal = BigInteger::from_integer(-1);
+            BigInteger s = number;
+            while (s != BigInteger::zero()) {
+                logVal = logVal + BigInteger::one();
+                s = s / BigInteger::two();
+            }
+            return logVal;
+        }
+
+        /**
+         * Calculates the base-10 logarithm of a BigInteger.
+         *
+         * @param number The BigInteger for which to calculate the base-10 logarithm.
+         * @return An approximation of the base-10 logarithm of the given BigInteger, based on the number of digits.
+         * @throws std::out_of_range If the input is zero (log10(0) is undefined) or negative (log10 of a negative number is not allowed).
+         */
+        static BigInteger log10(const BigInteger &number) {
+            if (number == BigInteger::zero()) {
+                throw std::out_of_range("log10(0) is undefined");
+            }
+            if (number.isNegative) {
+                throw std::out_of_range("log10(negative) is not allowed");
+            }
+
+            // log10 of a number is roughly the number of its digits minus 1
+            return BigInteger::from_integer(number.digits.size() - 1);
+        }
+
+        /**
+         * Multiplies the BigInteger by a power of 10. This operation is optimized for base-10
+         * representations and is performed by simply adding the specified number of zeros to
+         * the least significant digits of the number.
+         *
+         * @param power The exponent of 10 by which to multiply the BigInteger. For example,
+         *              a power of 3 means multiplying the BigInteger by 1000.
+         */
+        void multiplyByPowerOfTen(std::size_t power) {
+            if (*this == zero()) return; // 0 * 10^n = 0, no need to change anything
+            digits.insert(digits.begin(), power, 0); // Insert 'power' number of zeros at the beginning
+            removeLeadingZeros(); // Just in case there were leading zeros before
+        }
+
+        /**
+         * Divides the BigInteger by a power of 10. This operation is optimized for base-10
+         * representations and is performed by removing the specified number of least significant
+         * digits from the number. If the power exceeds the number of digits, the result is set to 0.
+         *
+         * @param power The exponent of 10 by which to divide the BigInteger. For example,
+         *              a power of 2 means dividing the BigInteger by 100.
+         */
+        void divideByPowerOfTen(std::size_t power) {
+            if (power >= digits.size()) {
+                // If power is greater than or equal to the number of digits, the result is 0
+                digits.clear();
+                digits.push_back(0);
+                isNegative = false; // Zero is not negative
+            } else {
+                // Erase 'power' number of digits from the beginning
+                digits.erase(digits.begin(), digits.begin() + static_cast<int>(power));
+            }
+            removeLeadingZeros(); // Just in case leading zeros are created
+        }
+
 
     };
 }

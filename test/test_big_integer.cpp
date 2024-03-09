@@ -805,3 +805,141 @@ TEST_CASE("BigInteger gcd and lcm", "[BigInteger][gcd][lcm]") {
         }
     }
 }
+
+TEST_CASE("BigInteger::sqrt method", "[sqrt]") {
+    SECTION("Square root of positive numbers") {
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(0)).to_string() == "0");
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(1)).to_string() == "1");
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(4)).to_string() == "2");
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(9)).to_string() == "3");
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(16)).to_string() == "4");
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(25)).to_string() == "5");
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(36)).to_string() == "6");
+    }
+
+    SECTION("Square root of large numbers") {
+        REQUIRE(BigInteger::sqrt(BigInteger::parse("1000000")).to_string() == "1000");
+        REQUIRE(BigInteger::sqrt(BigInteger::parse("100000000")).to_string() == "10000");
+        REQUIRE(BigInteger::sqrt(BigInteger::parse("10000000000")).to_string() == "100000");
+        REQUIRE(BigInteger::sqrt(BigInteger::parse("1000000000000")).to_string() == "1000000");
+    }
+
+    SECTION("Square root of numbers that are not perfect squares") {
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(2)).to_string() == "1"); // √2 ≈ 1.4142
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(3)).to_string() == "1"); // √3 ≈ 1.7320
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(5)).to_string() == "2"); // √5 ≈ 2.2360
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(10)).to_string() == "3"); // √10 ≈ 3.1622
+        REQUIRE(BigInteger::sqrt(BigInteger::from_integer(15)).to_string() == "3"); // √15 ≈ 3.8729
+    }
+
+    SECTION("Square root of negative numbers throws exception") {
+        REQUIRE_THROWS_AS(BigInteger::sqrt(BigInteger::from_integer(-1)), std::runtime_error);
+        REQUIRE_THROWS_AS(BigInteger::sqrt(BigInteger::from_integer(-4)), std::runtime_error);
+        REQUIRE_THROWS_AS(BigInteger::sqrt(BigInteger::from_integer(-9)), std::runtime_error);
+    }
+}
+
+
+TEST_CASE("BigInteger::sqrt method with random positive integers", "[BigInteger][Sqrt]") {
+    std::mt19937 rng(std::random_device{}());
+    // Use positive range only, as sqrt is not defined for negative numbers
+    std::uniform_int_distribution<int> dist(0, 100000);
+
+    SECTION("Square root of random positive numbers") {
+        for (int i = 0; i < 10000; ++i) {
+            int a = dist(rng);
+            BigInteger bigA = BigInteger::from_integer(a);
+            BigInteger sqrtA = BigInteger::sqrt(bigA);
+            BigInteger sqrtASquared = sqrtA * sqrtA;
+            BigInteger sqrtAPlusOneSquared = (sqrtA + BigInteger::one()) * (sqrtA + BigInteger::one());
+
+            // Check that the square of the square root is less than or equal to the original number
+            REQUIRE(sqrtASquared <= bigA);
+
+            // Check that the square of (the square root + 1) is greater than the original number
+            // This confirms that sqrtA is the largest integer whose square is less than or equal to a
+            REQUIRE(sqrtAPlusOneSquared > bigA);
+        }
+    }
+}
+
+
+TEST_CASE("BigInteger::log2 method", "[log2]") {
+    SECTION("log2 of positive numbers") {
+        REQUIRE(BigInteger::log2(BigInteger::from_integer(1)).to_string() == "0");
+        REQUIRE(BigInteger::log2(BigInteger::from_integer(2)).to_string() == "1");
+        REQUIRE(BigInteger::log2(BigInteger::from_integer(4)).to_string() == "2");
+        REQUIRE(BigInteger::log2(BigInteger::from_integer(8)).to_string() == "3");
+    }
+
+    SECTION("log2 of non-powers of two") {
+        REQUIRE(BigInteger::log2(BigInteger::from_integer(3)).to_string() == "1");
+        REQUIRE(BigInteger::log2(BigInteger::from_integer(5)).to_string() == "2");
+    }
+
+    SECTION("log2 of zero and negative numbers throws exception") {
+        REQUIRE_THROWS_AS(BigInteger::log2(BigInteger::from_integer(0)), std::out_of_range);
+        REQUIRE_THROWS_AS(BigInteger::log2(BigInteger::from_integer(-1)), std::out_of_range);
+    }
+}
+
+TEST_CASE("BigInteger::log10 method", "[log10]") {
+    SECTION("log10 of positive numbers") {
+        REQUIRE(BigInteger::log10(BigInteger::from_integer(1)).to_string() == "0");
+        REQUIRE(BigInteger::log10(BigInteger::from_integer(10)).to_string() == "1");
+        REQUIRE(BigInteger::log10(BigInteger::from_integer(100)).to_string() == "2");
+        REQUIRE(BigInteger::log10(BigInteger::from_integer(1000)).to_string() == "3");
+    }
+
+    SECTION("log10 of numbers between powers of 10") {
+        REQUIRE(BigInteger::log10(BigInteger::from_integer(11)).to_string() == "1");
+        REQUIRE(BigInteger::log10(BigInteger::from_integer(101)).to_string() == "2");
+    }
+
+    SECTION("log10 of zero and negative numbers throws exception") {
+        REQUIRE_THROWS_AS(BigInteger::log10(BigInteger::from_integer(0)), std::out_of_range);
+        REQUIRE_THROWS_AS(BigInteger::log10(BigInteger::from_integer(-1)), std::out_of_range);
+    }
+}
+
+TEST_CASE("BigInteger multiplication by power of 10", "[multiplyByPowerOfTen]") {
+    SECTION("Multiplying non-zero numbers") {
+        BigInteger num = BigInteger::parse("123");
+        num.multiplyByPowerOfTen(2);
+        REQUIRE(num.to_string() == "12300");
+
+        num = BigInteger::parse("456");
+        num.multiplyByPowerOfTen(3);
+        REQUIRE(num.to_string() == "456000");
+    }
+
+    SECTION("Multiplying zero remains zero") {
+        BigInteger num = BigInteger::zero();
+        num.multiplyByPowerOfTen(5);
+        REQUIRE(num.to_string() == "0");
+    }
+}
+
+TEST_CASE("BigInteger division by power of 10", "[divideByPowerOfTen]") {
+    SECTION("Dividing non-zero numbers") {
+        BigInteger num = BigInteger::parse("12345");
+        num.divideByPowerOfTen(2);
+        REQUIRE(num.to_string() == "123");
+
+        num = BigInteger::parse("98765");
+        num.divideByPowerOfTen(4);
+        REQUIRE(num.to_string() == "9");
+    }
+
+    SECTION("Dividing results in zero") {
+        BigInteger num = BigInteger::parse("12345");
+        num.divideByPowerOfTen(6);
+        REQUIRE(num.to_string() == "0");
+    }
+
+    SECTION("Dividing zero remains zero") {
+        BigInteger num = BigInteger::zero();
+        num.divideByPowerOfTen(3);
+        REQUIRE(num.to_string() == "0");
+    }
+}
