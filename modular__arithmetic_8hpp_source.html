@@ -83,67 +83,80 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">modular_arithmetic.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MODULAR_ARITHMETIC_H</span></div>
+<a href="modular__arithmetic_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MODULAR_ARITHMETIC_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MODULAR_ARITHMETIC_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>hsc_snippets</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacehsc__snippets.html">hsc_snippets</a></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> MODULO = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(1e9 + 7);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">   10</a></span>    <span class="keyword">static</span> <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(1e9 + 7);</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> modular_add(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y)</div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="}">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a7c058184d3bf4b4028ac27888f891666">   12</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#a7c058184d3bf4b4028ac27888f891666">modular_add</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y)</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keyword">auto</span> a = <span class="keyword">static_cast&lt;</span>std::int64_t<span class="keyword">&gt;</span>(x);</div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keyword">auto</span> b = <span class="keyword">static_cast&lt;</span>std::int64_t<span class="keyword">&gt;</span>(y);</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keyword">auto</span> c = (a + b) % MODULO;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        <span class="keyword">auto</span> c = (a + b) % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(c);</div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    }</div>
+</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> additive_inverse(<span class="keywordtype">int</span> x)</div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="}">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a795dc74a07970f538ab222b31f874271">   20</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#a795dc74a07970f538ab222b31f874271">additive_inverse</a>(<span class="keywordtype">int</span> x)</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        x = x % MODULO; <span class="comment">// x might be negative</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        x = (x + MODULO) % MODULO;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> MODULO - x;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        x = x % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>; <span class="comment">// x might be negative</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        x = (x + <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>) % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a> - x;</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    }</div>
+</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> modular_substract(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y)</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#af5b88bd1961aeceb11486a737609e862">   27</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#af5b88bd1961aeceb11486a737609e862">modular_substract</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y)</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">auto</span> a = <span class="keyword">static_cast&lt;</span>std::int64_t<span class="keyword">&gt;</span>(x);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keyword">auto</span> b = <span class="keyword">static_cast&lt;</span>std::int64_t<span class="keyword">&gt;</span>(y);</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keyword">auto</span> c = (a - b);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        c = c % MODULO;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        c = (c + MODULO) % MODULO;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        c = c % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        c = (c + <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>) % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(c);</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    }</div>
+</div>
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> modular_multiply(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y)</div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="}">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a36dc1f9c8622b338e040c3d0746ffa45">   37</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#a36dc1f9c8622b338e040c3d0746ffa45">modular_multiply</a>(<span class="keywordtype">int</span> x, <span class="keywordtype">int</span> y)</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">auto</span> a = <span class="keyword">static_cast&lt;</span>std::int64_t<span class="keyword">&gt;</span>(x);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <span class="keyword">auto</span> b = <span class="keyword">static_cast&lt;</span>std::int64_t<span class="keyword">&gt;</span>(y);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">auto</span> c = (a * b) % MODULO;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">auto</span> c = (a * b) % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(c);</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
+</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> modular_square(<span class="keywordtype">int</span> x)</div>
+<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#ab24c9c4d4245ec401fd40ecb1a12c1b6">   45</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#ab24c9c4d4245ec401fd40ecb1a12c1b6">modular_square</a>(<span class="keywordtype">int</span> x)</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    {</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">auto</span> a = <span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(x);</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">auto</span> b = (a * a) % MODULO;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keyword">auto</span> b = (a * a) % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(b);</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> modular_cube(<span class="keywordtype">int</span> x)</div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a69f0c52364cd0e82d19151f1d05aee8c">   52</a></span>    <span class="keyword">constexpr</span> <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#a69f0c52364cd0e82d19151f1d05aee8c">modular_cube</a>(<span class="keywordtype">int</span> x)</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">auto</span> a = <span class="keyword">static_cast&lt;</span>int64_t<span class="keyword">&gt;</span>(x);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">auto</span> b = (a * a) % MODULO;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">auto</span> c = (b * a) % MODULO;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keyword">auto</span> b = (a * a) % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="keyword">auto</span> c = (b * a) % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(c);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
+</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="comment">// Base 2 exponentiation % MODULO</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">int</span> modular_pow2(<span class="keywordtype">size_t</span> exponent)</div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a72561173b55e31dc534d5f5612a52246">   61</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#a72561173b55e31dc534d5f5612a52246">modular_pow2</a>(<span class="keywordtype">size_t</span> exponent)</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">constexpr</span> <span class="keywordtype">size_t</span> N = 25;</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keyword">constexpr</span> <span class="keyword">auto</span> lookup{[]() <span class="keyword">constexpr</span></div>
@@ -158,17 +171,27 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                              }()};</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">if</span> (exponent &lt;= N)</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">return</span> lookup[exponent] % MODULO;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            <span class="keywordflow">return</span> lookup[exponent] % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        }</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keyword">auto</span> half_e = exponent &gt;&gt; 1;</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">auto</span> tmp = <span class="keyword">static_cast&lt;</span>std::int64_t<span class="keyword">&gt;</span>(modular_pow2(half_e));</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">auto</span> tmp = <span class="keyword">static_cast&lt;</span>std::int64_t<span class="keyword">&gt;</span>(<a class="code hl_function" href="namespacehsc__snippets.html#a72561173b55e31dc534d5f5612a52246">modular_pow2</a>(half_e));</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keyword">auto</span> m = (exponent &amp; 1);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">return</span> ((tmp * tmp) &lt;&lt; m) % MODULO;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <span class="keywordflow">return</span> ((tmp * tmp) &lt;&lt; m) % <a class="code hl_variable" href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">MODULO</a>;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    }</div>
+</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="anamespacehsc__snippets_html"><div class="ttname"><a href="namespacehsc__snippets.html">hsc_snippets</a></div><div class="ttdef"><b>Definition</b> big_integer.hpp:13</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a218d0181825bcf526ca9e5c24f6aab06"><div class="ttname"><a href="namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06">hsc_snippets::MODULO</a></div><div class="ttdeci">static constexpr int MODULO</div><div class="ttdef"><b>Definition</b> modular_arithmetic.hpp:10</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a36dc1f9c8622b338e040c3d0746ffa45"><div class="ttname"><a href="namespacehsc__snippets.html#a36dc1f9c8622b338e040c3d0746ffa45">hsc_snippets::modular_multiply</a></div><div class="ttdeci">constexpr int modular_multiply(int x, int y)</div><div class="ttdef"><b>Definition</b> modular_arithmetic.hpp:37</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a69f0c52364cd0e82d19151f1d05aee8c"><div class="ttname"><a href="namespacehsc__snippets.html#a69f0c52364cd0e82d19151f1d05aee8c">hsc_snippets::modular_cube</a></div><div class="ttdeci">constexpr int modular_cube(int x)</div><div class="ttdef"><b>Definition</b> modular_arithmetic.hpp:52</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a72561173b55e31dc534d5f5612a52246"><div class="ttname"><a href="namespacehsc__snippets.html#a72561173b55e31dc534d5f5612a52246">hsc_snippets::modular_pow2</a></div><div class="ttdeci">int modular_pow2(size_t exponent)</div><div class="ttdef"><b>Definition</b> modular_arithmetic.hpp:61</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a795dc74a07970f538ab222b31f874271"><div class="ttname"><a href="namespacehsc__snippets.html#a795dc74a07970f538ab222b31f874271">hsc_snippets::additive_inverse</a></div><div class="ttdeci">constexpr int additive_inverse(int x)</div><div class="ttdef"><b>Definition</b> modular_arithmetic.hpp:20</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a7c058184d3bf4b4028ac27888f891666"><div class="ttname"><a href="namespacehsc__snippets.html#a7c058184d3bf4b4028ac27888f891666">hsc_snippets::modular_add</a></div><div class="ttdeci">constexpr int modular_add(int x, int y)</div><div class="ttdef"><b>Definition</b> modular_arithmetic.hpp:12</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_ab24c9c4d4245ec401fd40ecb1a12c1b6"><div class="ttname"><a href="namespacehsc__snippets.html#ab24c9c4d4245ec401fd40ecb1a12c1b6">hsc_snippets::modular_square</a></div><div class="ttdeci">constexpr int modular_square(int x)</div><div class="ttdef"><b>Definition</b> modular_arithmetic.hpp:45</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_af5b88bd1961aeceb11486a737609e862"><div class="ttname"><a href="namespacehsc__snippets.html#af5b88bd1961aeceb11486a737609e862">hsc_snippets::modular_substract</a></div><div class="ttdeci">constexpr int modular_substract(int x, int y)</div><div class="ttdef"><b>Definition</b> modular_arithmetic.hpp:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

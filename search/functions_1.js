@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['defragment_0',['defragment',['../classhsc__snippets_1_1IntervalMap.html#acd8b97c110eb138724e2042cea439bf7',1,'hsc_snippets::IntervalMap']]],
-  ['dividebypoweroften_1',['divideByPowerOfTen',['../classhsc__snippets_1_1BigInteger.html#ac051686f3e35af09b6f6771a6740c68a',1,'hsc_snippets::BigInteger']]],
-  ['divmod_2',['divmod',['../classhsc__snippets_1_1BigInteger.html#ae960a49512143154a7b4b8a7b9e047b2',1,'hsc_snippets::BigInteger']]],
-  ['dominanttracker_3',['DominantTracker',['../classhsc__snippets_1_1DominantTracker.html#ab7971eb8643878bc778f7978a78543f6',1,'hsc_snippets::DominantTracker']]]
+  ['binary_5fsearch_0',['binary_search',['../namespacehsc__snippets.html#ab19a8c1f33cd0fbc24e3ea9d093430d1',1,'hsc_snippets']]],
+  ['binary_5ftree_5fto_5fadjacency_5flist_1',['binary_tree_to_adjacency_list',['../namespacehsc__snippets.html#a8052840df1ce8e295a2d69d656d836d5',1,'hsc_snippets']]],
+  ['breadth_5ffirst_5fsearch_2',['breadth_first_search',['../namespacehsc__snippets.html#a94bf74759d725b5eaffb0609b370eecc',1,'hsc_snippets::breadth_first_search(std::vector&lt; std::vector&lt; int &gt; &gt; &amp;adjacency_list, int root, std::function&lt; void(int, int)&gt; callback)'],['../namespacehsc__snippets.html#aefa53f26ca29b00677b58dfbd3957fb6',1,'hsc_snippets::breadth_first_search(std::unordered_map&lt; int, std::vector&lt; int &gt; &gt; &amp;adjacency_list, int root, std::function&lt; void(int, int)&gt; callback)']]]
 ];

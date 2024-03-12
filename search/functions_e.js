@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zero_0',['zero',['../classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc',1,'hsc_snippets::BigInteger']]]
+  ['query_0',['query',['../classhsc__snippets_1_1IntervalMap.html#a44ebb8ded3bc04933be34e760f0133dd',1,'hsc_snippets::IntervalMap']]]
 ];

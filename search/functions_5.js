@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['lcm_0',['lcm',['../classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9',1,'hsc_snippets::BigInteger']]],
-  ['log10_1',['log10',['../classhsc__snippets_1_1BigInteger.html#aa202c7a0c71768e8951c57174c9f0289',1,'hsc_snippets::BigInteger']]],
-  ['log2_2',['log2',['../classhsc__snippets_1_1BigInteger.html#a90235a0cca66eec26423b00fba63a67b',1,'hsc_snippets::BigInteger']]]
+  ['factorial_0',['factorial',['../classhsc__snippets_1_1BigInteger.html#a5854b777ed3c6a5596c375f40c73ec0b',1,'hsc_snippets::BigInteger']]],
+  ['find_1',['find',['../classhsc__snippets_1_1UnionFind.html#a07e01f552b4663ce91983eab05657ceb',1,'hsc_snippets::UnionFind']]],
+  ['find_5feuler_5fpath_5fdirected_2',['find_euler_path_directed',['../namespacehsc__snippets.html#a50a72d9be388b969808af9cd6617aea9',1,'hsc_snippets']]],
+  ['findconnectedcomponents_3',['findConnectedComponents',['../namespacehsc__snippets.html#a16dd678bffb7adede9bc2eabe0e92665',1,'hsc_snippets']]],
+  ['from_5finteger_4',['from_integer',['../classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669',1,'hsc_snippets::BigInteger']]]
 ];

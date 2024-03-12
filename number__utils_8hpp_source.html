@@ -83,17 +83,18 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">number_utils.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef NUMBER_UTILS_H</span></div>
+<a href="number__utils_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef NUMBER_UTILS_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define NUMBER_UTILS_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;concepts&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>hsc_snippets</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacehsc__snippets.html">hsc_snippets</a></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral T&gt;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">int</span> numDigits(T num)</div>
+<div class="foldopen" id="foldopen00018" data-start="{" data-end="}">
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a21faa054d1afffbd2d869a99a54209de">   18</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#a21faa054d1afffbd2d869a99a54209de">numDigits</a>(T num)</div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordtype">int</span> cnt = 0;</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">while</span> (num != 0)</div>
@@ -103,9 +104,11 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>        }</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="keywordflow">return</span> cnt;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    }</div>
+</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral T&gt;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">int</span> numBits(T num)</div>
+<div class="foldopen" id="foldopen00039" data-start="{" data-end="}">
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a9dc8f948cda1de6cbdb67bf6680d87f9">   39</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#a9dc8f948cda1de6cbdb67bf6680d87f9">numBits</a>(T num)</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    {</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keywordflow">if</span> (num &lt; 0)</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        {</div>
@@ -119,9 +122,11 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        }</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keywordflow">return</span> cnt;</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral T&gt;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    T gcd(T a, T b)</div>
+<div class="foldopen" id="foldopen00063" data-start="{" data-end="}">
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#afff61e6f2efed27bc4bbb2a2c6a44328">   63</a></span>    T <a class="code hl_function" href="namespacehsc__snippets.html#afff61e6f2efed27bc4bbb2a2c6a44328">gcd</a>(T a, T b)</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    {</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">while</span> (b != 0)</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
@@ -131,14 +136,18 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        }</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="keywordflow">return</span> a; <span class="comment">// When b becomes 0, a contains the gcd</span></div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    }</div>
+</div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral T&gt;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    T lcm(T a, T b)</div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a9d31a87aa5ed5297257e6daea49a4c72">   84</a></span>    T <a class="code hl_function" href="namespacehsc__snippets.html#a9d31a87aa5ed5297257e6daea49a4c72">lcm</a>(T a, T b)</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> (a * b) / gcd(a, b);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        <span class="keywordflow">return</span> (a * b) / <a class="code hl_function" href="namespacehsc__snippets.html#afff61e6f2efed27bc4bbb2a2c6a44328">gcd</a>(a, b);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    std::vector&lt;int&gt; SieveOfEratosthenes(<span class="keywordtype">int</span> n)</div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a18d5f09b15d654e057d86fee902cab7d">   95</a></span>    std::vector&lt;int&gt; <a class="code hl_function" href="namespacehsc__snippets.html#a18d5f09b15d654e057d86fee902cab7d">SieveOfEratosthenes</a>(<span class="keywordtype">int</span> n)</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    {</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>        <span class="comment">// Initialize a boolean vector &quot;prime&quot; with entries up to n. All entries are initially set to true.</span></div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>        <span class="comment">// A value in prime[i] will be false if i is not a prime number, and true if it is a prime number.</span></div>
@@ -178,9 +187,16 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="comment">// Return the vector containing all the primes found.</span></div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordflow">return</span> primes;</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    }</div>
+</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>}</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span><span class="preprocessor">#endif </span><span class="comment">// NUMBER_UTILS_H</span></div>
+<div class="ttc" id="anamespacehsc__snippets_html"><div class="ttname"><a href="namespacehsc__snippets.html">hsc_snippets</a></div><div class="ttdef"><b>Definition</b> big_integer.hpp:13</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a18d5f09b15d654e057d86fee902cab7d"><div class="ttname"><a href="namespacehsc__snippets.html#a18d5f09b15d654e057d86fee902cab7d">hsc_snippets::SieveOfEratosthenes</a></div><div class="ttdeci">std::vector&lt; int &gt; SieveOfEratosthenes(int n)</div><div class="ttdef"><b>Definition</b> number_utils.hpp:95</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a21faa054d1afffbd2d869a99a54209de"><div class="ttname"><a href="namespacehsc__snippets.html#a21faa054d1afffbd2d869a99a54209de">hsc_snippets::numDigits</a></div><div class="ttdeci">int numDigits(T num)</div><div class="ttdef"><b>Definition</b> number_utils.hpp:18</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a9d31a87aa5ed5297257e6daea49a4c72"><div class="ttname"><a href="namespacehsc__snippets.html#a9d31a87aa5ed5297257e6daea49a4c72">hsc_snippets::lcm</a></div><div class="ttdeci">T lcm(T a, T b)</div><div class="ttdef"><b>Definition</b> number_utils.hpp:84</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a9dc8f948cda1de6cbdb67bf6680d87f9"><div class="ttname"><a href="namespacehsc__snippets.html#a9dc8f948cda1de6cbdb67bf6680d87f9">hsc_snippets::numBits</a></div><div class="ttdeci">int numBits(T num)</div><div class="ttdef"><b>Definition</b> number_utils.hpp:39</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_afff61e6f2efed27bc4bbb2a2c6a44328"><div class="ttname"><a href="namespacehsc__snippets.html#afff61e6f2efed27bc4bbb2a2c6a44328">hsc_snippets::gcd</a></div><div class="ttdeci">T gcd(T a, T b)</div><div class="ttdef"><b>Definition</b> number_utils.hpp:63</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

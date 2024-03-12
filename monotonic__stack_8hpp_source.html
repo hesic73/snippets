@@ -83,7 +83,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">monotonic_stack.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MONOTONIC_STACK_H</span></div>
+<a href="monotonic__stack_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MONOTONIC_STACK_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MONOTONIC_STACK_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -91,7 +91,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>hsc_snippets</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacehsc__snippets.html">hsc_snippets</a></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> Comparator&gt;</div>
 <div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
@@ -138,18 +138,19 @@ $(function() { codefold.init(0); });
 </div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keyword">using </span>MonotonicDecreasingStack = MonotonicStack&lt;T, std::less_equal&lt;T&gt;&gt;;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a9cbfd0b02206d45ef53cae53da08bde1">   66</a></span>    <span class="keyword">using </span><a class="code hl_class" href="classhsc__snippets_1_1MonotonicStack.html">MonotonicDecreasingStack</a> = <a class="code hl_class" href="classhsc__snippets_1_1MonotonicStack.html">MonotonicStack&lt;T, std::less_equal&lt;T&gt;</a>&gt;;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keyword">using </span>MonotonicIncreasingStack = MonotonicStack&lt;T, std::greater_equal&lt;T&gt;&gt;;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#aa38155ad9e921ee6d3cf69b328f69757">   68</a></span>    <span class="keyword">using </span><a class="code hl_class" href="classhsc__snippets_1_1MonotonicStack.html">MonotonicIncreasingStack</a> = <a class="code hl_class" href="classhsc__snippets_1_1MonotonicStack.html">MonotonicStack&lt;T, std::greater_equal&lt;T&gt;</a>&gt;;</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::vector&lt;T&gt; nextGreaterElement(<span class="keyword">const</span> std::vector&lt;T&gt; &amp;nums, std::function&lt;T()&gt; no_greater)</div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a58ccbeb569860677c784f504351db1d8">   77</a></span>    std::vector&lt;T&gt; <a class="code hl_function" href="namespacehsc__snippets.html#a58ccbeb569860677c784f504351db1d8">nextGreaterElement</a>(<span class="keyword">const</span> std::vector&lt;T&gt; &amp;nums, std::function&lt;T()&gt; no_greater)</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        std::vector&lt;T&gt; result{};</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        result.reserve(nums.size());</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        MonotonicDecreasingStack&lt;T&gt; decreasingStack;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        <a class="code hl_class" href="classhsc__snippets_1_1MonotonicStack.html">MonotonicDecreasingStack&lt;T&gt;</a> decreasingStack;</div>
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> num : nums)</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keyword">auto</span> tmp = decreasingStack.push(num);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keyword">auto</span> tmp = decreasingStack.<a class="code hl_function" href="classhsc__snippets_1_1MonotonicStack.html#a1cfcd03d08115247a34c2f1aab9fa20f">push</a>(num);</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>            <span class="keywordflow">if</span> (!tmp.has_value())</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            {</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>                result.push_back(no_greater());</div>
@@ -162,6 +163,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keywordflow">return</span> result;</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
@@ -170,6 +172,8 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="aclasshsc__snippets_1_1MonotonicStack_html_a1cfcd03d08115247a34c2f1aab9fa20f"><div class="ttname"><a href="classhsc__snippets_1_1MonotonicStack.html#a1cfcd03d08115247a34c2f1aab9fa20f">hsc_snippets::MonotonicStack::push</a></div><div class="ttdeci">std::optional&lt; T &gt; push(const T &amp;value)</div><div class="ttdef"><b>Definition</b> monotonic_stack.hpp:29</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1MonotonicStack_html_a286b87ba4ef3864f3f0840233b8dbaf3"><div class="ttname"><a href="classhsc__snippets_1_1MonotonicStack.html#a286b87ba4ef3864f3f0840233b8dbaf3">hsc_snippets::MonotonicStack::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdef"><b>Definition</b> monotonic_stack.hpp:59</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1MonotonicStack_html_a89a08fe8021d1c07f545efa956e411a8"><div class="ttname"><a href="classhsc__snippets_1_1MonotonicStack.html#a89a08fe8021d1c07f545efa956e411a8">hsc_snippets::MonotonicStack::top</a></div><div class="ttdeci">const T &amp; top() const</div><div class="ttdef"><b>Definition</b> monotonic_stack.hpp:51</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html"><div class="ttname"><a href="namespacehsc__snippets.html">hsc_snippets</a></div><div class="ttdef"><b>Definition</b> big_integer.hpp:13</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a58ccbeb569860677c784f504351db1d8"><div class="ttname"><a href="namespacehsc__snippets.html#a58ccbeb569860677c784f504351db1d8">hsc_snippets::nextGreaterElement</a></div><div class="ttdeci">std::vector&lt; T &gt; nextGreaterElement(const std::vector&lt; T &gt; &amp;nums, std::function&lt; T()&gt; no_greater)</div><div class="ttdef"><b>Definition</b> monotonic_stack.hpp:77</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -83,7 +83,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">interval_map.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef INTERVAL_MAP_H</span></div>
+<a href="interval__map_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef INTERVAL_MAP_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define INTERVAL_MAP_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;map&gt;</span></div>
@@ -91,15 +91,15 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;cassert&gt;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>hsc_snippets</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacehsc__snippets.html">hsc_snippets</a></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral T&gt;</div>
 <div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structhsc__snippets_1_1__Interval.html">   13</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval</a></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    {</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        T left;  <span class="comment">// inclusive</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        T right; <span class="comment">// exclusize</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">   15</a></span>        T <a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>;  <span class="comment">// inclusive</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structhsc__snippets_1_1__Interval.html#ad3ea43f41c9a0c416c803b1a8f8c9685">   16</a></span>        T <a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#ad3ea43f41c9a0c416c803b1a8f8c9685">right</a>; <span class="comment">// exclusize</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    };</div>
 </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
@@ -120,30 +120,38 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">     *</span></div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">     */</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral T&gt;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> <a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a> &amp;interval, T x)</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#ade6351fc70292dcaf68d2e1a706db301">   36</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacehsc__snippets.html#ade6351fc70292dcaf68d2e1a706db301">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a> &amp;interval, T x)</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">return</span> interval.right &lt;= x;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">return</span> interval.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#ad3ea43f41c9a0c416c803b1a8f8c9685">right</a> &lt;= x;</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
+</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral T&gt;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> operator&lt;(T x, <span class="keyword">const</span> _Interval&lt;T&gt; &amp;interval)</div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a9d77ba741533e46a1e0326a2e7b8442c">   41</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacehsc__snippets.html#ade6351fc70292dcaf68d2e1a706db301">operator&lt;</a>(T x, <span class="keyword">const</span> <a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a> &amp;interval)</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    {</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">return</span> x &lt; interval.left;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordflow">return</span> x &lt; interval.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    }</div>
+</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="comment">// we ensure that intervals never overlap</span></div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral T&gt;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> operator&lt;(<span class="keyword">const</span> _Interval&lt;T&gt; &amp;interval1, <span class="keyword">const</span> _Interval&lt;T&gt; &amp;interval2)</div>
+<div class="foldopen" id="foldopen00047" data-start="{" data-end="}">
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a40c7b37bbc72584a6f44b005fce7e90a">   47</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="namespacehsc__snippets.html#ade6351fc70292dcaf68d2e1a706db301">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a> &amp;interval1, <span class="keyword">const</span> <a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a> &amp;interval2)</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> interval1.left &lt; interval2.left;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> interval1.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a> &lt; interval2.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>;</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral T&gt;</div>
 <div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="structhsc__snippets_1_1Override.html">   53</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structhsc__snippets_1_1Override.html">Override</a></div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        T operator()(T old_value, T new_value)<span class="keyword"> const</span></div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="structhsc__snippets_1_1Override.html#a54efdfab908a21857898e1d232851200">   55</a></span>        T <a class="code hl_function" href="structhsc__snippets_1_1Override.html#a54efdfab908a21857898e1d232851200">operator()</a>(T old_value, T new_value)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">        </span>{</div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            <span class="keywordflow">return</span> new_value;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>        }</div>
+</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    };</div>
 </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
@@ -151,10 +159,12 @@ $(function() { codefold.init(0); });
 <div class="foldopen" id="foldopen00062" data-start="{" data-end="};">
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structhsc__snippets_1_1Maximum.html">   62</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structhsc__snippets_1_1Maximum.html">Maximum</a></div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        T operator()(T old_value, T new_value)<span class="keyword"> const</span></div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structhsc__snippets_1_1Maximum.html#afd044478eb4379ee123b908760187408">   64</a></span>        T <a class="code hl_function" href="structhsc__snippets_1_1Maximum.html#afd044478eb4379ee123b908760187408">operator()</a>(T old_value, T new_value)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="keyword">        </span>{</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordflow">return</span> std::max(old_value, new_value);</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        }</div>
+</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    };</div>
 </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
@@ -164,7 +174,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1IntervalMap.html">   88</a></span>    <span class="keyword">class </span><a class="code hl_class" href="classhsc__snippets_1_1IntervalMap.html">IntervalMap</a></div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    {</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">explicit</span> <a class="code hl_class" href="classhsc__snippets_1_1IntervalMap.html">IntervalMap</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1IntervalMap.html#a80c39eaa568b9edbd3724db50b9beecd">   91</a></span>        <span class="keyword">explicit</span> <a class="code hl_function" href="classhsc__snippets_1_1IntervalMap.html#a80c39eaa568b9edbd3724db50b9beecd">IntervalMap</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
 <div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1IntervalMap.html#adc4931124da7a75a32bba90aad1a2163">  102</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classhsc__snippets_1_1IntervalMap.html#adc4931124da7a75a32bba90aad1a2163">update</a>(T left, T right, V value)</div>
@@ -192,14 +202,14 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                    {</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>                        <span class="keywordflow">if</span> (p.first.left != left)</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>                        {</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                            map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.left, left}, p.second});</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                            map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>, left}, p.second});</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>                        }</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{left, right}, _value});</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{right, p.first.right}, p.second});</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{right, p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#ad3ea43f41c9a0c416c803b1a8f8c9685">right</a>}, p.second});</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>                    }</div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>                    <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                    {</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.left, p.first.right}, _value});</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>, p.first.right}, _value});</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>                    }</div>
 <div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>                }</div>
 <div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>                <span class="keywordflow">else</span></div>
@@ -212,13 +222,13 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                    {</div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>                        <span class="keywordflow">if</span> (p.first.left != left)</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>                        {</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                            map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.left, left}, p.second});</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>                            map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>, left}, p.second});</div>
 <div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>                        }</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{left, p.first.right}, _value});</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{left, p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#ad3ea43f41c9a0c416c803b1a8f8c9685">right</a>}, _value});</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>                    }</div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>                    <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>                    {</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.left, p.first.right}, _value});</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>, p.first.right}, _value});</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>                    }</div>
 <div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
 <div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>                    <span class="keywordflow">if</span> (p.first.right != right)</div>
@@ -256,14 +266,14 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>                <span class="keywordflow">if</span> (_value == p.second)</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                {</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                    map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.left, p.first.right}, _value});</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                    map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>, p.first.right}, _value});</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>                }</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>                <span class="keywordflow">else</span></div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>                {</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                    map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.left, right}, _value});</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                    map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>, right}, _value});</div>
 <div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>                    <span class="keywordflow">if</span> (right &lt; p.first.right)</div>
 <div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>                    {</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{right, p.first.right}, p.second});</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>                        map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{right, p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#ad3ea43f41c9a0c416c803b1a8f8c9685">right</a>}, p.second});</div>
 <div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>                    }</div>
 <div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                }</div>
 <div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
@@ -292,7 +302,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>                {</div>
 <div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>                    map.erase(it);</div>
 <div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                    <span class="comment">// if not, we add [left,p.first.left)</span></div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                    map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{left, p.first.left}, value});</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                    map.insert({<a class="code hl_struct" href="structhsc__snippets_1_1__Interval.html">_Interval&lt;T&gt;</a>{left, p.first.<a class="code hl_variable" href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">left</a>}, value});</div>
 <div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>                    <span class="comment">// and update [p.first.left,end)</span></div>
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                    <a class="code hl_function" href="classhsc__snippets_1_1IntervalMap.html#adc4931124da7a75a32bba90aad1a2163">update</a>(p.first.left, right, value);</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>                }</div>
@@ -412,11 +422,18 @@ $(function() { codefold.init(0); });
 <div class="ttc" id="aclasshsc__snippets_1_1IntervalMap_html"><div class="ttname"><a href="classhsc__snippets_1_1IntervalMap.html">hsc_snippets::IntervalMap</a></div><div class="ttdef"><b>Definition</b> interval_map.hpp:89</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1IntervalMap_html_a08f7962d440b1bd213ff8c94d2c476b2"><div class="ttname"><a href="classhsc__snippets_1_1IntervalMap.html#a08f7962d440b1bd213ff8c94d2c476b2">hsc_snippets::IntervalMap::getIntervals</a></div><div class="ttdeci">std::vector&lt; std::tuple&lt; T, T, V &gt; &gt; getIntervals() const</div><div class="ttdef"><b>Definition</b> interval_map.hpp:306</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1IntervalMap_html_a44ebb8ded3bc04933be34e760f0133dd"><div class="ttname"><a href="classhsc__snippets_1_1IntervalMap.html#a44ebb8ded3bc04933be34e760f0133dd">hsc_snippets::IntervalMap::query</a></div><div class="ttdeci">std::optional&lt; V &gt; query(T index)</div><div class="ttdef"><b>Definition</b> interval_map.hpp:243</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1IntervalMap_html_a80c39eaa568b9edbd3724db50b9beecd"><div class="ttname"><a href="classhsc__snippets_1_1IntervalMap.html#a80c39eaa568b9edbd3724db50b9beecd">hsc_snippets::IntervalMap::IntervalMap</a></div><div class="ttdeci">IntervalMap()=default</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1IntervalMap_html_acd8b97c110eb138724e2042cea439bf7"><div class="ttname"><a href="classhsc__snippets_1_1IntervalMap.html#acd8b97c110eb138724e2042cea439bf7">hsc_snippets::IntervalMap::defragment</a></div><div class="ttdeci">void defragment()</div><div class="ttdef"><b>Definition</b> interval_map.hpp:259</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1IntervalMap_html_adc4931124da7a75a32bba90aad1a2163"><div class="ttname"><a href="classhsc__snippets_1_1IntervalMap.html#adc4931124da7a75a32bba90aad1a2163">hsc_snippets::IntervalMap::update</a></div><div class="ttdeci">void update(T left, T right, V value)</div><div class="ttdef"><b>Definition</b> interval_map.hpp:102</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html"><div class="ttname"><a href="namespacehsc__snippets.html">hsc_snippets</a></div><div class="ttdef"><b>Definition</b> big_integer.hpp:13</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_ade6351fc70292dcaf68d2e1a706db301"><div class="ttname"><a href="namespacehsc__snippets.html#ade6351fc70292dcaf68d2e1a706db301">hsc_snippets::operator&lt;</a></div><div class="ttdeci">static bool operator&lt;(const _Interval&lt; T &gt; &amp;interval, T x)</div><div class="ttdef"><b>Definition</b> interval_map.hpp:36</div></div>
 <div class="ttc" id="astructhsc__snippets_1_1Maximum_html"><div class="ttname"><a href="structhsc__snippets_1_1Maximum.html">hsc_snippets::Maximum</a></div><div class="ttdef"><b>Definition</b> interval_map.hpp:63</div></div>
+<div class="ttc" id="astructhsc__snippets_1_1Maximum_html_afd044478eb4379ee123b908760187408"><div class="ttname"><a href="structhsc__snippets_1_1Maximum.html#afd044478eb4379ee123b908760187408">hsc_snippets::Maximum::operator()</a></div><div class="ttdeci">T operator()(T old_value, T new_value) const</div><div class="ttdef"><b>Definition</b> interval_map.hpp:64</div></div>
 <div class="ttc" id="astructhsc__snippets_1_1Override_html"><div class="ttname"><a href="structhsc__snippets_1_1Override.html">hsc_snippets::Override</a></div><div class="ttdef"><b>Definition</b> interval_map.hpp:54</div></div>
+<div class="ttc" id="astructhsc__snippets_1_1Override_html_a54efdfab908a21857898e1d232851200"><div class="ttname"><a href="structhsc__snippets_1_1Override.html#a54efdfab908a21857898e1d232851200">hsc_snippets::Override::operator()</a></div><div class="ttdeci">T operator()(T old_value, T new_value) const</div><div class="ttdef"><b>Definition</b> interval_map.hpp:55</div></div>
 <div class="ttc" id="astructhsc__snippets_1_1__Interval_html"><div class="ttname"><a href="structhsc__snippets_1_1__Interval.html">hsc_snippets::_Interval</a></div><div class="ttdef"><b>Definition</b> interval_map.hpp:14</div></div>
+<div class="ttc" id="astructhsc__snippets_1_1__Interval_html_a65c4c3e0e863cf8970e5c8b5b62a99f0"><div class="ttname"><a href="structhsc__snippets_1_1__Interval.html#a65c4c3e0e863cf8970e5c8b5b62a99f0">hsc_snippets::_Interval::left</a></div><div class="ttdeci">T left</div><div class="ttdef"><b>Definition</b> interval_map.hpp:15</div></div>
+<div class="ttc" id="astructhsc__snippets_1_1__Interval_html_ad3ea43f41c9a0c416c803b1a8f8c9685"><div class="ttname"><a href="structhsc__snippets_1_1__Interval.html#ad3ea43f41c9a0c416c803b1a8f8c9685">hsc_snippets::_Interval::right</a></div><div class="ttdeci">T right</div><div class="ttdef"><b>Definition</b> interval_map.hpp:16</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

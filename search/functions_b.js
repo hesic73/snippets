@@ -1,6 +1,9 @@
 var searchData=
 [
-  ['size_0',['size',['../classhsc__snippets_1_1SegmentTree.html#ab888b5ebc96b4d7a9fa44bd8c43212da',1,'hsc_snippets::SegmentTree::size()'],['../classhsc__snippets_1_1SlidingWindowMax.html#a74b88c2c536e866afa36ebfe22601e6c',1,'hsc_snippets::SlidingWindowMax::size() const']]],
-  ['slidingwindowmax_1',['SlidingWindowMax',['../classhsc__snippets_1_1SlidingWindowMax.html#a1ef1c1a9e171567e21696ed1e004ba8d',1,'hsc_snippets::SlidingWindowMax']]],
-  ['sqrt_2',['sqrt',['../classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54',1,'hsc_snippets::BigInteger']]]
+  ['negate_0',['negate',['../classhsc__snippets_1_1BigInteger.html#aaf4586231777fa9601a193e335847ab9',1,'hsc_snippets::BigInteger']]],
+  ['new_5fbinary_5ftree_1',['new_binary_tree',['../namespacehsc__snippets.html#a2d713b7bb2ef09fac4d0b640185b52b4',1,'hsc_snippets']]],
+  ['nextgreaterelement_2',['nextGreaterElement',['../namespacehsc__snippets.html#a58ccbeb569860677c784f504351db1d8',1,'hsc_snippets']]],
+  ['numbits_3',['numBits',['../namespacehsc__snippets.html#a9dc8f948cda1de6cbdb67bf6680d87f9',1,'hsc_snippets']]],
+  ['numdigits_4',['numDigits',['../namespacehsc__snippets.html#a21faa054d1afffbd2d869a99a54209de',1,'hsc_snippets']]],
+  ['numofgreaterelements_5',['numOfGreaterElements',['../namespacehsc__snippets.html#a770cc063eb04b7231b755c72383511d3',1,'hsc_snippets']]]
 ];

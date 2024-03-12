@@ -71,7 +71,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>hsc_snippets</b></li><li class="navelem"><a class="el" href="classhsc__snippets_1_1IntervalMap.html">IntervalMap</a></li>  </ul>
+<li class="navelem"><a class="el" href="namespacehsc__snippets.html">hsc_snippets</a></li><li class="navelem"><a class="el" href="classhsc__snippets_1_1IntervalMap.html">IntervalMap</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -86,6 +86,8 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a80c39eaa568b9edbd3724db50b9beecd" id="r_a80c39eaa568b9edbd3724db50b9beecd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a80c39eaa568b9edbd3724db50b9beecd">IntervalMap</a> ()=default</td></tr>
+<tr class="separator:a80c39eaa568b9edbd3724db50b9beecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adc4931124da7a75a32bba90aad1a2163" id="r_adc4931124da7a75a32bba90aad1a2163"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc4931124da7a75a32bba90aad1a2163">update</a> (T left, T right, V value)</td></tr>
 <tr class="separator:adc4931124da7a75a32bba90aad1a2163"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44ebb8ded3bc04933be34e760f0133dd" id="r_a44ebb8ded3bc04933be34e760f0133dd"><td class="memItemLeft" align="right" valign="top">std::optional&lt; V &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a44ebb8ded3bc04933be34e760f0133dd">query</a> (T index)</td></tr>
@@ -104,7 +106,35 @@ class hsc_snippets::IntervalMap&lt; T, V, update_policy_t &gt;</div><p>A data st
 <li>update_policy_t: A struct that defines the policy for resolving values of overlapping intervals. It must be a callable that takes two arguments of type V (the existing and new values) and returns a resolved value of type V.</li>
 </ul>
 <p>The class uses a balanced binary search tree (std::map) internally to store intervals in a non-overlapping manner, ensuring efficient queries and updates. The update and query operations are expected to perform in O(log n) time complexity, where n is the number of intervals in the map. </p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a80c39eaa568b9edbd3724db50b9beecd" name="a80c39eaa568b9edbd3724db50b9beecd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80c39eaa568b9edbd3724db50b9beecd">&#9670;&#160;</a></span>IntervalMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::integral T, std::integral V, typename update_policy_t  = Override&lt;T&gt;&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhsc__snippets_1_1IntervalMap.html">hsc_snippets::IntervalMap</a>&lt; T, V, update_policy_t &gt;::IntervalMap </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">explicit</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
 <a id="acd8b97c110eb138724e2042cea439bf7" name="acd8b97c110eb138724e2042cea439bf7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acd8b97c110eb138724e2042cea439bf7">&#9670;&#160;</a></span>defragment()</h2>
 

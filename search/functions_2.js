@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['empty_0',['empty',['../classhsc__snippets_1_1MonotonicStack.html#a286b87ba4ef3864f3f0840233b8dbaf3',1,'hsc_snippets::MonotonicStack']]]
+  ['containsinrange_0',['containsInRange',['../namespacehsc__snippets.html#a2f76e1d412f83567b03ef84aa374878a',1,'hsc_snippets']]]
 ];

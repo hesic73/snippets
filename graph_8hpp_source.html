@@ -83,7 +83,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">graph.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef GRAPH_H</span></div>
+<a href="graph_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef GRAPH_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define GRAPH_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
@@ -95,9 +95,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>hsc_snippets</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacehsc__snippets.html">hsc_snippets</a></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; make_weighted_directed_adjacency_list(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
+<div class="foldopen" id="foldopen00027" data-start="{" data-end="}">
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a3309599331a5cdd33769faddfefca01b">   27</a></span>    std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; <a class="code hl_function" href="namespacehsc__snippets.html#a3309599331a5cdd33769faddfefca01b">make_weighted_directed_adjacency_list</a>(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    {</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        <span class="keyword">auto</span> adjacency_list = std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt;(n);</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;&amp;edge : edges)</div>
@@ -109,8 +110,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordflow">return</span> adjacency_list;</div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    }</div>
+</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    std::vector&lt;std::vector&lt;int&gt;&gt; make_unweighted_undirected_adjacency_list(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
+<div class="foldopen" id="foldopen00052" data-start="{" data-end="}">
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a6652ea3101ac6cfdad917c467930b521">   52</a></span>    std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code hl_function" href="namespacehsc__snippets.html#a6652ea3101ac6cfdad917c467930b521">make_unweighted_undirected_adjacency_list</a>(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    {</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keyword">auto</span> adjacency_list = std::vector&lt;std::vector&lt;int&gt;&gt;(n);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;&amp;edge : edges)</div>
@@ -122,8 +125,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        }</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">return</span> adjacency_list;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; make_weighted_undirected_adjacency_list(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a6d8cb2639fba615716c6ce0717de2e9e">   77</a></span>    std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; <a class="code hl_function" href="namespacehsc__snippets.html#a6d8cb2639fba615716c6ce0717de2e9e">make_weighted_undirected_adjacency_list</a>(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>        <span class="keyword">auto</span> adjacency_list = std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt;(n);</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;&amp;edge : edges)</div>
@@ -136,8 +141,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        }</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">return</span> adjacency_list;</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+</div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    std::vector&lt;std::vector&lt;int&gt;&gt; make_unweighted_directed_adjacency_list(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#aa00180746e48d290f32ebbbeb663a3aa">  103</a></span>    std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code hl_function" href="namespacehsc__snippets.html#aa00180746e48d290f32ebbbeb663a3aa">make_unweighted_directed_adjacency_list</a>(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    {</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="keyword">auto</span> adjacency_list = std::vector&lt;std::vector&lt;int&gt;&gt;(n);</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;&amp;edge : edges)</div>
@@ -148,8 +155,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>        }</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>        <span class="keywordflow">return</span> adjacency_list;</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    }</div>
+</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordtype">void</span> breadth_first_search(std::vector&lt;std::vector&lt;int&gt;&gt; &amp;adjacency_list, <span class="keywordtype">int</span> root, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>)&gt; callback)</div>
+<div class="foldopen" id="foldopen00126" data-start="{" data-end="}">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a94bf74759d725b5eaffb0609b370eecc">  126</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacehsc__snippets.html#a94bf74759d725b5eaffb0609b370eecc">breadth_first_search</a>(std::vector&lt;std::vector&lt;int&gt;&gt; &amp;adjacency_list, <span class="keywordtype">int</span> root, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>)&gt; callback)</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    {</div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keyword">auto</span> visited = std::unordered_set&lt;int&gt;{};</div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keyword">auto</span> q = std::queue&lt;std::pair&lt;int, int&gt;&gt;{}; <span class="comment">// Regular queue for BFS</span></div>
@@ -177,7 +186,9 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>            }</div>
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        }</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">void</span> breadth_first_search(std::unordered_map&lt;<span class="keywordtype">int</span>, std::vector&lt;int&gt;&gt; &amp;adjacency_list, <span class="keywordtype">int</span> root, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>)&gt; callback)</div>
+</div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="}">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#aefa53f26ca29b00677b58dfbd3957fb6">  164</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacehsc__snippets.html#a94bf74759d725b5eaffb0609b370eecc">breadth_first_search</a>(std::unordered_map&lt;<span class="keywordtype">int</span>, std::vector&lt;int&gt;&gt; &amp;adjacency_list, <span class="keywordtype">int</span> root, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>)&gt; callback)</div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    {</div>
 <div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keyword">auto</span> visited = std::unordered_set&lt;int&gt;{};</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keyword">auto</span> q = std::queue&lt;std::pair&lt;int, int&gt;&gt;{}; <span class="comment">// Regular queue for BFS</span></div>
@@ -205,8 +216,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            }</div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        }</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    }</div>
+</div>
 <div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordtype">void</span> depth_first_search(std::vector&lt;std::vector&lt;int&gt;&gt; &amp;adjacency_list, <span class="keywordtype">int</span> root, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>)&gt; callback)</div>
+<div class="foldopen" id="foldopen00204" data-start="{" data-end="}">
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a85a409659bd176a384e5ebd1ec86ccb8">  204</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="namespacehsc__snippets.html#a85a409659bd176a384e5ebd1ec86ccb8">depth_first_search</a>(std::vector&lt;std::vector&lt;int&gt;&gt; &amp;adjacency_list, <span class="keywordtype">int</span> root, std::function&lt;<span class="keywordtype">void</span>(<span class="keywordtype">int</span>, <span class="keywordtype">int</span>)&gt; callback)</div>
 <div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    {</div>
 <div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keyword">auto</span> visited = std::unordered_set&lt;int&gt;{};</div>
 <div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <span class="keyword">auto</span> stack = std::stack&lt;std::pair&lt;int, int&gt;&gt;{}; <span class="comment">// Stack for DFS</span></div>
@@ -234,8 +247,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>            }</div>
 <div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        }</div>
 <div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    }</div>
+</div>
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordtype">int</span> dijkstra(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; &amp;adjacency_list, <span class="keywordtype">int</span> src, <span class="keywordtype">int</span> dst)</div>
+<div class="foldopen" id="foldopen00242" data-start="{" data-end="}">
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#ae9ea360ca73fc90de39097acf5adb5a8">  242</a></span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespacehsc__snippets.html#ae9ea360ca73fc90de39097acf5adb5a8">dijkstra</a>(<span class="keywordtype">int</span> n, <span class="keyword">const</span> std::vector&lt;std::vector&lt;std::pair&lt;int, int&gt;&gt;&gt; &amp;adjacency_list, <span class="keywordtype">int</span> src, <span class="keywordtype">int</span> dst)</div>
 <div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    {</div>
 <div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
 <div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        std::vector&lt;int&gt; dist(n, std::numeric_limits&lt;int&gt;::max());</div>
@@ -264,8 +279,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
 <div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordflow">return</span> dist[dst] == std::numeric_limits&lt;int&gt;::max() ? -1 : dist[dst];</div>
 <div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    }</div>
+</div>
 <div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    std::vector&lt;int&gt; find_euler_path_directed(<span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
+<div class="foldopen" id="foldopen00289" data-start="{" data-end="}">
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a50a72d9be388b969808af9cd6617aea9">  289</a></span>    std::vector&lt;int&gt; <a class="code hl_function" href="namespacehsc__snippets.html#a50a72d9be388b969808af9cd6617aea9">find_euler_path_directed</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;int&gt;&gt; &amp;edges)</div>
 <div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    {</div>
 <div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        std::unordered_map&lt;int, std::stack&lt;int&gt;&gt; adj;</div>
 <div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>        std::unordered_map&lt;int, int&gt; in;</div>
@@ -315,8 +332,10 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
 <div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        <span class="keywordflow">return</span> circuit;</div>
 <div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    }</div>
+</div>
 <div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>    std::vector&lt;std::vector&lt;int&gt;&gt; findConnectedComponents(std::unordered_map&lt;<span class="keywordtype">int</span>, std::vector&lt;int&gt;&gt; &amp;adj)</div>
+<div class="foldopen" id="foldopen00350" data-start="{" data-end="}">
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a16dd678bffb7adede9bc2eabe0e92665">  350</a></span>    std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code hl_function" href="namespacehsc__snippets.html#a16dd678bffb7adede9bc2eabe0e92665">findConnectedComponents</a>(std::unordered_map&lt;<span class="keywordtype">int</span>, std::vector&lt;int&gt;&gt; &amp;adj)</div>
 <div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>    {</div>
 <div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>        std::unordered_map&lt;int, bool&gt; visited{}; <span class="comment">// Tracks whether each node has been visited</span></div>
 <div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;&amp;p : adj)</div>
@@ -331,7 +350,7 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>            <span class="keywordflow">if</span> (!p.second)</div>
 <div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>            {                               <span class="comment">// For each unvisited node</span></div>
 <div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>                std::vector&lt;int&gt; component; <span class="comment">// Stores the current component&#39;s nodes</span></div>
-<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>                breadth_first_search(adj, p.first, [&amp;visited, &amp;component](<span class="keywordtype">int</span>, <span class="keywordtype">int</span> node)</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>                <a class="code hl_function" href="namespacehsc__snippets.html#a94bf74759d725b5eaffb0609b370eecc">breadth_first_search</a>(adj, p.first, [&amp;visited, &amp;component](<span class="keywordtype">int</span>, <span class="keywordtype">int</span> node)</div>
 <div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>                                     {</div>
 <div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>                                         visited[node] = true;      <span class="comment">// Mark the node as visited</span></div>
 <div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>                                         component.push_back(node); <span class="comment">// Add the node to the current component</span></div>
@@ -342,9 +361,20 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
 <div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>        <span class="keywordflow">return</span> connectedComponents; <span class="comment">// Return all found connected components</span></div>
 <div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    }</div>
+</div>
 <div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>}</div>
 <div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
 <div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="preprocessor">#endif </span><span class="comment">// GRAPH_H</span></div>
+<div class="ttc" id="anamespacehsc__snippets_html"><div class="ttname"><a href="namespacehsc__snippets.html">hsc_snippets</a></div><div class="ttdef"><b>Definition</b> big_integer.hpp:13</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a16dd678bffb7adede9bc2eabe0e92665"><div class="ttname"><a href="namespacehsc__snippets.html#a16dd678bffb7adede9bc2eabe0e92665">hsc_snippets::findConnectedComponents</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; findConnectedComponents(std::unordered_map&lt; int, std::vector&lt; int &gt; &gt; &amp;adj)</div><div class="ttdef"><b>Definition</b> graph.hpp:350</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a3309599331a5cdd33769faddfefca01b"><div class="ttname"><a href="namespacehsc__snippets.html#a3309599331a5cdd33769faddfefca01b">hsc_snippets::make_weighted_directed_adjacency_list</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; std::pair&lt; int, int &gt; &gt; &gt; make_weighted_directed_adjacency_list(int n, const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;edges)</div><div class="ttdef"><b>Definition</b> graph.hpp:27</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a50a72d9be388b969808af9cd6617aea9"><div class="ttname"><a href="namespacehsc__snippets.html#a50a72d9be388b969808af9cd6617aea9">hsc_snippets::find_euler_path_directed</a></div><div class="ttdeci">std::vector&lt; int &gt; find_euler_path_directed(const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;edges)</div><div class="ttdef"><b>Definition</b> graph.hpp:289</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a6652ea3101ac6cfdad917c467930b521"><div class="ttname"><a href="namespacehsc__snippets.html#a6652ea3101ac6cfdad917c467930b521">hsc_snippets::make_unweighted_undirected_adjacency_list</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; make_unweighted_undirected_adjacency_list(int n, const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;edges)</div><div class="ttdef"><b>Definition</b> graph.hpp:52</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a6d8cb2639fba615716c6ce0717de2e9e"><div class="ttname"><a href="namespacehsc__snippets.html#a6d8cb2639fba615716c6ce0717de2e9e">hsc_snippets::make_weighted_undirected_adjacency_list</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; std::pair&lt; int, int &gt; &gt; &gt; make_weighted_undirected_adjacency_list(int n, const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;edges)</div><div class="ttdef"><b>Definition</b> graph.hpp:77</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a85a409659bd176a384e5ebd1ec86ccb8"><div class="ttname"><a href="namespacehsc__snippets.html#a85a409659bd176a384e5ebd1ec86ccb8">hsc_snippets::depth_first_search</a></div><div class="ttdeci">void depth_first_search(std::vector&lt; std::vector&lt; int &gt; &gt; &amp;adjacency_list, int root, std::function&lt; void(int, int)&gt; callback)</div><div class="ttdef"><b>Definition</b> graph.hpp:204</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a94bf74759d725b5eaffb0609b370eecc"><div class="ttname"><a href="namespacehsc__snippets.html#a94bf74759d725b5eaffb0609b370eecc">hsc_snippets::breadth_first_search</a></div><div class="ttdeci">void breadth_first_search(std::vector&lt; std::vector&lt; int &gt; &gt; &amp;adjacency_list, int root, std::function&lt; void(int, int)&gt; callback)</div><div class="ttdef"><b>Definition</b> graph.hpp:126</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_aa00180746e48d290f32ebbbeb663a3aa"><div class="ttname"><a href="namespacehsc__snippets.html#aa00180746e48d290f32ebbbeb663a3aa">hsc_snippets::make_unweighted_directed_adjacency_list</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; make_unweighted_directed_adjacency_list(int n, const std::vector&lt; std::vector&lt; int &gt; &gt; &amp;edges)</div><div class="ttdef"><b>Definition</b> graph.hpp:103</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_ae9ea360ca73fc90de39097acf5adb5a8"><div class="ttname"><a href="namespacehsc__snippets.html#ae9ea360ca73fc90de39097acf5adb5a8">hsc_snippets::dijkstra</a></div><div class="ttdeci">int dijkstra(int n, const std::vector&lt; std::vector&lt; std::pair&lt; int, int &gt; &gt; &gt; &amp;adjacency_list, int src, int dst)</div><div class="ttdef"><b>Definition</b> graph.hpp:242</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
