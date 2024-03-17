@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['val_0',['val',['../structhsc__snippets_1_1TreeNode.html#ae4adc73d360964a927493f3e257a334a',1,'hsc_snippets::TreeNode::val'],['../structhsc__snippets_1_1ListNode.html#a8f94c874b970300038d6de62b3d5c62d',1,'hsc_snippets::ListNode::val']]],
-  ['varadic_5fnumeric_2ehpp_1',['varadic_numeric.hpp',['../varadic__numeric_8hpp.html',1,'']]]
+  ['zero_0',['zero',['../classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc',1,'hsc_snippets::BigInteger']]]
 ];

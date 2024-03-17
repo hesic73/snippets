@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>snippets: src/interval_map.hpp File Reference</title>
+<title>snippets: src/interval.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -79,41 +79,46 @@ $(function() {
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">interval_map.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">interval.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;map&gt;</code><br />
 <code>#include &lt;concepts&gt;</code><br />
 <code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;cassert&gt;</code><br />
+<code>#include &lt;set&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for interval_map.hpp:</div>
+Include dependency graph for interval.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="interval__map_8hpp__incl.png" border="0" usemap="#asrc_2interval__map_8hpp" alt=""/></div>
-<map name="asrc_2interval__map_8hpp" id="asrc_2interval__map_8hpp">
-<area shape="rect" title=" " alt="" coords="89,5,230,31"/>
+<div class="center"><img src="interval_8hpp__incl.png" border="0" usemap="#asrc_2interval_8hpp" alt=""/></div>
+<map name="asrc_2interval_8hpp" id="asrc_2interval_8hpp">
+<area shape="rect" title=" " alt="" coords="153,5,262,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,52,105"/>
-<area shape="poly" title=" " alt="" coords="138,34,65,74,62,69,136,29"/>
+<area shape="poly" title=" " alt="" coords="178,34,67,78,65,73,176,29"/>
 <area shape="rect" title=" " alt="" coords="75,79,150,105"/>
-<area shape="poly" title=" " alt="" coords="154,33,131,67,126,64,149,30"/>
+<area shape="poly" title=" " alt="" coords="193,34,142,72,139,67,190,29"/>
 <area shape="rect" title=" " alt="" coords="174,79,240,105"/>
-<area shape="poly" title=" " alt="" coords="169,30,193,64,188,67,165,33"/>
+<area shape="poly" title=" " alt="" coords="210,31,210,63,205,63,205,31"/>
 <area shape="rect" title=" " alt="" coords="264,79,329,105"/>
-<area shape="poly" title=" " alt="" coords="184,29,261,69,258,74,181,34"/>
+<area shape="poly" title=" " alt="" coords="224,29,271,67,268,71,221,34"/>
+<area shape="rect" title=" " alt="" coords="353,79,392,105"/>
+<area shape="poly" title=" " alt="" coords="236,29,340,74,338,79,234,34"/>
 </map>
 </div>
 </div>
-<p><a href="interval__map_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="interval_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhsc__snippets_1_1__Interval.html">hsc_snippets::_Interval&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhsc__snippets_1_1Interval.html">hsc_snippets::Interval&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhsc__snippets_1_1Override.html">hsc_snippets::Override&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structhsc__snippets_1_1Maximum.html">hsc_snippets::Maximum&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhsc__snippets_1_1IntervalMap.html">hsc_snippets::IntervalMap&lt; T, V, update_policy_t &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhsc__snippets_1_1IntervalSet.html">hsc_snippets::IntervalSet&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -123,15 +128,15 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ade6351fc70292dcaf68d2e1a706db301" id="r_ade6351fc70292dcaf68d2e1a706db301"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
-<tr class="memitem:ade6351fc70292dcaf68d2e1a706db301"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehsc__snippets.html#ade6351fc70292dcaf68d2e1a706db301">hsc_snippets::operator&lt;</a> (const <a class="el" href="structhsc__snippets_1_1__Interval.html">_Interval</a>&lt; T &gt; &amp;interval, T x)</td></tr>
-<tr class="separator:ade6351fc70292dcaf68d2e1a706db301"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d77ba741533e46a1e0326a2e7b8442c" id="r_a9d77ba741533e46a1e0326a2e7b8442c"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
-<tr class="memitem:a9d77ba741533e46a1e0326a2e7b8442c"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehsc__snippets.html#a9d77ba741533e46a1e0326a2e7b8442c">hsc_snippets::operator&lt;</a> (T x, const <a class="el" href="structhsc__snippets_1_1__Interval.html">_Interval</a>&lt; T &gt; &amp;interval)</td></tr>
-<tr class="separator:a9d77ba741533e46a1e0326a2e7b8442c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40c7b37bbc72584a6f44b005fce7e90a" id="r_a40c7b37bbc72584a6f44b005fce7e90a"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
-<tr class="memitem:a40c7b37bbc72584a6f44b005fce7e90a"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehsc__snippets.html#a40c7b37bbc72584a6f44b005fce7e90a">hsc_snippets::operator&lt;</a> (const <a class="el" href="structhsc__snippets_1_1__Interval.html">_Interval</a>&lt; T &gt; &amp;interval1, const <a class="el" href="structhsc__snippets_1_1__Interval.html">_Interval</a>&lt; T &gt; &amp;interval2)</td></tr>
-<tr class="separator:a40c7b37bbc72584a6f44b005fce7e90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a434872c7db853da32dcaf6254abf53bd" id="r_a434872c7db853da32dcaf6254abf53bd"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:a434872c7db853da32dcaf6254abf53bd"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehsc__snippets.html#a434872c7db853da32dcaf6254abf53bd">hsc_snippets::operator&lt;</a> (const <a class="el" href="structhsc__snippets_1_1Interval.html">Interval</a>&lt; T &gt; &amp;interval, T x)</td></tr>
+<tr class="separator:a434872c7db853da32dcaf6254abf53bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4893ca5a1d94f3b1c7ed3768bb4c3a3a" id="r_a4893ca5a1d94f3b1c7ed3768bb4c3a3a"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:a4893ca5a1d94f3b1c7ed3768bb4c3a3a"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehsc__snippets.html#a4893ca5a1d94f3b1c7ed3768bb4c3a3a">hsc_snippets::operator&lt;</a> (T x, const <a class="el" href="structhsc__snippets_1_1Interval.html">Interval</a>&lt; T &gt; &amp;interval)</td></tr>
+<tr class="separator:a4893ca5a1d94f3b1c7ed3768bb4c3a3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad46c82943972e1cda8e400b287ca10e4" id="r_ad46c82943972e1cda8e400b287ca10e4"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
+<tr class="memitem:ad46c82943972e1cda8e400b287ca10e4"><td class="memTemplItemLeft" align="right" valign="top">static bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacehsc__snippets.html#ad46c82943972e1cda8e400b287ca10e4">hsc_snippets::operator&lt;</a> (const <a class="el" href="structhsc__snippets_1_1Interval.html">Interval</a>&lt; T &gt; &amp;interval1, const <a class="el" href="structhsc__snippets_1_1Interval.html">Interval</a>&lt; T &gt; &amp;interval2)</td></tr>
+<tr class="separator:ad46c82943972e1cda8e400b287ca10e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->

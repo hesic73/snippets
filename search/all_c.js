@@ -1,24 +1,11 @@
 var searchData=
 [
-  ['make_5flinked_5flist_0',['make_linked_list',['../namespacehsc__snippets.html#a1d00610b7e210a53730c9ffdfeba57b9',1,'hsc_snippets']]],
-  ['make_5funweighted_5fdirected_5fadjacency_5flist_1',['make_unweighted_directed_adjacency_list',['../namespacehsc__snippets.html#aa00180746e48d290f32ebbbeb663a3aa',1,'hsc_snippets']]],
-  ['make_5funweighted_5fundirected_5fadjacency_5flist_2',['make_unweighted_undirected_adjacency_list',['../namespacehsc__snippets.html#a6652ea3101ac6cfdad917c467930b521',1,'hsc_snippets']]],
-  ['make_5fweighted_5fdirected_5fadjacency_5flist_3',['make_weighted_directed_adjacency_list',['../namespacehsc__snippets.html#a3309599331a5cdd33769faddfefca01b',1,'hsc_snippets']]],
-  ['make_5fweighted_5fundirected_5fadjacency_5flist_4',['make_weighted_undirected_adjacency_list',['../namespacehsc__snippets.html#a6d8cb2639fba615716c6ce0717de2e9e',1,'hsc_snippets']]],
-  ['max_5',['max',['../classhsc__snippets_1_1BigInteger.html#adb8ab0726c9b0c06aa406a27b865d0ca',1,'hsc_snippets::BigInteger']]],
-  ['maximum_6',['Maximum',['../structhsc__snippets_1_1Maximum.html',1,'hsc_snippets']]],
-  ['min_7',['min',['../classhsc__snippets_1_1BigInteger.html#a97f37e03980a728d40608abec948d4d5',1,'hsc_snippets::BigInteger']]],
-  ['modular_5fadd_8',['modular_add',['../namespacehsc__snippets.html#a7c058184d3bf4b4028ac27888f891666',1,'hsc_snippets']]],
-  ['modular_5farithmetic_2ehpp_9',['modular_arithmetic.hpp',['../modular__arithmetic_8hpp.html',1,'']]],
-  ['modular_5fcube_10',['modular_cube',['../namespacehsc__snippets.html#a69f0c52364cd0e82d19151f1d05aee8c',1,'hsc_snippets']]],
-  ['modular_5fmultiply_11',['modular_multiply',['../namespacehsc__snippets.html#a36dc1f9c8622b338e040c3d0746ffa45',1,'hsc_snippets']]],
-  ['modular_5fpow2_12',['modular_pow2',['../namespacehsc__snippets.html#a72561173b55e31dc534d5f5612a52246',1,'hsc_snippets']]],
-  ['modular_5fsquare_13',['modular_square',['../namespacehsc__snippets.html#ab24c9c4d4245ec401fd40ecb1a12c1b6',1,'hsc_snippets']]],
-  ['modular_5fsubstract_14',['modular_substract',['../namespacehsc__snippets.html#af5b88bd1961aeceb11486a737609e862',1,'hsc_snippets']]],
-  ['modulo_15',['MODULO',['../namespacehsc__snippets.html#a218d0181825bcf526ca9e5c24f6aab06',1,'hsc_snippets']]],
-  ['monotonic_5fstack_2ehpp_16',['monotonic_stack.hpp',['../monotonic__stack_8hpp.html',1,'']]],
-  ['monotonicdecreasingstack_17',['MonotonicDecreasingStack',['../namespacehsc__snippets.html#a9cbfd0b02206d45ef53cae53da08bde1',1,'hsc_snippets']]],
-  ['monotonicincreasingstack_18',['MonotonicIncreasingStack',['../namespacehsc__snippets.html#aa38155ad9e921ee6d3cf69b328f69757',1,'hsc_snippets']]],
-  ['monotonicstack_19',['MonotonicStack',['../classhsc__snippets_1_1MonotonicStack.html',1,'hsc_snippets']]],
-  ['multiplybypoweroften_20',['multiplyByPowerOfTen',['../classhsc__snippets_1_1BigInteger.html#af8c70d1992344bd9fdbfbf2e94d9f464',1,'hsc_snippets::BigInteger']]]
+  ['negate_0',['negate',['../classhsc__snippets_1_1BigInteger.html#aaf4586231777fa9601a193e335847ab9',1,'hsc_snippets::BigInteger']]],
+  ['new_5fbinary_5ftree_1',['new_binary_tree',['../namespacehsc__snippets.html#a2d713b7bb2ef09fac4d0b640185b52b4',1,'hsc_snippets']]],
+  ['next_2',['next',['../structhsc__snippets_1_1ListNode.html#a93befde5fdda45fbb14f457d31dd8023',1,'hsc_snippets::ListNode']]],
+  ['nextgreaterelement_3',['nextGreaterElement',['../namespacehsc__snippets.html#a58ccbeb569860677c784f504351db1d8',1,'hsc_snippets']]],
+  ['number_5futils_2ehpp_4',['number_utils.hpp',['../number__utils_8hpp.html',1,'']]],
+  ['numbits_5',['numBits',['../namespacehsc__snippets.html#a9dc8f948cda1de6cbdb67bf6680d87f9',1,'hsc_snippets']]],
+  ['numdigits_6',['numDigits',['../namespacehsc__snippets.html#a21faa054d1afffbd2d869a99a54209de',1,'hsc_snippets']]],
+  ['numofgreaterelements_7',['numOfGreaterElements',['../namespacehsc__snippets.html#a770cc063eb04b7231b755c72383511d3',1,'hsc_snippets']]]
 ];

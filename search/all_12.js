@@ -1,15 +1,8 @@
 var searchData=
 [
-  ['segment_5ftree_2ehpp_0',['segment_tree.hpp',['../segment__tree_8hpp.html',1,'']]],
-  ['segmenttree_1',['SegmentTree',['../classhsc__snippets_1_1SegmentTree.html',1,'hsc_snippets::SegmentTree&lt; T &gt;'],['../classhsc__snippets_1_1SegmentTree.html#aed68c0b4ee06c2f771a92ddb1db60dc3',1,'hsc_snippets::SegmentTree::SegmentTree()']]],
-  ['sieveoferatosthenes_2',['SieveOfEratosthenes',['../namespacehsc__snippets.html#a18d5f09b15d654e057d86fee902cab7d',1,'hsc_snippets']]],
-  ['size_3',['size',['../classhsc__snippets_1_1SegmentTree.html#ab888b5ebc96b4d7a9fa44bd8c43212da',1,'hsc_snippets::SegmentTree::size()'],['../classhsc__snippets_1_1SlidingWindowMax.html#a74b88c2c536e866afa36ebfe22601e6c',1,'hsc_snippets::SlidingWindowMax::size()']]],
-  ['sliding_5fwindow_2ehpp_4',['sliding_window.hpp',['../sliding__window_8hpp.html',1,'']]],
-  ['slidingwindowmax_5',['SlidingWindowMax',['../classhsc__snippets_1_1SlidingWindowMax.html',1,'hsc_snippets::SlidingWindowMax&lt; T &gt;'],['../classhsc__snippets_1_1SlidingWindowMax.html#a1ef1c1a9e171567e21696ed1e004ba8d',1,'hsc_snippets::SlidingWindowMax::SlidingWindowMax()']]],
-  ['smallest_5findex_6',['smallest_index',['../namespacehsc__snippets.html#a8b3d0574aec6857720f3494a33cc7a85',1,'hsc_snippets']]],
-  ['sorted_5futils_2ehpp_7',['sorted_utils.hpp',['../sorted__utils_8hpp.html',1,'']]],
-  ['sortthree_8',['sortThree',['../namespacehsc__snippets.html#adbdb05e51cc5a1ab1a9b3aea8075b2ef',1,'hsc_snippets']]],
-  ['sqrt_9',['sqrt',['../classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54',1,'hsc_snippets::BigInteger']]],
-  ['string_5futils_2ehpp_10',['string_utils.hpp',['../string__utils_8hpp.html',1,'']]],
-  ['sum_11',['sum',['../namespacehsc__snippets.html#a3e6dae9bb445381d5ec6a88094c9f315',1,'hsc_snippets::sum(T x)'],['../namespacehsc__snippets.html#adabb6992d6adc87e88949774ea718c67',1,'hsc_snippets::sum(T x, Args... args)']]]
+  ['to_0',['to',['../classhsc__snippets_1_1BigInteger.html#a0e0531e00ec577e7dde87cfbbdf42642',1,'hsc_snippets::BigInteger']]],
+  ['to_5fstring_1',['to_string',['../classhsc__snippets_1_1BigInteger.html#a5ab2386bef45b0f583c54b29e278a097',1,'hsc_snippets::BigInteger::to_string()'],['../namespacehsc__snippets.html#aea5a6b2a2e32759546fc105652ee34c6',1,'hsc_snippets::to_string(const std::vector&lt; T &gt; &amp;vec)'],['../namespacehsc__snippets.html#aa6c60972c6e940cc87036321ae5c5136',1,'hsc_snippets::to_string(std::pair&lt; T, T &gt; p)'],['../namespacehsc__snippets.html#a99ec3e40e27b79ffc33545635fba4503',1,'hsc_snippets::to_string(const std::vector&lt; std::pair&lt; T, T &gt; &gt; &amp;vec)'],['../namespacehsc__snippets.html#a64970a5102d416fdd499f71c3cd1000f',1,'hsc_snippets::to_string(const std::vector&lt; std::string &gt; &amp;vec)'],['../namespacehsc__snippets.html#a611d2268215b58fd16cde84613d4fc6b',1,'hsc_snippets::to_string(const std::vector&lt; std::vector&lt; T &gt; &gt; &amp;vec)']]],
+  ['top_2',['top',['../classhsc__snippets_1_1MonotonicStack.html#a89a08fe8021d1c07f545efa956e411a8',1,'hsc_snippets::MonotonicStack']]],
+  ['treenode_3',['TreeNode',['../structhsc__snippets_1_1TreeNode.html',1,'hsc_snippets::TreeNode'],['../structhsc__snippets_1_1TreeNode.html#aad7416b4efae0d9419d247a83902ea3e',1,'hsc_snippets::TreeNode::TreeNode()'],['../structhsc__snippets_1_1TreeNode.html#adab5c8c87228363567ba57e4d25b115e',1,'hsc_snippets::TreeNode::TreeNode(int x)'],['../structhsc__snippets_1_1TreeNode.html#af9eece3c11bf9b945c26c119ed8545f2',1,'hsc_snippets::TreeNode::TreeNode(int x, TreeNode *left, TreeNode *right)']]],
+  ['two_4',['two',['../classhsc__snippets_1_1BigInteger.html#ae46b4758a2d824d1741f35ebe6e239b8',1,'hsc_snippets::BigInteger']]]
 ];

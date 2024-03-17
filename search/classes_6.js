@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['override_0',['Override',['../structhsc__snippets_1_1Override.html',1,'hsc_snippets']]]
+  ['segmenttree_0',['SegmentTree',['../classhsc__snippets_1_1SegmentTree.html',1,'hsc_snippets']]],
+  ['slidingwindowmax_1',['SlidingWindowMax',['../classhsc__snippets_1_1SlidingWindowMax.html',1,'hsc_snippets']]]
 ];

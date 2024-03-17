@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['intervalmap_0',['IntervalMap',['../classhsc__snippets_1_1IntervalMap.html',1,'hsc_snippets']]]
+  ['listnode_0',['ListNode',['../structhsc__snippets_1_1ListNode.html',1,'hsc_snippets']]]
 ];

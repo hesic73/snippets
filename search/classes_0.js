@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_5finterval_0',['_Interval',['../structhsc__snippets_1_1__Interval.html',1,'hsc_snippets']]]
+  ['biginteger_0',['BigInteger',['../classhsc__snippets_1_1BigInteger.html',1,'hsc_snippets']]]
 ];
