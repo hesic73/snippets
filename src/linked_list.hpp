@@ -90,7 +90,7 @@ namespace hsc_snippets
      *
      * @param head A pointer to the head of the linked list to be deleted.
      */
-    void delete_linked_list(ListNode *head)
+    void linked_list_delete(ListNode *head)
     {
         if (head == nullptr)
         {
@@ -104,6 +104,47 @@ namespace hsc_snippets
             next = head->next;
         }
         delete head;
+    }
+
+    /**
+     * Removes nodes from a linked list in the specified range.
+     *
+     * @param head Pointer to the head of the linked list.
+     * @param begin The starting index of the range to remove nodes (inclusive).
+     * @param end The ending index of the range to remove nodes (exclusive).
+     * @return A pointer to the head of the modified linked list.
+     */
+    ListNode *linked_list_remove(ListNode *head, size_t begin, size_t end)
+    {
+        if (head == nullptr || begin >= end)
+        {
+            // Nothing to remove
+            return head;
+        }
+
+        ListNode dummy(0, head); // Create a dummy node to simplify edge cases
+        ListNode *prev = &dummy;
+
+        // Move `prev` to the node just before `begin`
+        for (size_t i = 0; i < begin && prev->next != nullptr; ++i)
+        {
+            prev = prev->next;
+        }
+
+        ListNode *current = prev->next;
+
+        // Remove nodes in range [begin, end)
+        for (size_t i = begin; i < end && current != nullptr; ++i)
+        {
+            ListNode *temp = current;
+            current = current->next;
+            delete temp; // Free the removed node
+        }
+
+        // Connect the node before `begin` to the node at `end`
+        prev->next = current;
+
+        return dummy.next; // Return the new head, which is the next of dummy node
     }
 }
 
