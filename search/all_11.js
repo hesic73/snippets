@@ -11,5 +11,6 @@ var searchData=
   ['sortthree_8',['sortThree',['../namespacehsc__snippets.html#adbdb05e51cc5a1ab1a9b3aea8075b2ef',1,'hsc_snippets']]],
   ['sqrt_9',['sqrt',['../classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54',1,'hsc_snippets::BigInteger']]],
   ['string_5futils_2ehpp_10',['string_utils.hpp',['../string__utils_8hpp.html',1,'']]],
-  ['sum_11',['sum',['../namespacehsc__snippets.html#a3e6dae9bb445381d5ec6a88094c9f315',1,'hsc_snippets::sum(T x)'],['../namespacehsc__snippets.html#adabb6992d6adc87e88949774ea718c67',1,'hsc_snippets::sum(T x, Args... args)']]]
+  ['subarrayswithatmostkdistinct_11',['subarraysWithAtMostKDistinct',['../namespacehsc__snippets.html#a97059b7ec97027b3b47ca79786b8704f',1,'hsc_snippets']]],
+  ['sum_12',['sum',['../namespacehsc__snippets.html#a3e6dae9bb445381d5ec6a88094c9f315',1,'hsc_snippets::sum(T x)'],['../namespacehsc__snippets.html#adabb6992d6adc87e88949774ea718c67',1,'hsc_snippets::sum(T x, Args... args)']]]
 ];

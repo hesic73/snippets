@@ -211,6 +211,8 @@ Functions</h2></td></tr>
 <tr class="separator:a9d31a87aa5ed5297257e6daea49a4c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18d5f09b15d654e057d86fee902cab7d" id="r_a18d5f09b15d654e057d86fee902cab7d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18d5f09b15d654e057d86fee902cab7d">SieveOfEratosthenes</a> (int n)</td></tr>
 <tr class="separator:a18d5f09b15d654e057d86fee902cab7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97059b7ec97027b3b47ca79786b8704f" id="r_a97059b7ec97027b3b47ca79786b8704f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97059b7ec97027b3b47ca79786b8704f">subarraysWithAtMostKDistinct</a> (const std::vector&lt; int &gt; &amp;nums, int k)</td></tr>
+<tr class="separator:a97059b7ec97027b3b47ca79786b8704f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a770cc063eb04b7231b755c72383511d3" id="r_a770cc063eb04b7231b755c72383511d3"><td class="memTemplParams" colspan="2">template&lt;std::totally_ordered T&gt; </td></tr>
 <tr class="memitem:a770cc063eb04b7231b755c72383511d3"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a770cc063eb04b7231b755c72383511d3">numOfGreaterElements</a> (const std::vector&lt; T &gt; &amp;v, T value)</td></tr>
 <tr class="separator:a770cc063eb04b7231b755c72383511d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1921,6 +1923,37 @@ template&lt;std::integral T&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a97059b7ec97027b3b47ca79786b8704f" name="a97059b7ec97027b3b47ca79786b8704f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97059b7ec97027b3b47ca79786b8704f">&#9670;&#160;</a></span>subarraysWithAtMostKDistinct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hsc_snippets::subarraysWithAtMostKDistinct </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>nums</em>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>k</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Counts subarrays with at most <code>k</code> distinct integers using a sliding window approach.</p>
+<p>Related LeetCode Problem: <a href="https://leetcode.com/problems/subarrays-with-k-different-integers/description/">https://leetcode.com/problems/subarrays-with-k-different-integers/description/</a></p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nums</td><td>A vector of integers. </td></tr>
+    <tr><td class="paramname">k</td><td>The maximum number of distinct integers allowed in a subarray. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The total count of such subarrays. </dd></dl>
 
 </div>
 </div>
