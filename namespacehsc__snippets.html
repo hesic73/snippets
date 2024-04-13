@@ -197,6 +197,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a58ccbeb569860677c784f504351db1d8" id="r_a58ccbeb569860677c784f504351db1d8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a58ccbeb569860677c784f504351db1d8"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a58ccbeb569860677c784f504351db1d8">nextGreaterElement</a> (const std::vector&lt; T &gt; &amp;nums, std::function&lt; T()&gt; no_greater)</td></tr>
 <tr class="separator:a58ccbeb569860677c784f504351db1d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9bc199445ac13f4653bf795c24cdf08" id="r_ac9bc199445ac13f4653bf795c24cdf08"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9bc199445ac13f4653bf795c24cdf08">largestRectangleInHistogram</a> (const std::vector&lt; int &gt; &amp;heights)</td></tr>
+<tr class="separator:ac9bc199445ac13f4653bf795c24cdf08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a21faa054d1afffbd2d869a99a54209de" id="r_a21faa054d1afffbd2d869a99a54209de"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
 <tr class="memitem:a21faa054d1afffbd2d869a99a54209de"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a21faa054d1afffbd2d869a99a54209de">numDigits</a> (T num)</td></tr>
 <tr class="separator:a21faa054d1afffbd2d869a99a54209de"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -980,6 +982,31 @@ template&lt;typename T , std::integral I = int&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A vector containing the starting indices of all occurrences of 'pat' within 'txt'. </dd></dl>
+
+</div>
+</div>
+<a id="ac9bc199445ac13f4653bf795c24cdf08" name="ac9bc199445ac13f4653bf795c24cdf08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9bc199445ac13f4653bf795c24cdf08">&#9670;&#160;</a></span>largestRectangleInHistogram()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int hsc_snippets::largestRectangleInHistogram </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>heights</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>LeetCode 84: Largest Rectangle in Histogram This function calculates the maximum area of a rectangle that can be formed within a given histogram. Each bar's height is given in the 'heights' vector, where each element represents the height of a bar.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">heights</td><td>A vector of integers where each integer represents the height of a histogram bar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The maximum area of the rectangle that can be formed in the histogram. </dd></dl>
 
 </div>
 </div>
