@@ -6,7 +6,8 @@ var searchData=
   ['slidingwindowmax_3',['SlidingWindowMax',['../classhsc__snippets_1_1SlidingWindowMax.html#a1ef1c1a9e171567e21696ed1e004ba8d',1,'hsc_snippets::SlidingWindowMax']]],
   ['smallest_5findex_4',['smallest_index',['../namespacehsc__snippets.html#a8b3d0574aec6857720f3494a33cc7a85',1,'hsc_snippets']]],
   ['sortthree_5',['sortThree',['../namespacehsc__snippets.html#adbdb05e51cc5a1ab1a9b3aea8075b2ef',1,'hsc_snippets']]],
-  ['sqrt_6',['sqrt',['../classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54',1,'hsc_snippets::BigInteger']]],
-  ['subarrayswithatmostkdistinct_7',['subarraysWithAtMostKDistinct',['../namespacehsc__snippets.html#a97059b7ec97027b3b47ca79786b8704f',1,'hsc_snippets']]],
-  ['sum_8',['sum',['../namespacehsc__snippets.html#a3e6dae9bb445381d5ec6a88094c9f315',1,'hsc_snippets::sum(T x)'],['../namespacehsc__snippets.html#adabb6992d6adc87e88949774ea718c67',1,'hsc_snippets::sum(T x, Args... args)']]]
+  ['split_6',['split',['../namespacehsc__snippets.html#a57bc4b2d7435fc0d95a1faa768e08797',1,'hsc_snippets']]],
+  ['sqrt_7',['sqrt',['../classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54',1,'hsc_snippets::BigInteger']]],
+  ['subarrayswithatmostkdistinct_8',['subarraysWithAtMostKDistinct',['../namespacehsc__snippets.html#a97059b7ec97027b3b47ca79786b8704f',1,'hsc_snippets']]],
+  ['sum_9',['sum',['../namespacehsc__snippets.html#a3e6dae9bb445381d5ec6a88094c9f315',1,'hsc_snippets::sum(T x)'],['../namespacehsc__snippets.html#adabb6992d6adc87e88949774ea718c67',1,'hsc_snippets::sum(T x, Args... args)']]]
 ];
