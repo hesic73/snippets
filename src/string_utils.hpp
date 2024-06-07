@@ -191,6 +191,22 @@ namespace hsc_snippets {
         return ss.str();
     }
 
+    /**
+     * Splits a given string into a vector of substrings based on a specified delimiter.
+     *
+     * @param s The input string to be split.
+     * @param delimiter The character used as the delimiter to split the string.
+     * @return A vector of substrings obtained by splitting the input string by the delimiter.
+     */
+    std::vector<std::string> split(const std::string &s, char delimiter) {
+        std::vector<std::string> tokens;
+        std::string token;
+        std::istringstream tokenStream(s);
+        while (std::getline(tokenStream, token, delimiter)) {
+            tokens.push_back(token);
+        }
+        return tokens;
+    }
 }
 
 #endif // STRING_UTILS_H
