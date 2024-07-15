@@ -8,15 +8,16 @@
 #include <cassert>
 #include <unordered_map>
 
-namespace hsc_snippets
-{
-    struct TreeNode
-    {
+namespace hsc_snippets {
+    struct TreeNode {
         int val;
         TreeNode *left;
         TreeNode *right;
+
         TreeNode() : val(0), left(nullptr), right(nullptr) {}
+
         TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+
         TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
     };
 
@@ -28,10 +29,8 @@ namespace hsc_snippets
      * @return A pointer to the root node of the newly constructed binary tree. Returns nullptr if
      *         the input vector is empty.
      */
-    TreeNode *new_binary_tree(const std::vector<std::optional<int>> v)
-    {
-        if (v.empty())
-        {
+    TreeNode *new_binary_tree(const std::vector<std::optional<int>> v) {
+        if (v.empty()) {
             return nullptr;
         }
 
@@ -44,22 +43,18 @@ namespace hsc_snippets
         q.push(root);
         int i = 1;
 
-        while (i < n)
-        {
+        while (i < n) {
             auto node = q.front();
             q.pop();
-            if (v[i].has_value())
-            {
+            if (v[i].has_value()) {
                 node->left = new TreeNode(v[i].value());
                 q.push(node->left);
             }
             i += 1;
-            if (i >= n)
-            {
+            if (i >= n) {
                 break;
             }
-            if (v[i].has_value())
-            {
+            if (v[i].has_value()) {
                 node->right = new TreeNode(v[i].value());
                 q.push(node->right);
             }
@@ -70,14 +65,50 @@ namespace hsc_snippets
     }
 
     /**
+     * Converts a binary tree to a vector of optional integers.
+     *
+     * @param root A pointer to the root node of the binary tree.
+     * @return A vector of std::optional<int> representing the binary tree in level-order traversal.
+     *         An std::nullopt value indicates the absence of a node at that position.
+     */
+    std::vector<std::optional<int>> binary_tree_to_vector(TreeNode *root) {
+        if (!root) {
+            return {};
+        }
+
+        std::vector<std::optional<int>> result;
+        std::queue<TreeNode *> q;
+        q.push(root);
+
+        while (!q.empty()) {
+            TreeNode *node = q.front();
+            q.pop();
+
+            if (node) {
+                result.emplace_back(node->val);
+                q.push(node->left);
+                q.push(node->right);
+            } else {
+                result.emplace_back(std::nullopt);
+            }
+        }
+
+        // Remove trailing nullopts for a more compact representation
+        while (!result.empty() && !result.back().has_value()) {
+            result.pop_back();
+        }
+
+        return result;
+    }
+
+    /**
      * Deletes all nodes of a binary tree to free memory.
      *
      * @param root A pointer to the root node of the binary tree. If the pointer is nullptr, the
      *             function does nothing, safely handling the case of an empty tree or reaching
      *             the end of a branch.
      */
-    void delete_binary_tree(TreeNode *root)
-    {
+    void delete_binary_tree(TreeNode *root) {
         if (root == nullptr)
             return;
         delete_binary_tree(root->left);
@@ -92,8 +123,7 @@ namespace hsc_snippets
      *             the depth is considered to be 0.
      * @return The depth of the binary tree as an integer. An empty tree has a depth of 0.
      */
-    int get_binary_tree_depth(TreeNode *root)
-    {
+    int get_binary_tree_depth(TreeNode *root) {
         if (root == nullptr)
             return 0;
         int depth = 1;
@@ -107,8 +137,7 @@ namespace hsc_snippets
      * @param root Root node of the binary tree.
      * @param func Function to process each node's value.
      */
-    void inorder(TreeNode *root, std::function<void(int)> func)
-    {
+    void inorder(TreeNode *root, std::function<void(int)> func) {
         if (root == nullptr)
             return;
         inorder(root->left, func);
@@ -121,8 +150,7 @@ namespace hsc_snippets
      * @param root Root node of the binary tree.
      * @param func Function to process each node's value.
      */
-    void preorder(TreeNode *root, std::function<void(int)> func)
-    {
+    void preorder(TreeNode *root, std::function<void(int)> func) {
         if (root == nullptr)
             return;
         func(root->val);
@@ -135,8 +163,7 @@ namespace hsc_snippets
      * @param root Root node of the binary tree.
      * @param func Function to process each node's value.
      */
-    void postorder(TreeNode *root, std::function<void(int)> func)
-    {
+    void postorder(TreeNode *root, std::function<void(int)> func) {
         if (root == nullptr)
             return;
 
@@ -155,27 +182,22 @@ namespace hsc_snippets
      * @return An unordered_map where keys are node values and values are vectors of integers
      *         representing the node values of adjacent nodes.
      */
-    std::unordered_map<int, std::vector<int>> binary_tree_to_adjacency_list(TreeNode *root)
-    {
+    std::unordered_map<int, std::vector<int>> binary_tree_to_adjacency_list(TreeNode *root) {
         auto adjacencyList = std::unordered_map<int, std::vector<int>>{};
-        if (root == nullptr)
-        {
+        if (root == nullptr) {
             return adjacencyList;
         }
         auto q = std::queue<TreeNode *>{};
         q.push(root);
-        while (!q.empty())
-        {
+        while (!q.empty()) {
             auto node = q.front();
             q.pop();
-            if (node->left != nullptr)
-            {
+            if (node->left != nullptr) {
                 adjacencyList[node->left->val].push_back(node->val);
                 adjacencyList[node->val].push_back(node->left->val);
                 q.push(node->left);
             }
-            if (node->right != nullptr)
-            {
+            if (node->right != nullptr) {
                 adjacencyList[node->right->val].push_back(node->val);
                 adjacencyList[node->val].push_back(node->right->val);
                 q.push(node->right);
