@@ -142,6 +142,8 @@ Typedefs</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a2d713b7bb2ef09fac4d0b640185b52b4" id="r_a2d713b7bb2ef09fac4d0b640185b52b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structhsc__snippets_1_1TreeNode.html">TreeNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d713b7bb2ef09fac4d0b640185b52b4">new_binary_tree</a> (const std::vector&lt; std::optional&lt; int &gt; &gt; v)</td></tr>
 <tr class="separator:a2d713b7bb2ef09fac4d0b640185b52b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab383720208008a636de2d2fdaae6f79d" id="r_ab383720208008a636de2d2fdaae6f79d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::optional&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab383720208008a636de2d2fdaae6f79d">binary_tree_to_vector</a> (<a class="el" href="structhsc__snippets_1_1TreeNode.html">TreeNode</a> *root)</td></tr>
+<tr class="separator:ab383720208008a636de2d2fdaae6f79d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a429782e4ffeba328dbfc0339166d667c" id="r_a429782e4ffeba328dbfc0339166d667c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a429782e4ffeba328dbfc0339166d667c">delete_binary_tree</a> (<a class="el" href="structhsc__snippets_1_1TreeNode.html">TreeNode</a> *root)</td></tr>
 <tr class="separator:a429782e4ffeba328dbfc0339166d667c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a26cce75b709a679ebc99a4abcdbbd7bd" id="r_a26cce75b709a679ebc99a4abcdbbd7bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26cce75b709a679ebc99a4abcdbbd7bd">get_binary_tree_depth</a> (<a class="el" href="structhsc__snippets_1_1TreeNode.html">TreeNode</a> *root)</td></tr>
@@ -416,6 +418,31 @@ template&lt;typename T , std::integral I = int&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>An unordered_map where keys are node values and values are vectors of integers representing the node values of adjacent nodes. </dd></dl>
+
+</div>
+</div>
+<a id="ab383720208008a636de2d2fdaae6f79d" name="ab383720208008a636de2d2fdaae6f79d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab383720208008a636de2d2fdaae6f79d">&#9670;&#160;</a></span>binary_tree_to_vector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::optional&lt; int &gt; &gt; hsc_snippets::binary_tree_to_vector </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhsc__snippets_1_1TreeNode.html">TreeNode</a> *</td>          <td class="paramname"><span class="paramname"><em>root</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Converts a binary tree to a vector of optional integers.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">root</td><td>A pointer to the root node of the binary tree. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A vector of std::optional&lt;int&gt; representing the binary tree in level-order traversal. An std::nullopt value indicates the absence of a node at that position. </dd></dl>
 
 </div>
 </div>
