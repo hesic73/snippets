@@ -1,22 +1,23 @@
-#ifndef UNION_FIND_H
-#define UNION_FIND_H
+#ifndef DISJOINT_SET_H
+#define DISJOINT_SET_H
 
 namespace hsc_snippets
 {
 #include <vector>
 
-    class UnionFind
+    class DisjointSet
     {
     private:
         std::vector<int> parent;
         std::vector<int> rank;
+        int count; // Number of distinct sets
 
     public:
         /**
-         * @brief Construct a new Union Find object.
+         * @brief Construct a new Disjoint Set object.
          * @param size The number of elements in the set.
          */
-        explicit UnionFind(int size) : parent(size), rank(size, 0)
+        explicit DisjointSet(int size) : parent(size), rank(size, 0), count(size)
         {
             for (int i = 0; i < size; ++i)
             {
@@ -65,9 +66,20 @@ namespace hsc_snippets
                 parent[rootQ] = rootP;
                 rank[rootP] += 1; // Increase the rank if both have the same rank.
             }
+
+            count--; // Decrease the number of sets
+        }
+
+        /**
+         * @brief Get the number of distinct sets.
+         * @return The number of distinct sets.
+         */
+        int getCount() const
+        {
+            return count;
         }
     };
 
 }
 
-#endif // UNION_FIND_H
+#endif // DISJOINT_SET_H
