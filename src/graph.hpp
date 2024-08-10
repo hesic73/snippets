@@ -347,7 +347,7 @@ namespace hsc_snippets
      * @return A vector of vectors, where each inner vector represents a connected component of the graph
      *         and contains all node identifiers within that component.
      */
-    std::vector<std::vector<int>> findConnectedComponents(std::unordered_map<int, std::vector<int>> &adj)
+    std::vector<std::vector<int>> find_connected_components(std::unordered_map<int, std::vector<int>> &adj)
     {
         std::unordered_map<int, bool> visited{}; // Tracks whether each node has been visited
         for (auto &&p : adj)
@@ -373,6 +373,46 @@ namespace hsc_snippets
 
         return connectedComponents; // Return all found connected components
     }
+
+
+    /**
+     * Counts the number of connected components in an undirected graph.
+     *
+     * @param adj The graph represented as an adjacency list, where keys are node identifiers and
+     *            values are lists of adjacent nodes.
+     * @return The number of connected components in the graph.
+     */
+    int count_connected_components(const std::unordered_map<int, std::vector<int>> &adj)
+    {
+        std::unordered_set<int> visited;
+        int component_count = 0;
+
+        auto dfs = [&](int node, auto &dfs_ref) -> void {
+            visited.insert(node);
+            for (int neighbor : adj.at(node))
+            {
+                if (visited.find(neighbor) == visited.end())
+                {
+                    dfs_ref(neighbor, dfs_ref);
+                }
+            }
+        };
+
+        for (const auto &p : adj)
+        {
+            int node = p.first;
+            if (visited.find(node) == visited.end())
+            {
+                // Start a DFS from the unvisited node
+                dfs(node, dfs);
+                // After DFS, we've explored an entire connected component
+                component_count++;
+            }
+        }
+
+        return component_count;
+    }
+
 }
 
 #endif // GRAPH_H
