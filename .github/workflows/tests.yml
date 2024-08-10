@@ -29,4 +29,4 @@ jobs:
       - name: Test
         run: |
           cd build
-          ctest -v -C Release
+          ctest --verbose -C Release
