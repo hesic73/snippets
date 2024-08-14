@@ -11,6 +11,5 @@ var searchData=
   ['getminvalueinstance_8',['getMinValueInstance',['../classhsc__snippets_1_1BigInteger.html#a8c596325505a6d1b92e455cb8ee40bdd',1,'hsc_snippets::BigInteger']]],
   ['graph_2ehpp_9',['graph.hpp',['../graph_8hpp.html',1,'']]],
   ['greaterthanall_10',['greaterThanAll',['../namespacehsc__snippets.html#a9919b9e521c5513278a973e42a1bbf42',1,'hsc_snippets::greaterThanAll(T x, T val)'],['../namespacehsc__snippets.html#aca360e3bd41a5aa9aa1873147e5bc823',1,'hsc_snippets::greaterThanAll(T x, T val, Args... args)']]],
-  ['greaterthanorequaltoall_11',['greaterThanOrEqualToAll',['../namespacehsc__snippets.html#a21c76cdee93b66ddae3fa5a37b42f19d',1,'hsc_snippets::greaterThanOrEqualToAll(T x, T val)'],['../namespacehsc__snippets.html#ae97854002bbec586ad6d0a52ab4315e3',1,'hsc_snippets::greaterThanOrEqualToAll(T x, T val, Args... args)']]],
-  ['greatest_5findex_12',['greatest_index',['../namespacehsc__snippets.html#ac7f93655a4a72d10c318c290783a2bdc',1,'hsc_snippets']]]
+  ['greaterthanorequaltoall_11',['greaterThanOrEqualToAll',['../namespacehsc__snippets.html#a21c76cdee93b66ddae3fa5a37b42f19d',1,'hsc_snippets::greaterThanOrEqualToAll(T x, T val)'],['../namespacehsc__snippets.html#ae97854002bbec586ad6d0a52ab4315e3',1,'hsc_snippets::greaterThanOrEqualToAll(T x, T val, Args... args)']]]
 ];

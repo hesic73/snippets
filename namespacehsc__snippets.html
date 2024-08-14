@@ -238,15 +238,21 @@ Functions</h2></td></tr>
 <tr class="memitem:a2f76e1d412f83567b03ef84aa374878a" id="r_a2f76e1d412f83567b03ef84aa374878a"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
 <tr class="memitem:a2f76e1d412f83567b03ef84aa374878a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2f76e1d412f83567b03ef84aa374878a">containsInRange</a> (const std::vector&lt; T &gt; &amp;vec, T start, T end)</td></tr>
 <tr class="separator:a2f76e1d412f83567b03ef84aa374878a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab19a8c1f33cd0fbc24e3ea9d093430d1" id="r_ab19a8c1f33cd0fbc24e3ea9d093430d1"><td class="memTemplParams" colspan="2">template&lt;typename T , std::integral I = int&gt; </td></tr>
-<tr class="memitem:ab19a8c1f33cd0fbc24e3ea9d093430d1"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; I &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab19a8c1f33cd0fbc24e3ea9d093430d1">binary_search</a> (I low, I high, const T &amp;value, auto &amp;&amp;func)</td></tr>
-<tr class="separator:ab19a8c1f33cd0fbc24e3ea9d093430d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7f93655a4a72d10c318c290783a2bdc" id="r_ac7f93655a4a72d10c318c290783a2bdc"><td class="memTemplParams" colspan="2">template&lt;typename T , std::integral I = int&gt; </td></tr>
-<tr class="memitem:ac7f93655a4a72d10c318c290783a2bdc"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac7f93655a4a72d10c318c290783a2bdc">greatest_index</a> (I low, I high, const T &amp;value, auto &amp;&amp;func)</td></tr>
-<tr class="separator:ac7f93655a4a72d10c318c290783a2bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b3d0574aec6857720f3494a33cc7a85" id="r_a8b3d0574aec6857720f3494a33cc7a85"><td class="memTemplParams" colspan="2">template&lt;typename T , std::integral I = int&gt; </td></tr>
-<tr class="memitem:a8b3d0574aec6857720f3494a33cc7a85"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8b3d0574aec6857720f3494a33cc7a85">smallest_index</a> (I low, I high, const T &amp;value, auto &amp;&amp;func)</td></tr>
-<tr class="separator:a8b3d0574aec6857720f3494a33cc7a85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02082c12d950f24bf7fce02f3b297f56" id="r_a02082c12d950f24bf7fce02f3b297f56"><td class="memTemplParams" colspan="2">template&lt;typename T , std::integral I = int&gt; </td></tr>
+<tr class="memitem:a02082c12d950f24bf7fce02f3b297f56"><td class="memTemplItemLeft" align="right" valign="top">std::optional&lt; I &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a02082c12d950f24bf7fce02f3b297f56">deferred_binary_search</a> (I low, I high, const T &amp;value, auto &amp;&amp;func)</td></tr>
+<tr class="separator:a02082c12d950f24bf7fce02f3b297f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a36174f67e1f87d9f5a216eb4d89fa48f" id="r_a36174f67e1f87d9f5a216eb4d89fa48f"><td class="memTemplParams" colspan="2">template&lt;typename T , std::integral I = int&gt; </td></tr>
+<tr class="memitem:a36174f67e1f87d9f5a216eb4d89fa48f"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a36174f67e1f87d9f5a216eb4d89fa48f">deferred_upper_bound</a> (I low, I high, const T &amp;value, auto &amp;&amp;func, auto &amp;&amp;comp)</td></tr>
+<tr class="separator:a36174f67e1f87d9f5a216eb4d89fa48f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a092b51d2598ce4226eb601e044152bc8" id="r_a092b51d2598ce4226eb601e044152bc8"><td class="memTemplParams" colspan="2">template&lt;typename T , std::integral I = int&gt; </td></tr>
+<tr class="memitem:a092b51d2598ce4226eb601e044152bc8"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a092b51d2598ce4226eb601e044152bc8">deferred_upper_bound</a> (I low, I high, const T &amp;value, auto &amp;&amp;func)</td></tr>
+<tr class="separator:a092b51d2598ce4226eb601e044152bc8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecad31f49f44ade0971cb68062a4044d" id="r_aecad31f49f44ade0971cb68062a4044d"><td class="memTemplParams" colspan="2">template&lt;typename T , std::integral I = int&gt; </td></tr>
+<tr class="memitem:aecad31f49f44ade0971cb68062a4044d"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aecad31f49f44ade0971cb68062a4044d">deferred_lower_bound</a> (I low, I high, const T &amp;value, auto &amp;&amp;func, auto &amp;&amp;comp)</td></tr>
+<tr class="separator:aecad31f49f44ade0971cb68062a4044d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9020303fa26c0f607fcb4059d0e919cf" id="r_a9020303fa26c0f607fcb4059d0e919cf"><td class="memTemplParams" colspan="2">template&lt;typename T , std::integral I = int&gt; </td></tr>
+<tr class="memitem:a9020303fa26c0f607fcb4059d0e919cf"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9020303fa26c0f607fcb4059d0e919cf">deferred_lower_bound</a> (I low, I high, const T &amp;value, auto &amp;&amp;func)</td></tr>
+<tr class="separator:a9020303fa26c0f607fcb4059d0e919cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbdb05e51cc5a1ab1a9b3aea8075b2ef" id="r_adbdb05e51cc5a1ab1a9b3aea8075b2ef"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
 <tr class="memitem:adbdb05e51cc5a1ab1a9b3aea8075b2ef"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adbdb05e51cc5a1ab1a9b3aea8075b2ef">sortThree</a> (T &amp;a, T &amp;b, T &amp;c)</td></tr>
 <tr class="separator:adbdb05e51cc5a1ab1a9b3aea8075b2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -361,39 +367,6 @@ template&lt;typename T &gt; </div>
 <span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
   </tr>
 </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab19a8c1f33cd0fbc24e3ea9d093430d1" name="ab19a8c1f33cd0fbc24e3ea9d093430d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab19a8c1f33cd0fbc24e3ea9d093430d1">&#9670;&#160;</a></span>binary_search()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::integral I = int&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::optional&lt; I &gt; hsc_snippets::binary_search </td>
-          <td>(</td>
-          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>high</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>&#160;)</td>
-        </tr>
-      </table>
 </div><div class="memdoc">
 
 </div>
@@ -568,6 +541,245 @@ template&lt;std::integral T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of connected components in the graph. </dd></dl>
+
+</div>
+</div>
+<a id="a02082c12d950f24bf7fce02f3b297f56" name="a02082c12d950f24bf7fce02f3b297f56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02082c12d950f24bf7fce02f3b297f56">&#9670;&#160;</a></span>deferred_binary_search()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::integral I = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt; I &gt; hsc_snippets::deferred_binary_search </td>
+          <td>(</td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>high</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Performs a binary search on a function-generated sequence of values to find a specific value. This function assumes that the values generated by <code>func</code> are in a non-decreasing order within the specified range of indices.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>The type of the values generated by the function and the type of <code>value</code>. </td></tr>
+    <tr><td class="paramname">I</td><td>The integral type used for indexing, with a default of int. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low</td><td>The lowest index of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">high</td><td>The highest index of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">value</td><td>The target value to search for within the function-generated sequence. </td></tr>
+    <tr><td class="paramname">func</td><td>A callable that takes an index of type I and returns a value of type T. This function must return values in a non-decreasing order over the range [low, high]. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::optional&lt;I&gt; containing the index at which the value equals <code>func(index)</code>, or std::nullopt if no such index exists. </dd></dl>
+
+</div>
+</div>
+<a id="a9020303fa26c0f607fcb4059d0e919cf" name="a9020303fa26c0f607fcb4059d0e919cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9020303fa26c0f607fcb4059d0e919cf">&#9670;&#160;</a></span>deferred_lower_bound() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::integral I = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">I hsc_snippets::deferred_lower_bound </td>
+          <td>(</td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>high</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finds the first position in [low, high] where func(position) is greater than or equal to value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low</td><td>The start of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">high</td><td>The end of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">value</td><td>The target value for comparison. </td></tr>
+    <tr><td class="paramname">func</td><td>A callable that returns values in a non-decreasing order. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the first position where func(position) is not less than value. </dd></dl>
+
+</div>
+</div>
+<a id="aecad31f49f44ade0971cb68062a4044d" name="aecad31f49f44ade0971cb68062a4044d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecad31f49f44ade0971cb68062a4044d">&#9670;&#160;</a></span>deferred_lower_bound() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::integral I = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">I hsc_snippets::deferred_lower_bound </td>
+          <td>(</td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>high</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>comp</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finds the first position in [low, high] where func(position) is greater than or equal to value, using a custom comparator.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low</td><td>The start of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">high</td><td>The end of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">value</td><td>The target value for comparison. </td></tr>
+    <tr><td class="paramname">func</td><td>A callable that returns values in a non-decreasing order. </td></tr>
+    <tr><td class="paramname">comp</td><td>A comparator to compare func(position) and value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the first position where !comp(func(position), value). </dd></dl>
+
+</div>
+</div>
+<a id="a092b51d2598ce4226eb601e044152bc8" name="a092b51d2598ce4226eb601e044152bc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a092b51d2598ce4226eb601e044152bc8">&#9670;&#160;</a></span>deferred_upper_bound() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::integral I = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">I hsc_snippets::deferred_upper_bound </td>
+          <td>(</td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>high</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finds the first position in [low, high] where func(position) is strictly greater than value.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low</td><td>The start of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">high</td><td>The end of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">value</td><td>The target value for comparison. </td></tr>
+    <tr><td class="paramname">func</td><td>A callable that returns values in a non-decreasing order. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the first position where func(position) is greater than value. </dd></dl>
+
+</div>
+</div>
+<a id="a36174f67e1f87d9f5a216eb4d89fa48f" name="a36174f67e1f87d9f5a216eb4d89fa48f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36174f67e1f87d9f5a216eb4d89fa48f">&#9670;&#160;</a></span>deferred_upper_bound() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , std::integral I = int&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">I hsc_snippets::deferred_upper_bound </td>
+          <td>(</td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>high</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>comp</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Finds the first position in [low, high] where func(position) is strictly greater than value, using a custom comparator.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">low</td><td>The start of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">high</td><td>The end of the search range (inclusive). </td></tr>
+    <tr><td class="paramname">value</td><td>The target value for comparison. </td></tr>
+    <tr><td class="paramname">func</td><td>A callable that returns values in a non-decreasing order. </td></tr>
+    <tr><td class="paramname">comp</td><td>A comparator to compare func(position) and value. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The index of the first position where comp(value, func(position)) returns true. </dd></dl>
 
 </div>
 </div>
@@ -916,57 +1128,6 @@ template&lt;numeric T, numeric... Args&gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="ac7f93655a4a72d10c318c290783a2bdc" name="ac7f93655a4a72d10c318c290783a2bdc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7f93655a4a72d10c318c290783a2bdc">&#9670;&#160;</a></span>greatest_index()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::integral I = int&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">I hsc_snippets::greatest_index </td>
-          <td>(</td>
-          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>high</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Finds the greatest index in a non-decreasing array where the function applied to the index returns a value less than or equal to the specified value.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of the value against which the function's results are compared. </td></tr>
-    <tr><td class="paramname">I</td><td>The integral type of the index, defaulting to int. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">low</td><td>The lower bound of the search range (inclusive). </td></tr>
-    <tr><td class="paramname">high</td><td>The upper bound of the search range (inclusive). </td></tr>
-    <tr><td class="paramname">value</td><td>The value to compare against the function's results. </td></tr>
-    <tr><td class="paramname">func</td><td>The function to apply to each index, expected to return non-decreasing values for the range [low, high]. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The greatest index for which func(index) &lt;= value, or -1 if no such index exists. </dd></dl>
 
 </div>
 </div>
@@ -1925,57 +2086,6 @@ template&lt;std::integral T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A std::vector&lt;int&gt; containing all the prime numbers less than or equal to n. </dd></dl>
-
-</div>
-</div>
-<a id="a8b3d0574aec6857720f3494a33cc7a85" name="a8b3d0574aec6857720f3494a33cc7a85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b3d0574aec6857720f3494a33cc7a85">&#9670;&#160;</a></span>smallest_index()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::integral I = int&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">I hsc_snippets::smallest_index </td>
-          <td>(</td>
-          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>low</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">I</td>          <td class="paramname"><span class="paramname"><em>high</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">auto &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>func</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Finds the smallest index in a non-decreasing array where the function applied to the index returns a value greater than or equal to the specified value.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of the value against which the function's results are compared. </td></tr>
-    <tr><td class="paramname">I</td><td>The integral type of the index, defaulting to int. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">low</td><td>The lower bound of the search range (inclusive). </td></tr>
-    <tr><td class="paramname">high</td><td>The upper bound of the search range (inclusive). </td></tr>
-    <tr><td class="paramname">value</td><td>The value to compare against the function's results. </td></tr>
-    <tr><td class="paramname">func</td><td>The function to apply to each index, expected to return non-decreasing values for the range [low, high]. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The smallest index for which func(index) &gt;= value, or -1 if no such index exists. </dd></dl>
 
 </div>
 </div>
