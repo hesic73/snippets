@@ -258,6 +258,8 @@ Functions</h2></td></tr>
 <tr class="memitem:adbdb05e51cc5a1ab1a9b3aea8075b2ef" id="r_adbdb05e51cc5a1ab1a9b3aea8075b2ef"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
 <tr class="memitem:adbdb05e51cc5a1ab1a9b3aea8075b2ef"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adbdb05e51cc5a1ab1a9b3aea8075b2ef">sortThree</a> (T &amp;a, T &amp;b, T &amp;c)</td></tr>
 <tr class="separator:adbdb05e51cc5a1ab1a9b3aea8075b2ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab68858627ec0d3fd210b936c80d46fb5" id="r_ab68858627ec0d3fd210b936c80d46fb5"><td class="memItemLeft" align="right" valign="top">static std::function&lt; int(int)&gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab68858627ec0d3fd210b936c80d46fb5">create_compression_mapper</a> (const std::vector&lt; int &gt; &amp;nums)</td></tr>
+<tr class="separator:ab68858627ec0d3fd210b936c80d46fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab6bd04e06f2b1c247c71d817cb114382" id="r_ab6bd04e06f2b1c247c71d817cb114382"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6bd04e06f2b1c247c71d817cb114382">kmpSearch</a> (const std::string &amp;pat, const std::string &amp;txt)</td></tr>
 <tr class="separator:ab6bd04e06f2b1c247c71d817cb114382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53b3bf79c6d5c2413f3bd31b909b21ba" id="r_a53b3bf79c6d5c2413f3bd31b909b21ba"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53b3bf79c6d5c2413f3bd31b909b21ba">isPalindrome</a> (const std::string &amp;s)</td></tr>
@@ -583,6 +585,41 @@ template&lt;std::integral T&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of connected components in the graph. </dd></dl>
+
+</div>
+</div>
+<a id="ab68858627ec0d3fd210b936c80d46fb5" name="ab68858627ec0d3fd210b936c80d46fb5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab68858627ec0d3fd210b936c80d46fb5">&#9670;&#160;</a></span>create_compression_mapper()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::function&lt; int(int)&gt; hsc_snippets::create_compression_mapper </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; int &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>nums</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Creates a compression mapper function for the given vector of integers.</p>
+<p>This function performs coordinate compression on the input vector <code>nums</code>, mapping each unique value to a continuous index in ascending order starting from 0. The returned function allows for efficient lookup of the compressed index corresponding to any value in the original vector.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">nums</td><td>The input vector of integers to be compressed. The vector can contain duplicate values. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A function that maps an integer to its compressed index. The compressed index represents the position of the integer in the sorted, unique version of <code>nums</code>.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The returned function captures the compressed vector by value, ensuring the integrity and lifespan of the data required for index lookup. </dd></dl>
 
 </div>
 </div>
