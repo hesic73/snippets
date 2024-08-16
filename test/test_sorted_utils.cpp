@@ -85,8 +85,9 @@ TEST_CASE("Randomized test for deferred_upper_bound and deferred_lower_bound", "
 TEST_CASE("Simple test for create_compression_mapper", "[simple]") {
     // Test case with distinct elements
     std::vector<int> nums = {10, 20, 15, 10, 30};
-    auto get_compressed_index = create_compression_mapper(nums);
+    auto [get_compressed_index, count] = create_compression_mapper(nums);
 
+    REQUIRE(count == 4); // Four unique elements
     REQUIRE(get_compressed_index(10) == 0);
     REQUIRE(get_compressed_index(15) == 1);
     REQUIRE(get_compressed_index(20) == 2);
@@ -94,14 +95,16 @@ TEST_CASE("Simple test for create_compression_mapper", "[simple]") {
 
     // Test case with all identical elements
     std::vector<int> identical_nums = {5, 5, 5, 5};
-    auto get_compressed_index_identical = create_compression_mapper(identical_nums);
+    auto [get_compressed_index_identical, count_identical] = create_compression_mapper(identical_nums);
 
+    REQUIRE(count_identical == 1); // One unique element
     REQUIRE(get_compressed_index_identical(5) == 0);
 
     // Test case with negative and positive elements
     std::vector<int> mixed_nums = {-10, 0, 10, -10, 20};
-    auto get_compressed_index_mixed = create_compression_mapper(mixed_nums);
+    auto [get_compressed_index_mixed, count_mixed] = create_compression_mapper(mixed_nums);
 
+    REQUIRE(count_mixed == 4); // Four unique elements
     REQUIRE(get_compressed_index_mixed(-10) == 0);
     REQUIRE(get_compressed_index_mixed(0) == 1);
     REQUIRE(get_compressed_index_mixed(10) == 2);
@@ -109,8 +112,9 @@ TEST_CASE("Simple test for create_compression_mapper", "[simple]") {
 
     // Test case with already sorted elements
     std::vector<int> sorted_nums = {1, 2, 3, 4, 5};
-    auto get_compressed_index_sorted = create_compression_mapper(sorted_nums);
+    auto [get_compressed_index_sorted, count_sorted] = create_compression_mapper(sorted_nums);
 
+    REQUIRE(count_sorted == 5); // Five unique elements
     REQUIRE(get_compressed_index_sorted(1) == 0);
     REQUIRE(get_compressed_index_sorted(2) == 1);
     REQUIRE(get_compressed_index_sorted(3) == 2);
@@ -119,7 +123,8 @@ TEST_CASE("Simple test for create_compression_mapper", "[simple]") {
 
     // Test case with a single element
     std::vector<int> single_num = {42};
-    auto get_compressed_index_single = create_compression_mapper(single_num);
+    auto [get_compressed_index_single, count_single] = create_compression_mapper(single_num);
 
+    REQUIRE(count_single == 1); // One unique element
     REQUIRE(get_compressed_index_single(42) == 0);
 }
