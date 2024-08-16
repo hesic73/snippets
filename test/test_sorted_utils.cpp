@@ -39,7 +39,7 @@ TEST_CASE("Complex cases with different functions", "[complex]") {
 
     SECTION("deferred_binary_search on parabolic function") {
         REQUIRE(deferred_binary_search(5, 10, 0, parabolic_function).value() ==
-                5); // Minimum at x=5, search starts at 5
+            5); // Minimum at x=5, search starts at 5
         REQUIRE(!deferred_binary_search(5, 10, -1, parabolic_function).has_value());
     }
 
@@ -80,4 +80,46 @@ TEST_CASE("Randomized test for deferred_upper_bound and deferred_lower_bound", "
             REQUIRE(result == expected);
         }
     }
+}
+
+TEST_CASE("Simple test for create_compression_mapper", "[simple]") {
+    // Test case with distinct elements
+    std::vector<int> nums = {10, 20, 15, 10, 30};
+    auto get_compressed_index = create_compression_mapper(nums);
+
+    REQUIRE(get_compressed_index(10) == 0);
+    REQUIRE(get_compressed_index(15) == 1);
+    REQUIRE(get_compressed_index(20) == 2);
+    REQUIRE(get_compressed_index(30) == 3);
+
+    // Test case with all identical elements
+    std::vector<int> identical_nums = {5, 5, 5, 5};
+    auto get_compressed_index_identical = create_compression_mapper(identical_nums);
+
+    REQUIRE(get_compressed_index_identical(5) == 0);
+
+    // Test case with negative and positive elements
+    std::vector<int> mixed_nums = {-10, 0, 10, -10, 20};
+    auto get_compressed_index_mixed = create_compression_mapper(mixed_nums);
+
+    REQUIRE(get_compressed_index_mixed(-10) == 0);
+    REQUIRE(get_compressed_index_mixed(0) == 1);
+    REQUIRE(get_compressed_index_mixed(10) == 2);
+    REQUIRE(get_compressed_index_mixed(20) == 3);
+
+    // Test case with already sorted elements
+    std::vector<int> sorted_nums = {1, 2, 3, 4, 5};
+    auto get_compressed_index_sorted = create_compression_mapper(sorted_nums);
+
+    REQUIRE(get_compressed_index_sorted(1) == 0);
+    REQUIRE(get_compressed_index_sorted(2) == 1);
+    REQUIRE(get_compressed_index_sorted(3) == 2);
+    REQUIRE(get_compressed_index_sorted(4) == 3);
+    REQUIRE(get_compressed_index_sorted(5) == 4);
+
+    // Test case with a single element
+    std::vector<int> single_num = {42};
+    auto get_compressed_index_single = create_compression_mapper(single_num);
+
+    REQUIRE(get_compressed_index_single(42) == 0);
 }

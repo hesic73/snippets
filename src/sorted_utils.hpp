@@ -4,6 +4,7 @@
 #include <vector>
 #include <concepts>
 #include <optional>
+#include <functional>
 
 namespace hsc_snippets {
     template<std::totally_ordered T>
@@ -56,7 +57,6 @@ namespace hsc_snippets {
                                             I high,
                                             const T &value,
                                             auto &&func) {
-
         while (low <= high) {
             I mid = low + (high - low) / 2;
             T res = func(mid);
@@ -132,7 +132,7 @@ namespace hsc_snippets {
      * @param comp A comparator to compare func(position) and value.
      * @return The index of the first position where !comp(func(position), value).
      */
-    I deferred_lower_bound(I low, I high, const T &value, auto &&func, auto&& comp) {
+    I deferred_lower_bound(I low, I high, const T &value, auto &&func, auto &&comp) {
         I it;
         I count = high - low + 1;
         I step;
@@ -150,7 +150,7 @@ namespace hsc_snippets {
             }
         }
 
-        return low;  // Returns the first index where the value is not less than the target value
+        return low; // Returns the first index where the value is not less than the target value
     }
 
     template<typename T, std::integral I = int>
@@ -189,6 +189,30 @@ namespace hsc_snippets {
         }
     }
 
+    /**
+     * Creates a compression mapper function for the given vector of integers.
+     *
+     * This function performs coordinate compression on the input vector `nums`,
+     * mapping each unique value to a continuous index in ascending order starting from 0.
+     * The returned function allows for efficient lookup of the compressed index
+     * corresponding to any value in the original vector.
+     *
+     * @param nums The input vector of integers to be compressed. The vector can contain duplicate values.
+     * @return A function that maps an integer to its compressed index. The compressed index represents
+     *         the position of the integer in the sorted, unique version of `nums`.
+     *
+     * @note The returned function captures the compressed vector by value, ensuring the
+     *       integrity and lifespan of the data required for index lookup.
+     */
+    static std::function<int(int)> create_compression_mapper(const std::vector<int> &nums) {
+        std::vector<int> compressed = nums;
+        std::sort(compressed.begin(), compressed.end());
+        compressed.erase(std::unique(compressed.begin(), compressed.end()), compressed.end());
+
+        return [compressed](int value) {
+            return std::lower_bound(compressed.begin(), compressed.end(), value) - compressed.begin();
+        };
+    }
 }
 
 #endif // SORTED_UTILS_H
