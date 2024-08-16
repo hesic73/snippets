@@ -24,7 +24,7 @@ namespace hsc_snippets
         return MODULO - x;
     }
 
-    constexpr int modular_substract(int x, int y)
+    constexpr int modular_subtract(int x, int y)
     {
         auto a = static_cast<std::int64_t>(x);
         auto b = static_cast<std::int64_t>(y);
@@ -58,7 +58,7 @@ namespace hsc_snippets
     }
 
     // Base 2 exponentiation % MODULO
-    int modular_pow2(size_t exponent)
+    static int modular_pow2(size_t exponent)
     {
         constexpr size_t N = 25;
         constexpr auto lookup{[]() constexpr
@@ -71,7 +71,7 @@ namespace hsc_snippets
                                   }
                                   return a;
                               }()};
-        if (exponent <= N)
+        if (exponent < N)
         {
             return lookup[exponent] % MODULO;
         }

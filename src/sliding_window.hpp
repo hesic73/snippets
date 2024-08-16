@@ -73,7 +73,7 @@ namespace hsc_snippets {
      * @param k The maximum number of distinct integers allowed in a subarray.
      * @return The total count of such subarrays.
      */
-    int subarraysWithAtMostKDistinct(const std::vector<int> &nums, int k) {
+    static int subarraysWithAtMostKDistinct(const std::vector<int> &nums, int k) {
         const int n = static_cast<int>(nums.size());
         std::unordered_map<int, int> m;
         int ans = 0;
@@ -84,8 +84,7 @@ namespace hsc_snippets {
             m[nums[right]]++;
 
             while (left <= right && m.size() > k) {
-                auto it = m.find(nums[left]);
-                if (it->second == 1) {
+                if (auto it = m.find(nums[left]); it->second == 1) {
                     m.erase(it);
                 } else {
                     it->second -= 1;

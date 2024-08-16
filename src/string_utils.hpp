@@ -20,9 +20,9 @@ namespace hsc_snippets {
      * @param txt The text string in which to search for the pattern.
      * @return A vector containing the starting indices of all occurrences of 'pat' within 'txt'.
      */
-    std::vector<int> kmpSearch(const std::string &pat, const std::string &txt) {
-        int M = pat.size();
-        int N = txt.size();
+    static std::vector<int> kmpSearch(const std::string &pat, const std::string &txt) {
+        const int M = static_cast<int>(pat.size());
+        const int N = static_cast<int>(txt.size());
 
         // Longest Prefix Suffix (lps) array
         std::vector<int> lps(M);
@@ -48,7 +48,7 @@ namespace hsc_snippets {
         }
 
         // Search the pattern in txt
-        i = 0;     // index for txt[]
+        i = 0; // index for txt[]
         int j = 0; // index for pat[]
         while (i < N) {
             if (pat[j] == txt[i]) {
@@ -77,9 +77,9 @@ namespace hsc_snippets {
      * @param s The string to check for palindromicity.
      * @return True if 's' is a palindrome, False otherwise.
      */
-    bool isPalindrome(const std::string &s) {
+    static bool isPalindrome(const std::string &s) {
         assert(!s.empty());
-        const int n = s.size();
+        const int n = static_cast<int>(s.size());
         for (int i = 0; i < n / 2; i++) {
             if (s[i] != s[n - 1 - i]) {
                 return false;
@@ -101,7 +101,8 @@ namespace hsc_snippets {
         ss << "[";
         for (size_t i = 0; i < vec.size(); ++i) {
             ss << vec[i];
-            if (i < vec.size() - 1) { // Check if it's not the last element
+            if (i < vec.size() - 1) {
+                // Check if it's not the last element
                 ss << ", ";
             }
         }
@@ -136,12 +137,13 @@ namespace hsc_snippets {
      * @return The string representation of the vector of pairs, formatted as "[{first1, second1}, {first2, second2}, ...]".
      */
     template<std::integral T>
-    std::string to_string(const std::vector<std::pair<T, T>> &vec) {
+    std::string to_string(const std::vector<std::pair<T, T> > &vec) {
         std::stringstream ss;
         ss << "[";
         for (size_t i = 0; i < vec.size(); ++i) {
             ss << to_string(vec[i]);
-            if (i < vec.size() - 1) { // Check if it's not the last element
+            if (i < vec.size() - 1) {
+                // Check if it's not the last element
                 ss << ", ";
             }
         }
@@ -157,12 +159,13 @@ namespace hsc_snippets {
      * @return A string that represents the vector's contents, formatted as "[element1, element2, ...]".
      *         If the vector is empty, the returned string will be "[]".
      */
-    std::string to_string(const std::vector<std::string> &vec) {
+    static std::string to_string(const std::vector<std::string> &vec) {
         std::stringstream ss;
         ss << "[";
         for (size_t i = 0; i < vec.size(); ++i) {
             ss << vec[i];
-            if (i < vec.size() - 1) { // Check if it's not the last element
+            if (i < vec.size() - 1) {
+                // Check if it's not the last element
                 ss << ", ";
             }
         }
@@ -178,12 +181,13 @@ namespace hsc_snippets {
      * @return The string representation of the vector of vectors.
      */
     template<std::integral T>
-    std::string to_string(const std::vector<std::vector<T>> &vec) {
+    std::string to_string(const std::vector<std::vector<T> > &vec) {
         std::stringstream ss;
         ss << "[";
         for (size_t i = 0; i < vec.size(); ++i) {
             ss << to_string(vec[i]);
-            if (i < vec.size() - 1) { // Check if it's not the last element
+            if (i < vec.size() - 1) {
+                // Check if it's not the last element
                 ss << ", ";
             }
         }
@@ -198,7 +202,7 @@ namespace hsc_snippets {
      * @param delimiter The character used as the delimiter to split the string.
      * @return A vector of substrings obtained by splitting the input string by the delimiter.
      */
-    std::vector<std::string> split(const std::string &s, char delimiter) {
+    static std::vector<std::string> split(const std::string &s, char delimiter) {
         std::vector<std::string> tokens;
         std::string token;
         std::istringstream tokenStream(s);

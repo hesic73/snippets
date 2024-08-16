@@ -24,7 +24,7 @@ namespace hsc_snippets
      *         Each inner vector corresponds to a node, containing pairs of connected nodes
      *         and their respective edge weights.
      */
-    std::vector<std::vector<std::pair<int, int>>> make_weighted_directed_adjacency_list(int n, const std::vector<std::vector<int>> &edges)
+    static std::vector<std::vector<std::pair<int, int>>> make_weighted_directed_adjacency_list(int n, const std::vector<std::vector<int>> &edges)
     {
         auto adjacency_list = std::vector<std::vector<std::pair<int, int>>>(n);
         for (auto &&edge : edges)
@@ -49,7 +49,7 @@ namespace hsc_snippets
      *         Each inner vector corresponds to a node, containing the indices of
      *         connected nodes (edges are unweighted in this representation).
      */
-    std::vector<std::vector<int>> make_unweighted_undirected_adjacency_list(int n, const std::vector<std::vector<int>> &edges)
+    static std::vector<std::vector<int>> make_unweighted_undirected_adjacency_list(int n, const std::vector<std::vector<int>> &edges)
     {
         auto adjacency_list = std::vector<std::vector<int>>(n);
         for (auto &&edge : edges)
@@ -74,7 +74,7 @@ namespace hsc_snippets
      *         Each inner vector corresponds to a node, containing pairs of connected nodes
      *         and their respective edge weights.
      */
-    std::vector<std::vector<std::pair<int, int>>> make_weighted_undirected_adjacency_list(int n, const std::vector<std::vector<int>> &edges)
+    static std::vector<std::vector<std::pair<int, int>>> make_weighted_undirected_adjacency_list(int n, const std::vector<std::vector<int>> &edges)
     {
         auto adjacency_list = std::vector<std::vector<std::pair<int, int>>>(n);
         for (auto &&edge : edges)
@@ -100,7 +100,7 @@ namespace hsc_snippets
      *         Each inner vector corresponds to a node, containing the indices of
      *         connected nodes (edges are unweighted in this representation).
      */
-    std::vector<std::vector<int>> make_unweighted_directed_adjacency_list(int n, const std::vector<std::vector<int>> &edges)
+    static std::vector<std::vector<int>> make_unweighted_directed_adjacency_list(int n, const std::vector<std::vector<int>> &edges)
     {
         auto adjacency_list = std::vector<std::vector<int>>(n);
         for (auto &&edge : edges)
@@ -123,7 +123,7 @@ namespace hsc_snippets
      *                 It takes two parameters: the distance of the current node from the root
      *                 and the index of the current node.
      */
-    void breadth_first_search(std::vector<std::vector<int>> &adjacency_list, int root, std::function<void(int, int)> callback)
+    static void breadth_first_search(std::vector<std::vector<int>> &adjacency_list, int root, std::function<void(int, int)> callback)
     {
         auto visited = std::unordered_set<int>{};
         auto q = std::queue<std::pair<int, int>>{}; // Regular queue for BFS
@@ -161,7 +161,7 @@ namespace hsc_snippets
      * @param callback A function to be called for each visited node. It takes the distance from the root
      *                 and the node itself as arguments.
      */
-    void breadth_first_search(std::unordered_map<int, std::vector<int>> &adjacency_list, int root, std::function<void(int, int)> callback)
+    static void breadth_first_search(std::unordered_map<int, std::vector<int>> &adjacency_list, int root, std::function<void(int, int)> callback)
     {
         auto visited = std::unordered_set<int>{};
         auto q = std::queue<std::pair<int, int>>{}; // Regular queue for BFS
@@ -201,7 +201,7 @@ namespace hsc_snippets
      *                 It takes two parameters: the distance of the current node from the root
      *                 and the index of the current node.
      */
-    void depth_first_search(std::vector<std::vector<int>> &adjacency_list, int root, std::function<void(int, int)> callback)
+    static void depth_first_search(std::vector<std::vector<int>> &adjacency_list, int root, std::function<void(int, int)> callback)
     {
         auto visited = std::unordered_set<int>{};
         auto stack = std::stack<std::pair<int, int>>{}; // Stack for DFS
@@ -239,7 +239,7 @@ namespace hsc_snippets
      * @param dst Destination vertex.
      * @return Shortest distance from source to destination. Returns -1 if no path exists.
      */
-    int dijkstra(int n, const std::vector<std::vector<std::pair<int, int>>> &adjacency_list, int src, int dst)
+    static int dijkstra(int n, const std::vector<std::vector<std::pair<int, int>>> &adjacency_list, int src, int dst)
     {
 
         std::vector<int> dist(n, std::numeric_limits<int>::max());
@@ -286,7 +286,7 @@ namespace hsc_snippets
      * @return A vector representing the Eulerian path or circuit as a sequence of vertex
      *         indices. If a circuit exists, the path can start from any vertex in the circuit.
      */
-    std::vector<int> find_euler_path_directed(const std::vector<std::vector<int>> &edges)
+    static std::vector<int> find_euler_path_directed(const std::vector<std::vector<int>> &edges)
     {
         std::unordered_map<int, std::stack<int>> adj;
         std::unordered_map<int, int> in;
@@ -347,7 +347,7 @@ namespace hsc_snippets
      * @return A vector of vectors, where each inner vector represents a connected component of the graph
      *         and contains all node identifiers within that component.
      */
-    std::vector<std::vector<int>> find_connected_components(std::unordered_map<int, std::vector<int>> &adj)
+    static std::vector<std::vector<int>> find_connected_components(std::unordered_map<int, std::vector<int>> &adj)
     {
         std::unordered_map<int, bool> visited{}; // Tracks whether each node has been visited
         for (auto &&p : adj)
@@ -382,7 +382,7 @@ namespace hsc_snippets
      *            values are lists of adjacent nodes.
      * @return The number of connected components in the graph.
      */
-    int count_connected_components(const std::unordered_map<int, std::vector<int>> &adj)
+    static int count_connected_components(const std::unordered_map<int, std::vector<int>> &adj)
     {
         std::unordered_set<int> visited;
         int component_count = 0;

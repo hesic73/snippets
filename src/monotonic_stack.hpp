@@ -94,7 +94,7 @@ namespace hsc_snippets {
      * @param heights A vector of integers where each integer represents the height of a histogram bar.
      * @return The maximum area of the rectangle that can be formed in the histogram.
      */
-    int largestRectangleInHistogram(const std::vector<int> &heights) {
+    static int largestRectangleInHistogram(const std::vector<int> &heights) {
         std::stack<int> s;
         int maxArea = 0;
         int n = static_cast<int>(heights.size());

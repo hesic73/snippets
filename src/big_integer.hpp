@@ -1,6 +1,7 @@
 #ifndef BIG_INTEGER_H
 #define BIG_INTEGER_H
 
+#include <ranges>
 #include <vector>
 #include <string>
 #include <algorithm>
@@ -52,7 +53,7 @@ namespace hsc_snippets {
         BigInteger() = default;
 
         BigInteger(bool isNegative, const std::vector<std::uint8_t> &digits)
-                : isNegative(isNegative), digits(digits) {}
+                : digits(digits), isNegative(isNegative) {}
 
 #pragma endregion
 
@@ -177,8 +178,8 @@ namespace hsc_snippets {
             }
 
             str.reserve(digits.size() + str.size());
-            for (auto it = digits.rbegin(); it != digits.rend(); ++it) {
-                str += '0' + *it;
+            for (unsigned char digit : std::ranges::reverse_view(digits)) {
+                str += static_cast<char>('0' + digit);
             }
             return str;
         }
@@ -802,13 +803,11 @@ namespace hsc_snippets {
 
             BigInteger low = one();
             BigInteger high = number;
-            BigInteger mid;
             BigInteger prev;
-            BigInteger square;
 
             while (low <= high) {
-                mid = (low + high) / two();
-                square = mid * mid;
+                BigInteger mid = (low + high) / two();
+                BigInteger square = mid * mid;
 
                 if (square == number) {
                     return mid;

@@ -92,7 +92,7 @@ namespace hsc_snippets
 	 * @param n The upper limit (inclusive) up to which prime numbers are to be found.
 	 * @return A std::vector<int> containing all the prime numbers less than or equal to n.
 	 */
-	std::vector<int> SieveOfEratosthenes(int n)
+	static std::vector<int> SieveOfEratosthenes(int n)
 	{
 		// Initialize a boolean vector "prime" with entries up to n. All entries are initially set to true.
 		// A value in prime[i] will be false if i is not a prime number, and true if it is a prime number.

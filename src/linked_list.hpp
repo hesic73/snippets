@@ -24,7 +24,7 @@ namespace hsc_snippets
      * @param head A pointer to the head of the linked list.
      * @return The number of nodes in the linked list.
      */
-    int get_linked_list_length(ListNode *head)
+    static int get_linked_list_length(ListNode *head)
     {
         int len = 0;
         while (head != nullptr)
@@ -41,7 +41,7 @@ namespace hsc_snippets
      * @param v A reference to a vector of integers from which to create the linked list.
      * @return A pointer to the head of the newly created linked list.
      */
-    ListNode *make_linked_list(const std::vector<int> &v)
+    static ListNode *make_linked_list(const std::vector<int> &v)
     {
         if (v.empty())
         {
@@ -74,7 +74,7 @@ namespace hsc_snippets
      * @param head A pointer to the head of the linked list.
      * @return A vector of integers containing the values of the linked list nodes.
      */
-    std::vector<int> linked_list_to_vector(ListNode *head)
+    static std::vector<int> linked_list_to_vector(ListNode *head)
     {
         auto v = std::vector<int>{};
         while (head != nullptr)
@@ -90,7 +90,7 @@ namespace hsc_snippets
      *
      * @param head A pointer to the head of the linked list to be deleted.
      */
-    void linked_list_delete(ListNode *head)
+    static void linked_list_delete(ListNode *head)
     {
         if (head == nullptr)
         {
@@ -114,7 +114,7 @@ namespace hsc_snippets
      * @param end The ending index of the range to remove nodes (exclusive).
      * @return A pointer to the head of the modified linked list.
      */
-    ListNode *linked_list_remove(ListNode *head, size_t begin, size_t end)
+    static ListNode *linked_list_remove(ListNode *head, size_t begin, size_t end)
     {
         if (head == nullptr || begin >= end)
         {

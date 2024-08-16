@@ -29,7 +29,7 @@ namespace hsc_snippets {
      * @return A pointer to the root node of the newly constructed binary tree. Returns nullptr if
      *         the input vector is empty.
      */
-    TreeNode *new_binary_tree(const std::vector<std::optional<int>> v) {
+    static TreeNode *new_binary_tree(const std::vector<std::optional<int>> v) {
         if (v.empty()) {
             return nullptr;
         }
@@ -71,7 +71,7 @@ namespace hsc_snippets {
      * @return A vector of std::optional<int> representing the binary tree in level-order traversal.
      *         An std::nullopt value indicates the absence of a node at that position.
      */
-    std::vector<std::optional<int>> binary_tree_to_vector(TreeNode *root) {
+    static std::vector<std::optional<int>> binary_tree_to_vector(TreeNode *root) {
         if (!root) {
             return {};
         }
@@ -108,7 +108,7 @@ namespace hsc_snippets {
      *             function does nothing, safely handling the case of an empty tree or reaching
      *             the end of a branch.
      */
-    void delete_binary_tree(TreeNode *root) {
+    static void delete_binary_tree(TreeNode *root) {
         if (root == nullptr)
             return;
         delete_binary_tree(root->left);
@@ -123,7 +123,7 @@ namespace hsc_snippets {
      *             the depth is considered to be 0.
      * @return The depth of the binary tree as an integer. An empty tree has a depth of 0.
      */
-    int get_binary_tree_depth(TreeNode *root) {
+    static int get_binary_tree_depth(TreeNode *root) {
         if (root == nullptr)
             return 0;
         int depth = 1;
@@ -137,7 +137,7 @@ namespace hsc_snippets {
      * @param root Root node of the binary tree.
      * @param func Function to process each node's value.
      */
-    void inorder(TreeNode *root, std::function<void(int)> func) {
+    static void inorder(TreeNode *root, std::function<void(int)> func) {
         if (root == nullptr)
             return;
         inorder(root->left, func);
@@ -150,7 +150,7 @@ namespace hsc_snippets {
      * @param root Root node of the binary tree.
      * @param func Function to process each node's value.
      */
-    void preorder(TreeNode *root, std::function<void(int)> func) {
+    static void preorder(TreeNode *root, std::function<void(int)> func) {
         if (root == nullptr)
             return;
         func(root->val);
@@ -163,7 +163,7 @@ namespace hsc_snippets {
      * @param root Root node of the binary tree.
      * @param func Function to process each node's value.
      */
-    void postorder(TreeNode *root, std::function<void(int)> func) {
+    static void postorder(TreeNode *root, std::function<void(int)> func) {
         if (root == nullptr)
             return;
 
@@ -182,7 +182,7 @@ namespace hsc_snippets {
      * @return An unordered_map where keys are node values and values are vectors of integers
      *         representing the node values of adjacent nodes.
      */
-    std::unordered_map<int, std::vector<int>> binary_tree_to_adjacency_list(TreeNode *root) {
+    static std::unordered_map<int, std::vector<int>> binary_tree_to_adjacency_list(TreeNode *root) {
         auto adjacencyList = std::unordered_map<int, std::vector<int>>{};
         if (root == nullptr) {
             return adjacencyList;
