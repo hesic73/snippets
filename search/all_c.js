@@ -1,7 +1,7 @@
 var searchData=
 [
   ['negate_0',['negate',['../classhsc__snippets_1_1BigInteger.html#aaf4586231777fa9601a193e335847ab9',1,'hsc_snippets::BigInteger']]],
-  ['new_5fbinary_5ftree_1',['new_binary_tree',['../namespacehsc__snippets.html#a2d713b7bb2ef09fac4d0b640185b52b4',1,'hsc_snippets']]],
+  ['new_5fbinary_5ftree_1',['new_binary_tree',['../namespacehsc__snippets.html#a136d6a09342381325d92a6c9d17a3fac',1,'hsc_snippets']]],
   ['next_2',['next',['../structhsc__snippets_1_1ListNode.html#a93befde5fdda45fbb14f457d31dd8023',1,'hsc_snippets::ListNode']]],
   ['nextgreaterelement_3',['nextGreaterElement',['../namespacehsc__snippets.html#a58ccbeb569860677c784f504351db1d8',1,'hsc_snippets']]],
   ['number_5futils_2ehpp_4',['number_utils.hpp',['../number__utils_8hpp.html',1,'']]],
