@@ -9,7 +9,13 @@ var searchData=
   ['getintervals_6',['getIntervals',['../classhsc__snippets_1_1IntervalMap.html#a08f7962d440b1bd213ff8c94d2c476b2',1,'hsc_snippets::IntervalMap::getIntervals()'],['../classhsc__snippets_1_1IntervalSet.html#abb15aefac65c9f6ef434703e8d1aeb45',1,'hsc_snippets::IntervalSet::getIntervals()']]],
   ['getmaxvalueinstance_7',['getMaxValueInstance',['../classhsc__snippets_1_1BigInteger.html#a47dba5230062060b6fcce13b8b0b093f',1,'hsc_snippets::BigInteger']]],
   ['getminvalueinstance_8',['getMinValueInstance',['../classhsc__snippets_1_1BigInteger.html#a8c596325505a6d1b92e455cb8ee40bdd',1,'hsc_snippets::BigInteger']]],
-  ['graph_2ehpp_9',['graph.hpp',['../graph_8hpp.html',1,'']]],
-  ['greaterthanall_10',['greaterThanAll',['../namespacehsc__snippets.html#a9919b9e521c5513278a973e42a1bbf42',1,'hsc_snippets::greaterThanAll(T x, T val)'],['../namespacehsc__snippets.html#aca360e3bd41a5aa9aa1873147e5bc823',1,'hsc_snippets::greaterThanAll(T x, T val, Args... args)']]],
-  ['greaterthanorequaltoall_11',['greaterThanOrEqualToAll',['../namespacehsc__snippets.html#a21c76cdee93b66ddae3fa5a37b42f19d',1,'hsc_snippets::greaterThanOrEqualToAll(T x, T val)'],['../namespacehsc__snippets.html#ae97854002bbec586ad6d0a52ab4315e3',1,'hsc_snippets::greaterThanOrEqualToAll(T x, T val, Args... args)']]]
+  ['getprefixmax_9',['getPrefixMax',['../namespacehsc__snippets.html#a99ce4368d4f4c5ca1ab4959cd68c95b6',1,'hsc_snippets']]],
+  ['getprefixmin_10',['getPrefixMin',['../namespacehsc__snippets.html#a96d8767443119ae94d6401e750df49d4',1,'hsc_snippets']]],
+  ['getprefixsum_11',['getPrefixSum',['../namespacehsc__snippets.html#ac3d6c4d4f4ddd13119de137ddcef7d46',1,'hsc_snippets']]],
+  ['getsuffixmax_12',['getSuffixMax',['../namespacehsc__snippets.html#a5d62a802305764f19b2a54a23404d1b6',1,'hsc_snippets']]],
+  ['getsuffixmin_13',['getSuffixMin',['../namespacehsc__snippets.html#a33c06b519aff691bfd054ba9bb3c1ef3',1,'hsc_snippets']]],
+  ['getsuffixsum_14',['getSuffixSum',['../namespacehsc__snippets.html#a201f499f92fb7f8d6bc0994f12787d3f',1,'hsc_snippets']]],
+  ['graph_2ehpp_15',['graph.hpp',['../graph_8hpp.html',1,'']]],
+  ['greaterthanall_16',['greaterThanAll',['../namespacehsc__snippets.html#a9919b9e521c5513278a973e42a1bbf42',1,'hsc_snippets::greaterThanAll(T x, T val)'],['../namespacehsc__snippets.html#aca360e3bd41a5aa9aa1873147e5bc823',1,'hsc_snippets::greaterThanAll(T x, T val, Args... args)']]],
+  ['greaterthanorequaltoall_17',['greaterThanOrEqualToAll',['../namespacehsc__snippets.html#a21c76cdee93b66ddae3fa5a37b42f19d',1,'hsc_snippets::greaterThanOrEqualToAll(T x, T val)'],['../namespacehsc__snippets.html#ae97854002bbec586ad6d0a52ab4315e3',1,'hsc_snippets::greaterThanOrEqualToAll(T x, T val, Args... args)']]]
 ];
