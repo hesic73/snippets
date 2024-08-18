@@ -202,7 +202,7 @@ namespace hsc_snippets {
      * @param delimiter The character used as the delimiter to split the string.
      * @return A vector of substrings obtained by splitting the input string by the delimiter.
      */
-    static std::vector<std::string> split(const std::string &s, char delimiter) {
+    static std::vector<std::string> string_split(const std::string &s, char delimiter) {
         std::vector<std::string> tokens;
         std::string token;
         std::istringstream tokenStream(s);
@@ -211,6 +211,53 @@ namespace hsc_snippets {
         }
         return tokens;
     }
+
+    /**
+     * Repeats a given string `s` for `n` times efficiently.
+     *
+     * This function creates a new string by repeating the input string `s` for `n` times.
+     * It pre-allocates the required memory and employs a doubling strategy to minimize
+     * the number of concatenations, which enhances performance, especially for large `n`.
+     *
+     * @param s The string to be repeated.
+     * @param n The number of times to repeat the string.
+     * @return A new string consisting of `s` repeated `n` times.
+     */
+    static std::string string_repeat(const std::string &s, size_t n) {
+        if (n == 0) return "";
+        if (n == 1) return s;
+        if (s.empty()) return "";
+
+        std::string result;
+        result.reserve(n * s.size());
+
+        size_t current_length = s.size();
+        while (result.size() + current_length <= n * s.size()) {
+            result += s;
+        }
+
+        // Append the remaining part to reach exactly n * s.size()
+        result += result.substr(0, (n * s.size()) - result.size());
+
+        return result;
+    }
+
+    /**
+     * Repeats a given character `c` for `n` times, producing a new string.
+     *
+     * This function creates a string consisting of the character `c` repeated `n` times.
+     * It efficiently initializes the string with the required size and fills it with the character `c`.
+     *
+     * @param c The character to be repeated.
+     * @param n The number of times to repeat the character.
+     * @return A new string consisting of the character `c` repeated `n` times. If `n` is 0, returns an empty string.
+     */
+    static std::string string_repeat(char c, size_t n) {
+        if (n == 0) return "";
+        std::string result(n, c);
+        return result;
+    }
+
 }
 
 #endif // STRING_UTILS_H
