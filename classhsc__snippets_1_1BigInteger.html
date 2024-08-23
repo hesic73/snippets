@@ -126,6 +126,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a50bbbc9e63f5ac20c78ab6cf78810990"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a138dd15e360d5ea30f1503ac059f01ae" id="r_a138dd15e360d5ea30f1503ac059f01ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a138dd15e360d5ea30f1503ac059f01ae">operator-=</a> (const <a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)</td></tr>
 <tr class="separator:a138dd15e360d5ea30f1503ac059f01ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8c1dda29ead332eb7fac8ab29d0f478" id="r_ad8c1dda29ead332eb7fac8ab29d0f478"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad8c1dda29ead332eb7fac8ab29d0f478">operator*=</a> (const <a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)</td></tr>
+<tr class="separator:ad8c1dda29ead332eb7fac8ab29d0f478"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fdc284e79f425b418ecb027f07ff7dd" id="r_a8fdc284e79f425b418ecb027f07ff7dd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8fdc284e79f425b418ecb027f07ff7dd">operator/=</a> (const <a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)</td></tr>
+<tr class="separator:a8fdc284e79f425b418ecb027f07ff7dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29c3483d4673b32fa2abf59c66fe740b" id="r_a29c3483d4673b32fa2abf59c66fe740b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29c3483d4673b32fa2abf59c66fe740b">operator%</a> (const <a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other) const</td></tr>
 <tr class="separator:a29c3483d4673b32fa2abf59c66fe740b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae960a49512143154a7b4b8a7b9e047b2" id="r_ae960a49512143154a7b4b8a7b9e047b2"><td class="memItemLeft" align="right" valign="top">std::pair&lt; <a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a>, <a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae960a49512143154a7b4b8a7b9e047b2">divmod</a> (const <a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other) const</td></tr>
@@ -850,6 +854,39 @@ template&lt;std::integral T&gt; </div>
 
 </div>
 </div>
+<a id="ad8c1dda29ead332eb7fac8ab29d0f478" name="ad8c1dda29ead332eb7fac8ab29d0f478"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8c1dda29ead332eb7fac8ab29d0f478">&#9670;&#160;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp; hsc_snippets::BigInteger::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Multiplies the current <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a> by another <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a> and assigns the result to the current object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a> to multiply with the current <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the current <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a> after multiplication. </dd></dl>
+
+</div>
+</div>
 <a id="a7162ee8f5c80a38a361f54bb9b725f1c" name="a7162ee8f5c80a38a361f54bb9b725f1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7162ee8f5c80a38a361f54bb9b725f1c">&#9670;&#160;</a></span>operator+()</h2>
 
@@ -1145,6 +1182,39 @@ template&lt;std::integral T&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a8fdc284e79f425b418ecb027f07ff7dd" name="a8fdc284e79f425b418ecb027f07ff7dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8fdc284e79f425b418ecb027f07ff7dd">&#9670;&#160;</a></span>operator/=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp; hsc_snippets::BigInteger::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>other</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Divides the current <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a> by another <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a> and assigns the result to the current object.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">other</td><td>The <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a> to divide the current <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a> by. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A reference to the current <a class="el" href="classhsc__snippets_1_1BigInteger.html" title="Implements a class for representing and manipulating large integers beyond the native integer range.">BigInteger</a> after division. </dd></dl>
 
 </div>
 </div>

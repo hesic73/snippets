@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>snippets: src/big_integer.hpp File Reference</title>
+<title>snippets: src/rational_number.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,61 +91,52 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a>  </div>
-  <div class="headertitle"><div class="title">big_integer.hpp File Reference</div></div>
+  <div class="headertitle"><div class="title">rational_number.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;ranges&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="big__integer_8hpp_source.html">big_integer.hpp</a>&quot;</code><br />
+<code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &lt;algorithm&gt;</code><br />
-<code>#include &lt;cstdint&gt;</code><br />
-<code>#include &lt;concepts&gt;</code><br />
-<code>#include &lt;optional&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;numeric&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for big_integer.hpp:</div>
+Include dependency graph for rational_number.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="big__integer_8hpp__incl.png" border="0" usemap="#asrc_2big__integer_8hpp" alt=""/></div>
-<map name="asrc_2big__integer_8hpp" id="asrc_2big__integer_8hpp">
-<area shape="rect" title=" " alt="" coords="313,5,443,31"/>
-<area shape="rect" title=" " alt="" coords="5,79,66,105"/>
-<area shape="poly" title=" " alt="" coords="313,34,81,81,80,76,312,28"/>
-<area shape="rect" title=" " alt="" coords="90,79,147,105"/>
-<area shape="poly" title=" " alt="" coords="334,34,162,81,161,76,333,29"/>
-<area shape="rect" title=" " alt="" coords="172,79,225,105"/>
-<area shape="poly" title=" " alt="" coords="349,34,240,77,239,72,347,29"/>
-<area shape="rect" title=" " alt="" coords="249,79,323,105"/>
-<area shape="poly" title=" " alt="" coords="364,34,315,72,312,67,361,29"/>
-<area shape="rect" title=" " alt="" coords="348,79,408,105"/>
-<area shape="poly" title=" " alt="" coords="381,31,381,63,376,63,376,31"/>
-<area shape="rect" title=" " alt="" coords="433,79,507,105"/>
-<area shape="poly" title=" " alt="" coords="395,29,445,67,441,72,392,34"/>
-<area shape="rect" title=" " alt="" coords="532,79,598,105"/>
-<area shape="poly" title=" " alt="" coords="411,29,520,70,518,75,409,34"/>
-<area shape="rect" title=" " alt="" coords="622,79,694,105"/>
-<area shape="poly" title=" " alt="" coords="426,29,608,75,607,80,425,34"/>
-<area shape="rect" title=" " alt="" coords="718,79,785,105"/>
-<area shape="poly" title=" " alt="" coords="444,27,703,76,702,81,443,33"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="big__integer_8hpp__dep__incl.png" border="0" usemap="#asrc_2big__integer_8hppdep" alt=""/></div>
-<map name="asrc_2big__integer_8hppdep" id="asrc_2big__integer_8hppdep">
-<area shape="rect" title=" " alt="" coords="20,5,150,31"/>
-<area shape="rect" href="rational__number_8hpp.html" title=" " alt="" coords="5,79,165,105"/>
-<area shape="poly" title=" " alt="" coords="88,46,88,79,82,79,82,46"/>
+<div class="center"><img src="rational__number_8hpp__incl.png" border="0" usemap="#asrc_2rational__number_8hpp" alt=""/></div>
+<map name="asrc_2rational__number_8hpp" id="asrc_2rational__number_8hpp">
+<area shape="rect" title=" " alt="" coords="310,5,469,31"/>
+<area shape="rect" href="big__integer_8hpp.html" title=" " alt="" coords="276,79,385,105"/>
+<area shape="poly" title=" " alt="" coords="382,33,352,69,348,65,378,30"/>
+<area shape="rect" title=" " alt="" coords="5,153,59,178"/>
+<area shape="poly" title=" " alt="" coords="360,34,74,150,72,145,358,29"/>
+<area shape="rect" title=" " alt="" coords="409,79,487,105"/>
+<area shape="poly" title=" " alt="" coords="401,30,431,65,427,69,397,33"/>
+<area shape="rect" title=" " alt="" coords="510,79,562,105"/>
+<area shape="poly" title=" " alt="" coords="415,29,498,69,496,74,413,34"/>
+<area shape="rect" title=" " alt="" coords="83,153,144,178"/>
+<area shape="poly" title=" " alt="" coords="295,108,159,152,158,147,293,103"/>
+<area shape="rect" title=" " alt="" coords="167,153,225,178"/>
+<area shape="poly" title=" " alt="" coords="309,108,233,147,231,143,307,103"/>
+<area shape="poly" title=" " alt="" coords="277,107,74,155,73,150,276,102"/>
+<area shape="rect" title=" " alt="" coords="248,153,322,178"/>
+<area shape="poly" title=" " alt="" coords="325,106,303,141,299,138,321,103"/>
+<area shape="rect" title=" " alt="" coords="347,153,408,178"/>
+<area shape="poly" title=" " alt="" coords="341,103,363,138,359,141,336,106"/>
+<area shape="rect" title=" " alt="" coords="432,153,506,178"/>
+<area shape="poly" title=" " alt="" coords="355,103,433,143,431,147,353,108"/>
+<area shape="rect" title=" " alt="" coords="531,153,597,178"/>
+<area shape="poly" title=" " alt="" coords="371,103,517,147,515,152,369,108"/>
+<area shape="rect" title=" " alt="" coords="622,153,693,178"/>
+<area shape="poly" title=" " alt="" coords="386,102,607,149,606,155,385,107"/>
+<area shape="rect" title=" " alt="" coords="717,153,784,178"/>
+<area shape="poly" title=" " alt="" coords="386,100,398,102,549,124,702,150,701,155,548,129,397,107,385,105"/>
 </map>
 </div>
 </div>
-<p><a href="big__integer_8hpp_source.html">Go to the source code of this file.</a></p>
+<p><a href="rational__number_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhsc__snippets_1_1BigInteger.html">hsc_snippets::BigInteger</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implements a class for representing and manipulating large integers beyond the native integer range.  <a href="classhsc__snippets_1_1BigInteger.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classhsc__snippets_1_1RationalNumber.html">hsc_snippets::RationalNumber</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>

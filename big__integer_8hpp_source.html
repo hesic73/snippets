@@ -141,62 +141,62 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a>(<span class="keywordtype">bool</span> isNegative, <span class="keyword">const</span> std::vector&lt;std::uint8_t&gt; &amp;digits)</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                : digits(digits), isNegative(isNegative) {}</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="preprocessor">#pragma region add&amp;subtract</span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        [[nodiscard]] <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> _add(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> result;</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            result.digits.clear(); <span class="comment">// Ensure the result starts with an empty digit vector</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>            <span class="keywordtype">size_t</span> maxLength = std::max(digits.size(), other.digits.size());</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordtype">int</span> carry = 0;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; maxLength || carry; ++i) {</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                <span class="keywordtype">int</span> digitSum = carry;</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>                <span class="keywordflow">if</span> (i &lt; digits.size()) {</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                    digitSum += digits[i];</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                }</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                <span class="keywordflow">if</span> (i &lt; other.digits.size()) {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                    digitSum += other.digits[i];</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                }</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>                result.digits.push_back(digitSum % 10); <span class="comment">// Store the single digit</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                carry = digitSum / 10; <span class="comment">// Calculate carry for the next digit</span></div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            }</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        }</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        [[nodiscard]] <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> _subtract(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> result;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            result.digits.clear();</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>            <span class="keywordtype">int</span> borrow = 0;</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; digits.size(); ++i) {</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                <span class="keywordtype">int</span> digitSub = digits[i] - borrow - (i &lt; other.digits.size() ? other.digits[i] : 0);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                borrow = 0;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>                <span class="keywordflow">if</span> (digitSub &lt; 0) {</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                    digitSub += 10;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                    borrow = 1;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                }</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>                result.digits.push_back(digitSub);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>            }</div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>            result.removeLeadingZeros(); <span class="comment">// Defined previously to remove leading zeros</span></div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keyword">public</span>:</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            : digits(digits), isNegative(isNegative) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="preprocessor">#pragma region add&amp;subtract</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        [[nodiscard]] <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> _add(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> result;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            result.digits.clear(); <span class="comment">// Ensure the result starts with an empty digit vector</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>            <span class="keywordtype">size_t</span> maxLength = std::max(digits.size(), other.digits.size());</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>            <span class="keywordtype">int</span> carry = 0;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; maxLength || carry; ++i) {</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                <span class="keywordtype">int</span> digitSum = carry;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>                <span class="keywordflow">if</span> (i &lt; digits.size()) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>                    digitSum += digits[i];</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>                }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>                <span class="keywordflow">if</span> (i &lt; other.digits.size()) {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>                    digitSum += other.digits[i];</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>                }</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                result.digits.push_back(digitSum % 10); <span class="comment">// Store the single digit</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                carry = digitSum / 10; <span class="comment">// Calculate carry for the next digit</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>            }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        [[nodiscard]] <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> _subtract(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> result;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>            result.digits.clear();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>            <span class="keywordtype">int</span> borrow = 0;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; digits.size(); ++i) {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>                <span class="keywordtype">int</span> digitSub = digits[i] - borrow - (i &lt; other.digits.size() ? other.digits[i] : 0);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>                borrow = 0;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                <span class="keywordflow">if</span> (digitSub &lt; 0) {</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                    digitSub += 10;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>                    borrow = 1;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>                }</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                result.digits.push_back(digitSub);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>            }</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>            result.removeLeadingZeros(); <span class="comment">// Defined previously to remove leading zeros</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>        }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keyword">public</span>:</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="preprocessor">#pragma region conversion</span></div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="foldopen" id="foldopen00120" data-start="{" data-end="}">
@@ -255,7 +255,7 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            }</div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            str.reserve(digits.size() + str.size());</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> digit : std::ranges::reverse_view(digits)) {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> digit: std::ranges::reverse_view(digits)) {</div>
 <div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>                str += <span class="keyword">static_cast&lt;</span><span class="keywordtype">char</span><span class="keyword">&gt;</span>(<span class="charliteral">&#39;0&#39;</span> + digit);</div>
 <div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            }</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            <span class="keywordflow">return</span> str;</div>
@@ -521,376 +521,391 @@ $(function(){ initResizable(false); });
 </div>
 <div class="line"><a id="l00497" name="l00497"></a><span class="lineno">  497</span> </div>
 <div class="line"><a id="l00498" name="l00498"></a><span class="lineno">  498</span> </div>
-<div class="line"><a id="l00499" name="l00499"></a><span class="lineno">  499</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00500" name="l00500"></a><span class="lineno">  500</span> </div>
-<div class="foldopen" id="foldopen00512" data-start="{" data-end="}">
-<div class="line"><a id="l00512" name="l00512"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a50bbbc9e63f5ac20c78ab6cf78810990">  512</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a50bbbc9e63f5ac20c78ab6cf78810990">operator+=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other) {</div>
-<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>            <span class="comment">// Use the existing addition logic (_add method, or however addition is implemented in your class)</span></div>
-<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> + other; <span class="comment">// This line might change depending on how you&#39;ve implemented addition internally</span></div>
-<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>; <span class="comment">// Return the current instance after modification</span></div>
-<div class="line"><a id="l00516" name="l00516"></a><span class="lineno">  516</span>        }</div>
+<div class="foldopen" id="foldopen00510" data-start="{" data-end="}">
+<div class="line"><a id="l00510" name="l00510"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a50bbbc9e63f5ac20c78ab6cf78810990">  510</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a50bbbc9e63f5ac20c78ab6cf78810990">operator+=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other) {</div>
+<div class="line"><a id="l00511" name="l00511"></a><span class="lineno">  511</span>            <span class="comment">// Use the existing addition logic (_add method, or however addition is implemented in your class)</span></div>
+<div class="line"><a id="l00512" name="l00512"></a><span class="lineno">  512</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> + other; <span class="comment">// This line might change depending on how you&#39;ve implemented addition internally</span></div>
+<div class="line"><a id="l00513" name="l00513"></a><span class="lineno">  513</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>; <span class="comment">// Return the current instance after modification</span></div>
+<div class="line"><a id="l00514" name="l00514"></a><span class="lineno">  514</span>        }</div>
 </div>
-<div class="line"><a id="l00517" name="l00517"></a><span class="lineno">  517</span> </div>
-<div class="foldopen" id="foldopen00529" data-start="{" data-end="}">
-<div class="line"><a id="l00529" name="l00529"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a138dd15e360d5ea30f1503ac059f01ae">  529</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a138dd15e360d5ea30f1503ac059f01ae">operator-=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other) {</div>
-<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>            <span class="comment">// Use the existing subtraction logic (_subtract method, or however subtraction is implemented in your class)</span></div>
-<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> - other; <span class="comment">// This line might change depending on how you&#39;ve implemented subtraction internally</span></div>
-<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>; <span class="comment">// Return the current instance after modification</span></div>
-<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span>        }</div>
+<div class="line"><a id="l00515" name="l00515"></a><span class="lineno">  515</span> </div>
+<div class="foldopen" id="foldopen00527" data-start="{" data-end="}">
+<div class="line"><a id="l00527" name="l00527"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a138dd15e360d5ea30f1503ac059f01ae">  527</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a138dd15e360d5ea30f1503ac059f01ae">operator-=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other) {</div>
+<div class="line"><a id="l00528" name="l00528"></a><span class="lineno">  528</span>            <span class="comment">// Use the existing subtraction logic (_subtract method, or however subtraction is implemented in your class)</span></div>
+<div class="line"><a id="l00529" name="l00529"></a><span class="lineno">  529</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> - other; <span class="comment">// This line might change depending on how you&#39;ve implemented subtraction internally</span></div>
+<div class="line"><a id="l00530" name="l00530"></a><span class="lineno">  530</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>; <span class="comment">// Return the current instance after modification</span></div>
+<div class="line"><a id="l00531" name="l00531"></a><span class="lineno">  531</span>        }</div>
 </div>
-<div class="line"><a id="l00534" name="l00534"></a><span class="lineno">  534</span> </div>
-<div class="line"><a id="l00535" name="l00535"></a><span class="lineno">  535</span> </div>
-<div class="foldopen" id="foldopen00547" data-start="{" data-end="}">
-<div class="line"><a id="l00547" name="l00547"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a29c3483d4673b32fa2abf59c66fe740b">  547</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a29c3483d4673b32fa2abf59c66fe740b">operator%</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00548" name="l00548"></a><span class="lineno">  548</span>            <span class="keywordflow">if</span> (other == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
-<div class="line"><a id="l00549" name="l00549"></a><span class="lineno">  549</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Modulo by zero&quot;</span>);</div>
-<div class="line"><a id="l00550" name="l00550"></a><span class="lineno">  550</span>            }</div>
-<div class="line"><a id="l00551" name="l00551"></a><span class="lineno">  551</span> </div>
-<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> quotient = *<span class="keyword">this</span> / other;</div>
-<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> product = quotient * other;</div>
-<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> remainder = *<span class="keyword">this</span> - product;</div>
+<div class="line"><a id="l00532" name="l00532"></a><span class="lineno">  532</span> </div>
+<div class="line"><a id="l00533" name="l00533"></a><span class="lineno">  533</span> </div>
+<div class="foldopen" id="foldopen00540" data-start="{" data-end="}">
+<div class="line"><a id="l00540" name="l00540"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ad8c1dda29ead332eb7fac8ab29d0f478">  540</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ad8c1dda29ead332eb7fac8ab29d0f478">operator*=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other) {</div>
+<div class="line"><a id="l00541" name="l00541"></a><span class="lineno">  541</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> * other;</div>
+<div class="line"><a id="l00542" name="l00542"></a><span class="lineno">  542</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00543" name="l00543"></a><span class="lineno">  543</span>        }</div>
+</div>
+<div class="line"><a id="l00544" name="l00544"></a><span class="lineno">  544</span> </div>
+<div class="foldopen" id="foldopen00551" data-start="{" data-end="}">
+<div class="line"><a id="l00551" name="l00551"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a8fdc284e79f425b418ecb027f07ff7dd">  551</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a8fdc284e79f425b418ecb027f07ff7dd">operator/=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other) {</div>
+<div class="line"><a id="l00552" name="l00552"></a><span class="lineno">  552</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> / other;</div>
+<div class="line"><a id="l00553" name="l00553"></a><span class="lineno">  553</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00554" name="l00554"></a><span class="lineno">  554</span>        }</div>
+</div>
 <div class="line"><a id="l00555" name="l00555"></a><span class="lineno">  555</span> </div>
-<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span>            <span class="keywordflow">return</span> remainder;</div>
-<div class="line"><a id="l00557" name="l00557"></a><span class="lineno">  557</span>        }</div>
+<div class="line"><a id="l00556" name="l00556"></a><span class="lineno">  556</span> </div>
+<div class="foldopen" id="foldopen00568" data-start="{" data-end="}">
+<div class="line"><a id="l00568" name="l00568"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a29c3483d4673b32fa2abf59c66fe740b">  568</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a29c3483d4673b32fa2abf59c66fe740b">operator%</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00569" name="l00569"></a><span class="lineno">  569</span>            <span class="keywordflow">if</span> (other == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
+<div class="line"><a id="l00570" name="l00570"></a><span class="lineno">  570</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Modulo by zero&quot;</span>);</div>
+<div class="line"><a id="l00571" name="l00571"></a><span class="lineno">  571</span>            }</div>
+<div class="line"><a id="l00572" name="l00572"></a><span class="lineno">  572</span> </div>
+<div class="line"><a id="l00573" name="l00573"></a><span class="lineno">  573</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> quotient = *<span class="keyword">this</span> / other;</div>
+<div class="line"><a id="l00574" name="l00574"></a><span class="lineno">  574</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> product = quotient * other;</div>
+<div class="line"><a id="l00575" name="l00575"></a><span class="lineno">  575</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> remainder = *<span class="keyword">this</span> - product;</div>
+<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span> </div>
+<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>            <span class="keywordflow">return</span> remainder;</div>
+<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>        }</div>
 </div>
-<div class="line"><a id="l00558" name="l00558"></a><span class="lineno">  558</span> </div>
-<div class="line"><a id="l00559" name="l00559"></a><span class="lineno">  559</span> </div>
-<div class="foldopen" id="foldopen00575" data-start="{" data-end="}">
-<div class="line"><a id="l00575" name="l00575"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ae960a49512143154a7b4b8a7b9e047b2">  575</a></span>        [[nodiscard]] std::pair&lt;BigInteger, BigInteger&gt; <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae960a49512143154a7b4b8a7b9e047b2">divmod</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00576" name="l00576"></a><span class="lineno">  576</span>            <span class="keywordflow">if</span> (other == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
-<div class="line"><a id="l00577" name="l00577"></a><span class="lineno">  577</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Modulo by zero&quot;</span>);</div>
-<div class="line"><a id="l00578" name="l00578"></a><span class="lineno">  578</span>            }</div>
 <div class="line"><a id="l00579" name="l00579"></a><span class="lineno">  579</span> </div>
-<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> quotient = *<span class="keyword">this</span> / other;</div>
-<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> product = quotient * other;</div>
-<div class="line"><a id="l00582" name="l00582"></a><span class="lineno">  582</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> remainder = *<span class="keyword">this</span> - product;</div>
-<div class="line"><a id="l00583" name="l00583"></a><span class="lineno">  583</span> </div>
-<div class="line"><a id="l00584" name="l00584"></a><span class="lineno">  584</span>            <span class="keywordflow">return</span> std::make_pair(quotient, remainder);</div>
-<div class="line"><a id="l00585" name="l00585"></a><span class="lineno">  585</span>        }</div>
+<div class="line"><a id="l00580" name="l00580"></a><span class="lineno">  580</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00581" name="l00581"></a><span class="lineno">  581</span> </div>
+<div class="foldopen" id="foldopen00597" data-start="{" data-end="}">
+<div class="line"><a id="l00597" name="l00597"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ae960a49512143154a7b4b8a7b9e047b2">  597</a></span>        [[nodiscard]] std::pair&lt;BigInteger, BigInteger&gt; <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae960a49512143154a7b4b8a7b9e047b2">divmod</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>            <span class="keywordflow">if</span> (other == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
+<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Modulo by zero&quot;</span>);</div>
+<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>            }</div>
+<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span> </div>
+<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> quotient = *<span class="keyword">this</span> / other;</div>
+<div class="line"><a id="l00603" name="l00603"></a><span class="lineno">  603</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> product = quotient * other;</div>
+<div class="line"><a id="l00604" name="l00604"></a><span class="lineno">  604</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> remainder = *<span class="keyword">this</span> - product;</div>
+<div class="line"><a id="l00605" name="l00605"></a><span class="lineno">  605</span> </div>
+<div class="line"><a id="l00606" name="l00606"></a><span class="lineno">  606</span>            <span class="keywordflow">return</span> std::make_pair(quotient, remainder);</div>
+<div class="line"><a id="l00607" name="l00607"></a><span class="lineno">  607</span>        }</div>
 </div>
-<div class="line"><a id="l00586" name="l00586"></a><span class="lineno">  586</span> </div>
-<div class="foldopen" id="foldopen00593" data-start="{" data-end="}">
-<div class="line"><a id="l00593" name="l00593"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#adb8ab0726c9b0c06aa406a27b865d0ca">  593</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#adb8ab0726c9b0c06aa406a27b865d0ca">max</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;b) {</div>
-<div class="line"><a id="l00594" name="l00594"></a><span class="lineno">  594</span>            <span class="keywordflow">if</span> (a.isNegative &amp;&amp; !b.isNegative) <span class="keywordflow">return</span> b; <span class="comment">// a is negative, b is positive</span></div>
-<div class="line"><a id="l00595" name="l00595"></a><span class="lineno">  595</span>            <span class="keywordflow">if</span> (!a.isNegative &amp;&amp; b.isNegative) <span class="keywordflow">return</span> a; <span class="comment">// a is positive, b is negative</span></div>
-<div class="line"><a id="l00596" name="l00596"></a><span class="lineno">  596</span> </div>
-<div class="line"><a id="l00597" name="l00597"></a><span class="lineno">  597</span>            <span class="comment">// Both are positive or negative</span></div>
-<div class="line"><a id="l00598" name="l00598"></a><span class="lineno">  598</span>            <span class="keywordflow">if</span> (a._isAbsoluteGreaterOrEqual(b))</div>
-<div class="line"><a id="l00599" name="l00599"></a><span class="lineno">  599</span>                <span class="keywordflow">return</span> a.isNegative ? b : a; <span class="comment">// If both have same sign, return based on absolute value</span></div>
-<div class="line"><a id="l00600" name="l00600"></a><span class="lineno">  600</span>            <span class="keywordflow">return</span> a.isNegative ? a : b;</div>
-<div class="line"><a id="l00601" name="l00601"></a><span class="lineno">  601</span>        }</div>
-</div>
-<div class="line"><a id="l00602" name="l00602"></a><span class="lineno">  602</span> </div>
-<div class="foldopen" id="foldopen00609" data-start="{" data-end="}">
-<div class="line"><a id="l00609" name="l00609"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a97f37e03980a728d40608abec948d4d5">  609</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a97f37e03980a728d40608abec948d4d5">min</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;b) {</div>
-<div class="line"><a id="l00610" name="l00610"></a><span class="lineno">  610</span>            <span class="keywordflow">if</span> (a.isNegative &amp;&amp; !b.isNegative) <span class="keywordflow">return</span> a; <span class="comment">// a is negative, b is positive</span></div>
-<div class="line"><a id="l00611" name="l00611"></a><span class="lineno">  611</span>            <span class="keywordflow">if</span> (!a.isNegative &amp;&amp; b.isNegative) <span class="keywordflow">return</span> b; <span class="comment">// a is positive, b is negative</span></div>
-<div class="line"><a id="l00612" name="l00612"></a><span class="lineno">  612</span> </div>
-<div class="line"><a id="l00613" name="l00613"></a><span class="lineno">  613</span>            <span class="comment">// Both are positive or negative</span></div>
-<div class="line"><a id="l00614" name="l00614"></a><span class="lineno">  614</span>            <span class="keywordflow">if</span> (a._isAbsoluteGreaterOrEqual(b))</div>
-<div class="line"><a id="l00615" name="l00615"></a><span class="lineno">  615</span>                <span class="keywordflow">return</span> a.isNegative ? a : b; <span class="comment">// If both have same sign, return based on absolute value</span></div>
-<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>            <span class="keywordflow">return</span> a.isNegative ? b : a;</div>
-<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>        }</div>
-</div>
+<div class="line"><a id="l00608" name="l00608"></a><span class="lineno">  608</span> </div>
+<div class="foldopen" id="foldopen00615" data-start="{" data-end="}">
+<div class="line"><a id="l00615" name="l00615"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#adb8ab0726c9b0c06aa406a27b865d0ca">  615</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#adb8ab0726c9b0c06aa406a27b865d0ca">max</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;b) {</div>
+<div class="line"><a id="l00616" name="l00616"></a><span class="lineno">  616</span>            <span class="keywordflow">if</span> (a.isNegative &amp;&amp; !b.isNegative) <span class="keywordflow">return</span> b; <span class="comment">// a is negative, b is positive</span></div>
+<div class="line"><a id="l00617" name="l00617"></a><span class="lineno">  617</span>            <span class="keywordflow">if</span> (!a.isNegative &amp;&amp; b.isNegative) <span class="keywordflow">return</span> a; <span class="comment">// a is positive, b is negative</span></div>
 <div class="line"><a id="l00618" name="l00618"></a><span class="lineno">  618</span> </div>
-<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span><span class="preprocessor">#pragma region increment &amp; decrement</span></div>
-<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span> </div>
-<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>        <span class="comment">// Prefix increment</span></div>
-<div class="foldopen" id="foldopen00622" data-start="{" data-end="}">
-<div class="line"><a id="l00622" name="l00622"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#abd5046a577859f76e521de137ec129e9">  622</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#abd5046a577859f76e521de137ec129e9">operator++</a>() {</div>
-<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> + <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">BigInteger::one</a>();</div>
-<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00625" name="l00625"></a><span class="lineno">  625</span>        }</div>
+<div class="line"><a id="l00619" name="l00619"></a><span class="lineno">  619</span>            <span class="comment">// Both are positive or negative</span></div>
+<div class="line"><a id="l00620" name="l00620"></a><span class="lineno">  620</span>            <span class="keywordflow">if</span> (a._isAbsoluteGreaterOrEqual(b))</div>
+<div class="line"><a id="l00621" name="l00621"></a><span class="lineno">  621</span>                <span class="keywordflow">return</span> a.isNegative ? b : a; <span class="comment">// If both have same sign, return based on absolute value</span></div>
+<div class="line"><a id="l00622" name="l00622"></a><span class="lineno">  622</span>            <span class="keywordflow">return</span> a.isNegative ? a : b;</div>
+<div class="line"><a id="l00623" name="l00623"></a><span class="lineno">  623</span>        }</div>
 </div>
-<div class="line"><a id="l00626" name="l00626"></a><span class="lineno">  626</span> </div>
-<div class="line"><a id="l00627" name="l00627"></a><span class="lineno">  627</span>        <span class="comment">// Postfix increment</span></div>
-<div class="foldopen" id="foldopen00628" data-start="{" data-end="}">
-<div class="line"><a id="l00628" name="l00628"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a87932920cef7f6e66a1c4e539ed15f19">  628</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a87932920cef7f6e66a1c4e539ed15f19">operator++</a>(<span class="keywordtype">int</span>) {</div>
-<div class="line"><a id="l00629" name="l00629"></a><span class="lineno">  629</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> temp = *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00630" name="l00630"></a><span class="lineno">  630</span>            ++(*this); <span class="comment">// Use prefix increment</span></div>
-<div class="line"><a id="l00631" name="l00631"></a><span class="lineno">  631</span>            <span class="keywordflow">return</span> temp;</div>
-<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>        }</div>
+<div class="line"><a id="l00624" name="l00624"></a><span class="lineno">  624</span> </div>
+<div class="foldopen" id="foldopen00631" data-start="{" data-end="}">
+<div class="line"><a id="l00631" name="l00631"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a97f37e03980a728d40608abec948d4d5">  631</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a97f37e03980a728d40608abec948d4d5">min</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;b) {</div>
+<div class="line"><a id="l00632" name="l00632"></a><span class="lineno">  632</span>            <span class="keywordflow">if</span> (a.isNegative &amp;&amp; !b.isNegative) <span class="keywordflow">return</span> a; <span class="comment">// a is negative, b is positive</span></div>
+<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span>            <span class="keywordflow">if</span> (!a.isNegative &amp;&amp; b.isNegative) <span class="keywordflow">return</span> b; <span class="comment">// a is positive, b is negative</span></div>
+<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span> </div>
+<div class="line"><a id="l00635" name="l00635"></a><span class="lineno">  635</span>            <span class="comment">// Both are positive or negative</span></div>
+<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>            <span class="keywordflow">if</span> (a._isAbsoluteGreaterOrEqual(b))</div>
+<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>                <span class="keywordflow">return</span> a.isNegative ? a : b; <span class="comment">// If both have same sign, return based on absolute value</span></div>
+<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>            <span class="keywordflow">return</span> a.isNegative ? b : a;</div>
+<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span>        }</div>
 </div>
-<div class="line"><a id="l00633" name="l00633"></a><span class="lineno">  633</span> </div>
-<div class="line"><a id="l00634" name="l00634"></a><span class="lineno">  634</span>        <span class="comment">// Prefix decrement</span></div>
-<div class="foldopen" id="foldopen00635" data-start="{" data-end="}">
-<div class="line"><a id="l00635" name="l00635"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#af58829a85a4475202475e54c1225c506">  635</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#af58829a85a4475202475e54c1225c506">operator--</a>() {</div>
-<div class="line"><a id="l00636" name="l00636"></a><span class="lineno">  636</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> - <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">BigInteger::one</a>();</div>
-<div class="line"><a id="l00637" name="l00637"></a><span class="lineno">  637</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00638" name="l00638"></a><span class="lineno">  638</span>        }</div>
+<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span> </div>
+<div class="line"><a id="l00641" name="l00641"></a><span class="lineno">  641</span><span class="preprocessor">#pragma region increment &amp; decrement</span></div>
+<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span> </div>
+<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>        <span class="comment">// Prefix increment</span></div>
+<div class="foldopen" id="foldopen00644" data-start="{" data-end="}">
+<div class="line"><a id="l00644" name="l00644"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#abd5046a577859f76e521de137ec129e9">  644</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#abd5046a577859f76e521de137ec129e9">operator++</a>() {</div>
+<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> + <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">BigInteger::one</a>();</div>
+<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span>        }</div>
 </div>
-<div class="line"><a id="l00639" name="l00639"></a><span class="lineno">  639</span> </div>
-<div class="line"><a id="l00640" name="l00640"></a><span class="lineno">  640</span>        <span class="comment">// Postfix decrement</span></div>
-<div class="foldopen" id="foldopen00641" data-start="{" data-end="}">
-<div class="line"><a id="l00641" name="l00641"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a8151b30cffb0e75317135d361887eb7f">  641</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a8151b30cffb0e75317135d361887eb7f">operator--</a>(<span class="keywordtype">int</span>) {</div>
-<div class="line"><a id="l00642" name="l00642"></a><span class="lineno">  642</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> temp = *<span class="keyword">this</span>;</div>
-<div class="line"><a id="l00643" name="l00643"></a><span class="lineno">  643</span>            --(*this); <span class="comment">// Use prefix decrement</span></div>
-<div class="line"><a id="l00644" name="l00644"></a><span class="lineno">  644</span>            <span class="keywordflow">return</span> temp;</div>
-<div class="line"><a id="l00645" name="l00645"></a><span class="lineno">  645</span>        }</div>
-</div>
-<div class="line"><a id="l00646" name="l00646"></a><span class="lineno">  646</span> </div>
-<div class="line"><a id="l00647" name="l00647"></a><span class="lineno">  647</span><span class="preprocessor">#pragma endregion</span></div>
 <div class="line"><a id="l00648" name="l00648"></a><span class="lineno">  648</span> </div>
-<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span> </div>
-<div class="line"><a id="l00650" name="l00650"></a><span class="lineno">  650</span><span class="preprocessor">#pragma region comparators</span></div>
-<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span> </div>
-<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>        <span class="comment">// Equality comparator</span></div>
-<div class="foldopen" id="foldopen00653" data-start="{" data-end="}">
-<div class="line"><a id="l00653" name="l00653"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a353a8728b40283ce6cb4f7c1bdfab111">  653</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a353a8728b40283ce6cb4f7c1bdfab111">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>            <span class="keywordflow">return</span> isNegative == other.isNegative &amp;&amp; digits == other.digits;</div>
-<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span>        }</div>
+<div class="line"><a id="l00649" name="l00649"></a><span class="lineno">  649</span>        <span class="comment">// Postfix increment</span></div>
+<div class="foldopen" id="foldopen00650" data-start="{" data-end="}">
+<div class="line"><a id="l00650" name="l00650"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a87932920cef7f6e66a1c4e539ed15f19">  650</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a87932920cef7f6e66a1c4e539ed15f19">operator++</a>(<span class="keywordtype">int</span>) {</div>
+<div class="line"><a id="l00651" name="l00651"></a><span class="lineno">  651</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> temp = *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00652" name="l00652"></a><span class="lineno">  652</span>            ++(*this); <span class="comment">// Use prefix increment</span></div>
+<div class="line"><a id="l00653" name="l00653"></a><span class="lineno">  653</span>            <span class="keywordflow">return</span> temp;</div>
+<div class="line"><a id="l00654" name="l00654"></a><span class="lineno">  654</span>        }</div>
 </div>
-<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span> </div>
-<div class="line"><a id="l00657" name="l00657"></a><span class="lineno">  657</span>        <span class="comment">// Inequality comparator</span></div>
-<div class="foldopen" id="foldopen00658" data-start="{" data-end="}">
-<div class="line"><a id="l00658" name="l00658"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ad8553df0a5d64f0e7369545d17026872">  658</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ad8553df0a5d64f0e7369545d17026872">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>            <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);</div>
+<div class="line"><a id="l00655" name="l00655"></a><span class="lineno">  655</span> </div>
+<div class="line"><a id="l00656" name="l00656"></a><span class="lineno">  656</span>        <span class="comment">// Prefix decrement</span></div>
+<div class="foldopen" id="foldopen00657" data-start="{" data-end="}">
+<div class="line"><a id="l00657" name="l00657"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#af58829a85a4475202475e54c1225c506">  657</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#af58829a85a4475202475e54c1225c506">operator--</a>() {</div>
+<div class="line"><a id="l00658" name="l00658"></a><span class="lineno">  658</span>            *<span class="keyword">this</span> = *<span class="keyword">this</span> - <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">BigInteger::one</a>();</div>
+<div class="line"><a id="l00659" name="l00659"></a><span class="lineno">  659</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
 <div class="line"><a id="l00660" name="l00660"></a><span class="lineno">  660</span>        }</div>
 </div>
 <div class="line"><a id="l00661" name="l00661"></a><span class="lineno">  661</span> </div>
-<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span>        <span class="comment">// Less than comparator</span></div>
+<div class="line"><a id="l00662" name="l00662"></a><span class="lineno">  662</span>        <span class="comment">// Postfix decrement</span></div>
 <div class="foldopen" id="foldopen00663" data-start="{" data-end="}">
-<div class="line"><a id="l00663" name="l00663"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a33a114672952e92f20b0770e7d8e7ade">  663</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a33a114672952e92f20b0770e7d8e7ade">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>            <span class="keywordflow">if</span> (isNegative != other.isNegative) {</div>
-<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>                <span class="keywordflow">return</span> isNegative; <span class="comment">// If *this is negative and other is positive, *this is smaller</span></div>
-<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>            }</div>
-<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span> </div>
-<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span>            <span class="keywordflow">if</span> (digits.size() != other.digits.size()) {</div>
-<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span>                <span class="keywordflow">return</span> isNegative ? digits.size() &gt; other.digits.size() : digits.size() &lt; other.digits.size();</div>
-<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span>            }</div>
+<div class="line"><a id="l00663" name="l00663"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a8151b30cffb0e75317135d361887eb7f">  663</a></span>        <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a8151b30cffb0e75317135d361887eb7f">operator--</a>(<span class="keywordtype">int</span>) {</div>
+<div class="line"><a id="l00664" name="l00664"></a><span class="lineno">  664</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> temp = *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00665" name="l00665"></a><span class="lineno">  665</span>            --(*this); <span class="comment">// Use prefix decrement</span></div>
+<div class="line"><a id="l00666" name="l00666"></a><span class="lineno">  666</span>            <span class="keywordflow">return</span> temp;</div>
+<div class="line"><a id="l00667" name="l00667"></a><span class="lineno">  667</span>        }</div>
+</div>
+<div class="line"><a id="l00668" name="l00668"></a><span class="lineno">  668</span> </div>
+<div class="line"><a id="l00669" name="l00669"></a><span class="lineno">  669</span><span class="preprocessor">#pragma endregion</span></div>
+<div class="line"><a id="l00670" name="l00670"></a><span class="lineno">  670</span> </div>
 <div class="line"><a id="l00671" name="l00671"></a><span class="lineno">  671</span> </div>
-<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(digits.size()) - 1; i &gt;= 0; --i) {</div>
-<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span>                <span class="keywordflow">if</span> (digits[i] != other.digits[i]) {</div>
-<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>                    <span class="keywordflow">return</span> isNegative ? digits[i] &gt; other.digits[i] : digits[i] &lt; other.digits[i];</div>
-<div class="line"><a id="l00675" name="l00675"></a><span class="lineno">  675</span>                }</div>
-<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>            }</div>
-<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span> </div>
-<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Numbers are equal, so *this is not less than other</span></div>
-<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>        }</div>
+<div class="line"><a id="l00672" name="l00672"></a><span class="lineno">  672</span><span class="preprocessor">#pragma region comparators</span></div>
+<div class="line"><a id="l00673" name="l00673"></a><span class="lineno">  673</span> </div>
+<div class="line"><a id="l00674" name="l00674"></a><span class="lineno">  674</span>        <span class="comment">// Equality comparator</span></div>
+<div class="foldopen" id="foldopen00675" data-start="{" data-end="}">
+<div class="line"><a id="l00675" name="l00675"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a353a8728b40283ce6cb4f7c1bdfab111">  675</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a353a8728b40283ce6cb4f7c1bdfab111">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00676" name="l00676"></a><span class="lineno">  676</span>            <span class="keywordflow">return</span> isNegative == other.isNegative &amp;&amp; digits == other.digits;</div>
+<div class="line"><a id="l00677" name="l00677"></a><span class="lineno">  677</span>        }</div>
 </div>
-<div class="line"><a id="l00680" name="l00680"></a><span class="lineno">  680</span> </div>
-<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>        <span class="comment">// Less than or equal comparator</span></div>
-<div class="foldopen" id="foldopen00682" data-start="{" data-end="}">
-<div class="line"><a id="l00682" name="l00682"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a9bc2810ede3011ee193b20f602c80d4b">  682</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a9bc2810ede3011ee193b20f602c80d4b">operator&lt;=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span> == other || *<span class="keyword">this</span> &lt; other;</div>
-<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>        }</div>
+<div class="line"><a id="l00678" name="l00678"></a><span class="lineno">  678</span> </div>
+<div class="line"><a id="l00679" name="l00679"></a><span class="lineno">  679</span>        <span class="comment">// Inequality comparator</span></div>
+<div class="foldopen" id="foldopen00680" data-start="{" data-end="}">
+<div class="line"><a id="l00680" name="l00680"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ad8553df0a5d64f0e7369545d17026872">  680</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ad8553df0a5d64f0e7369545d17026872">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00681" name="l00681"></a><span class="lineno">  681</span>            <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == other);</div>
+<div class="line"><a id="l00682" name="l00682"></a><span class="lineno">  682</span>        }</div>
 </div>
-<div class="line"><a id="l00685" name="l00685"></a><span class="lineno">  685</span> </div>
-<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>        <span class="comment">// Greater than comparator</span></div>
-<div class="foldopen" id="foldopen00687" data-start="{" data-end="}">
-<div class="line"><a id="l00687" name="l00687"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a21592f61d14c40c0183fcb61ba8e2d00">  687</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a21592f61d14c40c0183fcb61ba8e2d00">operator&gt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>            <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &lt;= other);</div>
-<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span>        }</div>
+<div class="line"><a id="l00683" name="l00683"></a><span class="lineno">  683</span> </div>
+<div class="line"><a id="l00684" name="l00684"></a><span class="lineno">  684</span>        <span class="comment">// Less than comparator</span></div>
+<div class="foldopen" id="foldopen00685" data-start="{" data-end="}">
+<div class="line"><a id="l00685" name="l00685"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a33a114672952e92f20b0770e7d8e7ade">  685</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a33a114672952e92f20b0770e7d8e7ade">operator&lt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00686" name="l00686"></a><span class="lineno">  686</span>            <span class="keywordflow">if</span> (isNegative != other.isNegative) {</div>
+<div class="line"><a id="l00687" name="l00687"></a><span class="lineno">  687</span>                <span class="keywordflow">return</span> isNegative; <span class="comment">// If *this is negative and other is positive, *this is smaller</span></div>
+<div class="line"><a id="l00688" name="l00688"></a><span class="lineno">  688</span>            }</div>
+<div class="line"><a id="l00689" name="l00689"></a><span class="lineno">  689</span> </div>
+<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span>            <span class="keywordflow">if</span> (digits.size() != other.digits.size()) {</div>
+<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>                <span class="keywordflow">return</span> isNegative ? digits.size() &gt; other.digits.size() : digits.size() &lt; other.digits.size();</div>
+<div class="line"><a id="l00692" name="l00692"></a><span class="lineno">  692</span>            }</div>
+<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span> </div>
+<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(digits.size()) - 1; i &gt;= 0; --i) {</div>
+<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span>                <span class="keywordflow">if</span> (digits[i] != other.digits[i]) {</div>
+<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span>                    <span class="keywordflow">return</span> isNegative ? digits[i] &gt; other.digits[i] : digits[i] &lt; other.digits[i];</div>
+<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span>                }</div>
+<div class="line"><a id="l00698" name="l00698"></a><span class="lineno">  698</span>            }</div>
+<div class="line"><a id="l00699" name="l00699"></a><span class="lineno">  699</span> </div>
+<div class="line"><a id="l00700" name="l00700"></a><span class="lineno">  700</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>; <span class="comment">// Numbers are equal, so *this is not less than other</span></div>
+<div class="line"><a id="l00701" name="l00701"></a><span class="lineno">  701</span>        }</div>
 </div>
-<div class="line"><a id="l00690" name="l00690"></a><span class="lineno">  690</span> </div>
-<div class="line"><a id="l00691" name="l00691"></a><span class="lineno">  691</span>        <span class="comment">// Greater than or equal comparator</span></div>
-<div class="foldopen" id="foldopen00692" data-start="{" data-end="}">
-<div class="line"><a id="l00692" name="l00692"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a0db92d7bdfa201456ebbb5dc19a67945">  692</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a0db92d7bdfa201456ebbb5dc19a67945">operator&gt;=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
-<div class="line"><a id="l00693" name="l00693"></a><span class="lineno">  693</span>            <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &lt; other);</div>
-<div class="line"><a id="l00694" name="l00694"></a><span class="lineno">  694</span>        }</div>
+<div class="line"><a id="l00702" name="l00702"></a><span class="lineno">  702</span> </div>
+<div class="line"><a id="l00703" name="l00703"></a><span class="lineno">  703</span>        <span class="comment">// Less than or equal comparator</span></div>
+<div class="foldopen" id="foldopen00704" data-start="{" data-end="}">
+<div class="line"><a id="l00704" name="l00704"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a9bc2810ede3011ee193b20f602c80d4b">  704</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a9bc2810ede3011ee193b20f602c80d4b">operator&lt;=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00705" name="l00705"></a><span class="lineno">  705</span>            <span class="keywordflow">return</span> *<span class="keyword">this</span> == other || *<span class="keyword">this</span> &lt; other;</div>
+<div class="line"><a id="l00706" name="l00706"></a><span class="lineno">  706</span>        }</div>
 </div>
-<div class="line"><a id="l00695" name="l00695"></a><span class="lineno">  695</span> </div>
-<div class="line"><a id="l00696" name="l00696"></a><span class="lineno">  696</span><span class="preprocessor">#pragma endregion</span></div>
-<div class="line"><a id="l00697" name="l00697"></a><span class="lineno">  697</span> </div>
+<div class="line"><a id="l00707" name="l00707"></a><span class="lineno">  707</span> </div>
+<div class="line"><a id="l00708" name="l00708"></a><span class="lineno">  708</span>        <span class="comment">// Greater than comparator</span></div>
 <div class="foldopen" id="foldopen00709" data-start="{" data-end="}">
-<div class="line"><a id="l00709" name="l00709"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#abd5f509d2ac517e570a84f8421acb233">  709</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#abd5f509d2ac517e570a84f8421acb233">gcd</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;b) {</div>
-<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">zero</a> = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(0);</div>
-<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> x = a.<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae3f8fbd9cf6232a6aa752f70e36db238">abs</a>(); <span class="comment">// Work with absolute values to ensure non-negativity</span></div>
-<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> y = b.<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae3f8fbd9cf6232a6aa752f70e36db238">abs</a>();</div>
-<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span> </div>
-<div class="line"><a id="l00714" name="l00714"></a><span class="lineno">  714</span>            <span class="keywordflow">while</span> (y != <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">zero</a>) {</div>
-<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>                <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> temp = y;</div>
-<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>                y = x % y; <span class="comment">// Replace y with the remainder of x divided by y</span></div>
-<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span>                x = temp;  <span class="comment">// Replace x with the old value of y</span></div>
-<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span>            }</div>
+<div class="line"><a id="l00709" name="l00709"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a21592f61d14c40c0183fcb61ba8e2d00">  709</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a21592f61d14c40c0183fcb61ba8e2d00">operator&gt;</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00710" name="l00710"></a><span class="lineno">  710</span>            <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &lt;= other);</div>
+<div class="line"><a id="l00711" name="l00711"></a><span class="lineno">  711</span>        }</div>
+</div>
+<div class="line"><a id="l00712" name="l00712"></a><span class="lineno">  712</span> </div>
+<div class="line"><a id="l00713" name="l00713"></a><span class="lineno">  713</span>        <span class="comment">// Greater than or equal comparator</span></div>
+<div class="foldopen" id="foldopen00714" data-start="{" data-end="}">
+<div class="line"><a id="l00714" name="l00714"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a0db92d7bdfa201456ebbb5dc19a67945">  714</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a0db92d7bdfa201456ebbb5dc19a67945">operator&gt;=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00715" name="l00715"></a><span class="lineno">  715</span>            <span class="keywordflow">return</span> !(*<span class="keyword">this</span> &lt; other);</div>
+<div class="line"><a id="l00716" name="l00716"></a><span class="lineno">  716</span>        }</div>
+</div>
+<div class="line"><a id="l00717" name="l00717"></a><span class="lineno">  717</span> </div>
+<div class="line"><a id="l00718" name="l00718"></a><span class="lineno">  718</span><span class="preprocessor">#pragma endregion</span></div>
 <div class="line"><a id="l00719" name="l00719"></a><span class="lineno">  719</span> </div>
-<div class="line"><a id="l00720" name="l00720"></a><span class="lineno">  720</span>            <span class="keywordflow">return</span> x; <span class="comment">// x contains the gcd when y becomes zero</span></div>
-<div class="line"><a id="l00721" name="l00721"></a><span class="lineno">  721</span>        }</div>
+<div class="foldopen" id="foldopen00731" data-start="{" data-end="}">
+<div class="line"><a id="l00731" name="l00731"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#abd5f509d2ac517e570a84f8421acb233">  731</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#abd5f509d2ac517e570a84f8421acb233">gcd</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;b) {</div>
+<div class="line"><a id="l00732" name="l00732"></a><span class="lineno">  732</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">zero</a> = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(0);</div>
+<div class="line"><a id="l00733" name="l00733"></a><span class="lineno">  733</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> x = a.<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae3f8fbd9cf6232a6aa752f70e36db238">abs</a>(); <span class="comment">// Work with absolute values to ensure non-negativity</span></div>
+<div class="line"><a id="l00734" name="l00734"></a><span class="lineno">  734</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> y = b.<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae3f8fbd9cf6232a6aa752f70e36db238">abs</a>();</div>
+<div class="line"><a id="l00735" name="l00735"></a><span class="lineno">  735</span> </div>
+<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>            <span class="keywordflow">while</span> (y != <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">zero</a>) {</div>
+<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>                <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> temp = y;</div>
+<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>                y = x % y; <span class="comment">// Replace y with the remainder of x divided by y</span></div>
+<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span>                x = temp; <span class="comment">// Replace x with the old value of y</span></div>
+<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>            }</div>
+<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span> </div>
+<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>            <span class="keywordflow">return</span> x; <span class="comment">// x contains the gcd when y becomes zero</span></div>
+<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span>        }</div>
 </div>
-<div class="line"><a id="l00722" name="l00722"></a><span class="lineno">  722</span> </div>
-<div class="line"><a id="l00723" name="l00723"></a><span class="lineno">  723</span> </div>
-<div class="foldopen" id="foldopen00735" data-start="{" data-end="}">
-<div class="line"><a id="l00735" name="l00735"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9">  735</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9">lcm</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;b) {</div>
-<div class="line"><a id="l00736" name="l00736"></a><span class="lineno">  736</span>            <span class="keywordflow">if</span> (a == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>() &amp;&amp; b == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
-<div class="line"><a id="l00737" name="l00737"></a><span class="lineno">  737</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>(); <span class="comment">// LCM of zero and zero is defined as zero</span></div>
-<div class="line"><a id="l00738" name="l00738"></a><span class="lineno">  738</span>            }</div>
-<div class="line"><a id="l00739" name="l00739"></a><span class="lineno">  739</span> </div>
-<div class="line"><a id="l00740" name="l00740"></a><span class="lineno">  740</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> product = a * b; <span class="comment">// Calculate the product of a and b</span></div>
-<div class="line"><a id="l00741" name="l00741"></a><span class="lineno">  741</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> gcdValue = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#abd5f509d2ac517e570a84f8421acb233">gcd</a>(a, b); <span class="comment">// Calculate the gcd of a and b</span></div>
-<div class="line"><a id="l00742" name="l00742"></a><span class="lineno">  742</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> lcmValue = product / gcdValue; <span class="comment">// Calculate the lcm using the product and gcd</span></div>
-<div class="line"><a id="l00743" name="l00743"></a><span class="lineno">  743</span> </div>
-<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span>            <span class="keywordflow">return</span> lcmValue.<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae3f8fbd9cf6232a6aa752f70e36db238">abs</a>(); <span class="comment">// Ensure the lcm is non-negative</span></div>
-<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span>        }</div>
+<div class="line"><a id="l00744" name="l00744"></a><span class="lineno">  744</span> </div>
+<div class="line"><a id="l00745" name="l00745"></a><span class="lineno">  745</span> </div>
+<div class="foldopen" id="foldopen00757" data-start="{" data-end="}">
+<div class="line"><a id="l00757" name="l00757"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9">  757</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9">lcm</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;b) {</div>
+<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>            <span class="keywordflow">if</span> (a == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>() &amp;&amp; b == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
+<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>(); <span class="comment">// LCM of zero and zero is defined as zero</span></div>
+<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>            }</div>
+<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span> </div>
+<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> product = a * b; <span class="comment">// Calculate the product of a and b</span></div>
+<div class="line"><a id="l00763" name="l00763"></a><span class="lineno">  763</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> gcdValue = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#abd5f509d2ac517e570a84f8421acb233">gcd</a>(a, b); <span class="comment">// Calculate the gcd of a and b</span></div>
+<div class="line"><a id="l00764" name="l00764"></a><span class="lineno">  764</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> lcmValue = product / gcdValue; <span class="comment">// Calculate the lcm using the product and gcd</span></div>
+<div class="line"><a id="l00765" name="l00765"></a><span class="lineno">  765</span> </div>
+<div class="line"><a id="l00766" name="l00766"></a><span class="lineno">  766</span>            <span class="keywordflow">return</span> lcmValue.<a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae3f8fbd9cf6232a6aa752f70e36db238">abs</a>(); <span class="comment">// Ensure the lcm is non-negative</span></div>
+<div class="line"><a id="l00767" name="l00767"></a><span class="lineno">  767</span>        }</div>
 </div>
-<div class="line"><a id="l00746" name="l00746"></a><span class="lineno">  746</span> </div>
-<div class="foldopen" id="foldopen00753" data-start="{" data-end="}">
-<div class="line"><a id="l00753" name="l00753"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a5854b777ed3c6a5596c375f40c73ec0b">  753</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a5854b777ed3c6a5596c375f40c73ec0b">factorial</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n) {</div>
-<div class="line"><a id="l00754" name="l00754"></a><span class="lineno">  754</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> result = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(1); <span class="comment">// Start with 1 as 0! = 1 and 1! = 1</span></div>
-<div class="line"><a id="l00755" name="l00755"></a><span class="lineno">  755</span> </div>
-<div class="line"><a id="l00756" name="l00756"></a><span class="lineno">  756</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 2; i &lt;= n; ++i) {</div>
-<div class="line"><a id="l00757" name="l00757"></a><span class="lineno">  757</span>                result = result * <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(i); <span class="comment">// Multiply result by i for each step from 2 to n</span></div>
-<div class="line"><a id="l00758" name="l00758"></a><span class="lineno">  758</span>            }</div>
-<div class="line"><a id="l00759" name="l00759"></a><span class="lineno">  759</span> </div>
-<div class="line"><a id="l00760" name="l00760"></a><span class="lineno">  760</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00761" name="l00761"></a><span class="lineno">  761</span>        }</div>
+<div class="line"><a id="l00768" name="l00768"></a><span class="lineno">  768</span> </div>
+<div class="foldopen" id="foldopen00775" data-start="{" data-end="}">
+<div class="line"><a id="l00775" name="l00775"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a5854b777ed3c6a5596c375f40c73ec0b">  775</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a5854b777ed3c6a5596c375f40c73ec0b">factorial</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n) {</div>
+<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> result = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(1); <span class="comment">// Start with 1 as 0! = 1 and 1! = 1</span></div>
+<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span> </div>
+<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>            <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 2; i &lt;= n; ++i) {</div>
+<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>                result = result * <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(i); <span class="comment">// Multiply result by i for each step from 2 to n</span></div>
+<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>            }</div>
+<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span> </div>
+<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>        }</div>
 </div>
-<div class="line"><a id="l00762" name="l00762"></a><span class="lineno">  762</span> </div>
-<div class="foldopen" id="foldopen00770" data-start="{" data-end="}">
-<div class="line"><a id="l00770" name="l00770"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ae483d7066e7d4eff5a0beb280a581c28">  770</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae483d7066e7d4eff5a0beb280a581c28">pow</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n) {</div>
-<div class="line"><a id="l00771" name="l00771"></a><span class="lineno">  771</span>            <span class="keywordflow">if</span> (n == 0) {</div>
-<div class="line"><a id="l00772" name="l00772"></a><span class="lineno">  772</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(1); <span class="comment">// a^0 = 1 for any a</span></div>
-<div class="line"><a id="l00773" name="l00773"></a><span class="lineno">  773</span>            }</div>
-<div class="line"><a id="l00774" name="l00774"></a><span class="lineno">  774</span> </div>
-<div class="line"><a id="l00775" name="l00775"></a><span class="lineno">  775</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> result = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(1);</div>
-<div class="line"><a id="l00776" name="l00776"></a><span class="lineno">  776</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> base = a;</div>
-<div class="line"><a id="l00777" name="l00777"></a><span class="lineno">  777</span>            <span class="keywordflow">while</span> (n &gt; 0) {</div>
-<div class="line"><a id="l00778" name="l00778"></a><span class="lineno">  778</span>                <span class="keywordflow">if</span> (n % 2 == 1) { <span class="comment">// If n is odd</span></div>
-<div class="line"><a id="l00779" name="l00779"></a><span class="lineno">  779</span>                    result = result * base; <span class="comment">// Multiply result by current base</span></div>
-<div class="line"><a id="l00780" name="l00780"></a><span class="lineno">  780</span>                }</div>
-<div class="line"><a id="l00781" name="l00781"></a><span class="lineno">  781</span>                base = base * base; <span class="comment">// Square the base</span></div>
-<div class="line"><a id="l00782" name="l00782"></a><span class="lineno">  782</span>                n /= 2; <span class="comment">// Halve the exponent</span></div>
-<div class="line"><a id="l00783" name="l00783"></a><span class="lineno">  783</span>            }</div>
 <div class="line"><a id="l00784" name="l00784"></a><span class="lineno">  784</span> </div>
-<div class="line"><a id="l00785" name="l00785"></a><span class="lineno">  785</span>            <span class="keywordflow">return</span> result;</div>
-<div class="line"><a id="l00786" name="l00786"></a><span class="lineno">  786</span>        }</div>
-</div>
-<div class="line"><a id="l00787" name="l00787"></a><span class="lineno">  787</span> </div>
-<div class="foldopen" id="foldopen00795" data-start="{" data-end="}">
-<div class="line"><a id="l00795" name="l00795"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54">  795</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54">sqrt</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;number) {</div>
-<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span>            <span class="keywordflow">if</span> (number.isNegative) {</div>
-<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Square root of a negative number is not defined.&quot;</span>);</div>
-<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>            }</div>
-<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span> </div>
-<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>            <span class="keywordflow">if</span> (number == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">zero</a>() || number == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">one</a>()) {</div>
-<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>                <span class="keywordflow">return</span> number;</div>
-<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>            }</div>
-<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span> </div>
-<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> low = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">one</a>();</div>
-<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> high = number;</div>
-<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> prev;</div>
+<div class="foldopen" id="foldopen00792" data-start="{" data-end="}">
+<div class="line"><a id="l00792" name="l00792"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ae483d7066e7d4eff5a0beb280a581c28">  792</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae483d7066e7d4eff5a0beb280a581c28">pow</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;a, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> n) {</div>
+<div class="line"><a id="l00793" name="l00793"></a><span class="lineno">  793</span>            <span class="keywordflow">if</span> (n == 0) {</div>
+<div class="line"><a id="l00794" name="l00794"></a><span class="lineno">  794</span>                <span class="keywordflow">return</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(1); <span class="comment">// a^0 = 1 for any a</span></div>
+<div class="line"><a id="l00795" name="l00795"></a><span class="lineno">  795</span>            }</div>
+<div class="line"><a id="l00796" name="l00796"></a><span class="lineno">  796</span> </div>
+<div class="line"><a id="l00797" name="l00797"></a><span class="lineno">  797</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> result = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(1);</div>
+<div class="line"><a id="l00798" name="l00798"></a><span class="lineno">  798</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> base = a;</div>
+<div class="line"><a id="l00799" name="l00799"></a><span class="lineno">  799</span>            <span class="keywordflow">while</span> (n &gt; 0) {</div>
+<div class="line"><a id="l00800" name="l00800"></a><span class="lineno">  800</span>                <span class="keywordflow">if</span> (n % 2 == 1) {</div>
+<div class="line"><a id="l00801" name="l00801"></a><span class="lineno">  801</span>                    <span class="comment">// If n is odd</span></div>
+<div class="line"><a id="l00802" name="l00802"></a><span class="lineno">  802</span>                    result = result * base; <span class="comment">// Multiply result by current base</span></div>
+<div class="line"><a id="l00803" name="l00803"></a><span class="lineno">  803</span>                }</div>
+<div class="line"><a id="l00804" name="l00804"></a><span class="lineno">  804</span>                base = base * base; <span class="comment">// Square the base</span></div>
+<div class="line"><a id="l00805" name="l00805"></a><span class="lineno">  805</span>                n /= 2; <span class="comment">// Halve the exponent</span></div>
+<div class="line"><a id="l00806" name="l00806"></a><span class="lineno">  806</span>            }</div>
 <div class="line"><a id="l00807" name="l00807"></a><span class="lineno">  807</span> </div>
-<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>            <span class="keywordflow">while</span> (low &lt;= high) {</div>
-<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span>                <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> mid = (low + high) / <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae46b4758a2d824d1741f35ebe6e239b8">two</a>();</div>
-<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span>                <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> square = mid * mid;</div>
-<div class="line"><a id="l00811" name="l00811"></a><span class="lineno">  811</span> </div>
-<div class="line"><a id="l00812" name="l00812"></a><span class="lineno">  812</span>                <span class="keywordflow">if</span> (square == number) {</div>
-<div class="line"><a id="l00813" name="l00813"></a><span class="lineno">  813</span>                    <span class="keywordflow">return</span> mid;</div>
-<div class="line"><a id="l00814" name="l00814"></a><span class="lineno">  814</span>                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (square &lt; number) {</div>
-<div class="line"><a id="l00815" name="l00815"></a><span class="lineno">  815</span>                    low = mid + <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">one</a>();</div>
-<div class="line"><a id="l00816" name="l00816"></a><span class="lineno">  816</span>                    prev = mid;</div>
-<div class="line"><a id="l00817" name="l00817"></a><span class="lineno">  817</span>                } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00818" name="l00818"></a><span class="lineno">  818</span>                    high = mid - <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">one</a>();</div>
-<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>                }</div>
-<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>            }</div>
-<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span> </div>
-<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span>            <span class="keywordflow">return</span> prev;</div>
-<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>        }</div>
+<div class="line"><a id="l00808" name="l00808"></a><span class="lineno">  808</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00809" name="l00809"></a><span class="lineno">  809</span>        }</div>
 </div>
-<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span> </div>
-<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span> </div>
-<div class="foldopen" id="foldopen00833" data-start="{" data-end="}">
-<div class="line"><a id="l00833" name="l00833"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a90235a0cca66eec26423b00fba63a67b">  833</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a90235a0cca66eec26423b00fba63a67b">log2</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;number) {</div>
-<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span>            <span class="keywordflow">if</span> (number == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
-<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span>                <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;log2(0) is undefined&quot;</span>);</div>
-<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span>            }</div>
-<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span>            <span class="keywordflow">if</span> (number.isNegative) {</div>
-<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span>                <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;log2(negative) is not allowed&quot;</span>);</div>
-<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span>            }</div>
-<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span> </div>
-<div class="line"><a id="l00841" name="l00841"></a><span class="lineno">  841</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> logVal = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(-1);</div>
-<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> s = number;</div>
-<div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span>            <span class="keywordflow">while</span> (s != <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
-<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span>                logVal = logVal + <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">BigInteger::one</a>();</div>
-<div class="line"><a id="l00845" name="l00845"></a><span class="lineno">  845</span>                s = s / <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae46b4758a2d824d1741f35ebe6e239b8">BigInteger::two</a>();</div>
-<div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span>            }</div>
-<div class="line"><a id="l00847" name="l00847"></a><span class="lineno">  847</span>            <span class="keywordflow">return</span> logVal;</div>
-<div class="line"><a id="l00848" name="l00848"></a><span class="lineno">  848</span>        }</div>
+<div class="line"><a id="l00810" name="l00810"></a><span class="lineno">  810</span> </div>
+<div class="foldopen" id="foldopen00818" data-start="{" data-end="}">
+<div class="line"><a id="l00818" name="l00818"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54">  818</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54">sqrt</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;number) {</div>
+<div class="line"><a id="l00819" name="l00819"></a><span class="lineno">  819</span>            <span class="keywordflow">if</span> (number.isNegative) {</div>
+<div class="line"><a id="l00820" name="l00820"></a><span class="lineno">  820</span>                <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Square root of a negative number is not defined.&quot;</span>);</div>
+<div class="line"><a id="l00821" name="l00821"></a><span class="lineno">  821</span>            }</div>
+<div class="line"><a id="l00822" name="l00822"></a><span class="lineno">  822</span> </div>
+<div class="line"><a id="l00823" name="l00823"></a><span class="lineno">  823</span>            <span class="keywordflow">if</span> (number == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">zero</a>() || number == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">one</a>()) {</div>
+<div class="line"><a id="l00824" name="l00824"></a><span class="lineno">  824</span>                <span class="keywordflow">return</span> number;</div>
+<div class="line"><a id="l00825" name="l00825"></a><span class="lineno">  825</span>            }</div>
+<div class="line"><a id="l00826" name="l00826"></a><span class="lineno">  826</span> </div>
+<div class="line"><a id="l00827" name="l00827"></a><span class="lineno">  827</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> low = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">one</a>();</div>
+<div class="line"><a id="l00828" name="l00828"></a><span class="lineno">  828</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> high = number;</div>
+<div class="line"><a id="l00829" name="l00829"></a><span class="lineno">  829</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> prev;</div>
+<div class="line"><a id="l00830" name="l00830"></a><span class="lineno">  830</span> </div>
+<div class="line"><a id="l00831" name="l00831"></a><span class="lineno">  831</span>            <span class="keywordflow">while</span> (low &lt;= high) {</div>
+<div class="line"><a id="l00832" name="l00832"></a><span class="lineno">  832</span>                <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> mid = (low + high) / <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae46b4758a2d824d1741f35ebe6e239b8">two</a>();</div>
+<div class="line"><a id="l00833" name="l00833"></a><span class="lineno">  833</span>                <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> square = mid * mid;</div>
+<div class="line"><a id="l00834" name="l00834"></a><span class="lineno">  834</span> </div>
+<div class="line"><a id="l00835" name="l00835"></a><span class="lineno">  835</span>                <span class="keywordflow">if</span> (square == number) {</div>
+<div class="line"><a id="l00836" name="l00836"></a><span class="lineno">  836</span>                    <span class="keywordflow">return</span> mid;</div>
+<div class="line"><a id="l00837" name="l00837"></a><span class="lineno">  837</span>                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (square &lt; number) {</div>
+<div class="line"><a id="l00838" name="l00838"></a><span class="lineno">  838</span>                    low = mid + <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">one</a>();</div>
+<div class="line"><a id="l00839" name="l00839"></a><span class="lineno">  839</span>                    prev = mid;</div>
+<div class="line"><a id="l00840" name="l00840"></a><span class="lineno">  840</span>                } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00841" name="l00841"></a><span class="lineno">  841</span>                    high = mid - <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">one</a>();</div>
+<div class="line"><a id="l00842" name="l00842"></a><span class="lineno">  842</span>                }</div>
+<div class="line"><a id="l00843" name="l00843"></a><span class="lineno">  843</span>            }</div>
+<div class="line"><a id="l00844" name="l00844"></a><span class="lineno">  844</span> </div>
+<div class="line"><a id="l00845" name="l00845"></a><span class="lineno">  845</span>            <span class="keywordflow">return</span> prev;</div>
+<div class="line"><a id="l00846" name="l00846"></a><span class="lineno">  846</span>        }</div>
 </div>
-<div class="line"><a id="l00849" name="l00849"></a><span class="lineno">  849</span> </div>
-<div class="foldopen" id="foldopen00857" data-start="{" data-end="}">
-<div class="line"><a id="l00857" name="l00857"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#aa202c7a0c71768e8951c57174c9f0289">  857</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aa202c7a0c71768e8951c57174c9f0289">log10</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;number) {</div>
-<div class="line"><a id="l00858" name="l00858"></a><span class="lineno">  858</span>            <span class="keywordflow">if</span> (number == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
-<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span>                <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;log10(0) is undefined&quot;</span>);</div>
-<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span>            }</div>
-<div class="line"><a id="l00861" name="l00861"></a><span class="lineno">  861</span>            <span class="keywordflow">if</span> (number.isNegative) {</div>
-<div class="line"><a id="l00862" name="l00862"></a><span class="lineno">  862</span>                <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;log10(negative) is not allowed&quot;</span>);</div>
-<div class="line"><a id="l00863" name="l00863"></a><span class="lineno">  863</span>            }</div>
-<div class="line"><a id="l00864" name="l00864"></a><span class="lineno">  864</span> </div>
-<div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span>            <span class="comment">// log10 of a number is roughly the number of its digits minus 1</span></div>
-<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(number.digits.size() - 1);</div>
-<div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span>        }</div>
+<div class="line"><a id="l00847" name="l00847"></a><span class="lineno">  847</span> </div>
+<div class="line"><a id="l00848" name="l00848"></a><span class="lineno">  848</span> </div>
+<div class="foldopen" id="foldopen00856" data-start="{" data-end="}">
+<div class="line"><a id="l00856" name="l00856"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#a90235a0cca66eec26423b00fba63a67b">  856</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#a90235a0cca66eec26423b00fba63a67b">log2</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;number) {</div>
+<div class="line"><a id="l00857" name="l00857"></a><span class="lineno">  857</span>            <span class="keywordflow">if</span> (number == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
+<div class="line"><a id="l00858" name="l00858"></a><span class="lineno">  858</span>                <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;log2(0) is undefined&quot;</span>);</div>
+<div class="line"><a id="l00859" name="l00859"></a><span class="lineno">  859</span>            }</div>
+<div class="line"><a id="l00860" name="l00860"></a><span class="lineno">  860</span>            <span class="keywordflow">if</span> (number.isNegative) {</div>
+<div class="line"><a id="l00861" name="l00861"></a><span class="lineno">  861</span>                <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;log2(negative) is not allowed&quot;</span>);</div>
+<div class="line"><a id="l00862" name="l00862"></a><span class="lineno">  862</span>            }</div>
+<div class="line"><a id="l00863" name="l00863"></a><span class="lineno">  863</span> </div>
+<div class="line"><a id="l00864" name="l00864"></a><span class="lineno">  864</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> logVal = <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(-1);</div>
+<div class="line"><a id="l00865" name="l00865"></a><span class="lineno">  865</span>            <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> s = number;</div>
+<div class="line"><a id="l00866" name="l00866"></a><span class="lineno">  866</span>            <span class="keywordflow">while</span> (s != <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
+<div class="line"><a id="l00867" name="l00867"></a><span class="lineno">  867</span>                logVal = logVal + <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">BigInteger::one</a>();</div>
+<div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span>                s = s / <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ae46b4758a2d824d1741f35ebe6e239b8">BigInteger::two</a>();</div>
+<div class="line"><a id="l00869" name="l00869"></a><span class="lineno">  869</span>            }</div>
+<div class="line"><a id="l00870" name="l00870"></a><span class="lineno">  870</span>            <span class="keywordflow">return</span> logVal;</div>
+<div class="line"><a id="l00871" name="l00871"></a><span class="lineno">  871</span>        }</div>
 </div>
-<div class="line"><a id="l00868" name="l00868"></a><span class="lineno">  868</span> </div>
-<div class="foldopen" id="foldopen00877" data-start="{" data-end="}">
-<div class="line"><a id="l00877" name="l00877"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#af8c70d1992344bd9fdbfbf2e94d9f464">  877</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#af8c70d1992344bd9fdbfbf2e94d9f464">multiplyByPowerOfTen</a>(std::size_t power) {</div>
-<div class="line"><a id="l00878" name="l00878"></a><span class="lineno">  878</span>            <span class="keywordflow">if</span> (*<span class="keyword">this</span> == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">zero</a>()) <span class="keywordflow">return</span>; <span class="comment">// 0 * 10^n = 0, no need to change anything</span></div>
-<div class="line"><a id="l00879" name="l00879"></a><span class="lineno">  879</span>            digits.insert(digits.begin(), power, 0); <span class="comment">// Insert &#39;power&#39; number of zeros at the beginning</span></div>
-<div class="line"><a id="l00880" name="l00880"></a><span class="lineno">  880</span>            removeLeadingZeros(); <span class="comment">// Just in case there were leading zeros before</span></div>
-<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span>        }</div>
+<div class="line"><a id="l00872" name="l00872"></a><span class="lineno">  872</span> </div>
+<div class="foldopen" id="foldopen00880" data-start="{" data-end="}">
+<div class="line"><a id="l00880" name="l00880"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#aa202c7a0c71768e8951c57174c9f0289">  880</a></span>        <span class="keyword">static</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aa202c7a0c71768e8951c57174c9f0289">log10</a>(<span class="keyword">const</span> <a class="code hl_class" href="classhsc__snippets_1_1BigInteger.html">BigInteger</a> &amp;number) {</div>
+<div class="line"><a id="l00881" name="l00881"></a><span class="lineno">  881</span>            <span class="keywordflow">if</span> (number == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">BigInteger::zero</a>()) {</div>
+<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span>                <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;log10(0) is undefined&quot;</span>);</div>
+<div class="line"><a id="l00883" name="l00883"></a><span class="lineno">  883</span>            }</div>
+<div class="line"><a id="l00884" name="l00884"></a><span class="lineno">  884</span>            <span class="keywordflow">if</span> (number.isNegative) {</div>
+<div class="line"><a id="l00885" name="l00885"></a><span class="lineno">  885</span>                <span class="keywordflow">throw</span> std::out_of_range(<span class="stringliteral">&quot;log10(negative) is not allowed&quot;</span>);</div>
+<div class="line"><a id="l00886" name="l00886"></a><span class="lineno">  886</span>            }</div>
+<div class="line"><a id="l00887" name="l00887"></a><span class="lineno">  887</span> </div>
+<div class="line"><a id="l00888" name="l00888"></a><span class="lineno">  888</span>            <span class="comment">// log10 of a number is roughly the number of its digits minus 1</span></div>
+<div class="line"><a id="l00889" name="l00889"></a><span class="lineno">  889</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">BigInteger::from_integer</a>(number.digits.size() - 1);</div>
+<div class="line"><a id="l00890" name="l00890"></a><span class="lineno">  890</span>        }</div>
 </div>
-<div class="line"><a id="l00882" name="l00882"></a><span class="lineno">  882</span> </div>
-<div class="foldopen" id="foldopen00891" data-start="{" data-end="}">
-<div class="line"><a id="l00891" name="l00891"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ac051686f3e35af09b6f6771a6740c68a">  891</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ac051686f3e35af09b6f6771a6740c68a">divideByPowerOfTen</a>(std::size_t power) {</div>
-<div class="line"><a id="l00892" name="l00892"></a><span class="lineno">  892</span>            <span class="keywordflow">if</span> (power &gt;= digits.size()) {</div>
-<div class="line"><a id="l00893" name="l00893"></a><span class="lineno">  893</span>                <span class="comment">// If power is greater than or equal to the number of digits, the result is 0</span></div>
-<div class="line"><a id="l00894" name="l00894"></a><span class="lineno">  894</span>                digits.clear();</div>
-<div class="line"><a id="l00895" name="l00895"></a><span class="lineno">  895</span>                digits.push_back(0);</div>
-<div class="line"><a id="l00896" name="l00896"></a><span class="lineno">  896</span>                isNegative = <span class="keyword">false</span>; <span class="comment">// Zero is not negative</span></div>
-<div class="line"><a id="l00897" name="l00897"></a><span class="lineno">  897</span>            } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00898" name="l00898"></a><span class="lineno">  898</span>                <span class="comment">// Erase &#39;power&#39; number of digits from the beginning</span></div>
-<div class="line"><a id="l00899" name="l00899"></a><span class="lineno">  899</span>                digits.erase(digits.begin(), digits.begin() + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(power));</div>
-<div class="line"><a id="l00900" name="l00900"></a><span class="lineno">  900</span>            }</div>
-<div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span>            removeLeadingZeros(); <span class="comment">// Just in case leading zeros are created</span></div>
-<div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span>        }</div>
+<div class="line"><a id="l00891" name="l00891"></a><span class="lineno">  891</span> </div>
+<div class="foldopen" id="foldopen00900" data-start="{" data-end="}">
+<div class="line"><a id="l00900" name="l00900"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#af8c70d1992344bd9fdbfbf2e94d9f464">  900</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#af8c70d1992344bd9fdbfbf2e94d9f464">multiplyByPowerOfTen</a>(std::size_t power) {</div>
+<div class="line"><a id="l00901" name="l00901"></a><span class="lineno">  901</span>            <span class="keywordflow">if</span> (*<span class="keyword">this</span> == <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">zero</a>()) <span class="keywordflow">return</span>; <span class="comment">// 0 * 10^n = 0, no need to change anything</span></div>
+<div class="line"><a id="l00902" name="l00902"></a><span class="lineno">  902</span>            digits.insert(digits.begin(), power, 0); <span class="comment">// Insert &#39;power&#39; number of zeros at the beginning</span></div>
+<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span>            removeLeadingZeros(); <span class="comment">// Just in case there were leading zeros before</span></div>
+<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span>        }</div>
 </div>
-<div class="line"><a id="l00903" name="l00903"></a><span class="lineno">  903</span> </div>
-<div class="line"><a id="l00904" name="l00904"></a><span class="lineno">  904</span> </div>
-<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span>    };</div>
+<div class="line"><a id="l00905" name="l00905"></a><span class="lineno">  905</span> </div>
+<div class="foldopen" id="foldopen00914" data-start="{" data-end="}">
+<div class="line"><a id="l00914" name="l00914"></a><span class="lineno"><a class="line" href="classhsc__snippets_1_1BigInteger.html#ac051686f3e35af09b6f6771a6740c68a">  914</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classhsc__snippets_1_1BigInteger.html#ac051686f3e35af09b6f6771a6740c68a">divideByPowerOfTen</a>(std::size_t power) {</div>
+<div class="line"><a id="l00915" name="l00915"></a><span class="lineno">  915</span>            <span class="keywordflow">if</span> (power &gt;= digits.size()) {</div>
+<div class="line"><a id="l00916" name="l00916"></a><span class="lineno">  916</span>                <span class="comment">// If power is greater than or equal to the number of digits, the result is 0</span></div>
+<div class="line"><a id="l00917" name="l00917"></a><span class="lineno">  917</span>                digits.clear();</div>
+<div class="line"><a id="l00918" name="l00918"></a><span class="lineno">  918</span>                digits.push_back(0);</div>
+<div class="line"><a id="l00919" name="l00919"></a><span class="lineno">  919</span>                isNegative = <span class="keyword">false</span>; <span class="comment">// Zero is not negative</span></div>
+<div class="line"><a id="l00920" name="l00920"></a><span class="lineno">  920</span>            } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00921" name="l00921"></a><span class="lineno">  921</span>                <span class="comment">// Erase &#39;power&#39; number of digits from the beginning</span></div>
+<div class="line"><a id="l00922" name="l00922"></a><span class="lineno">  922</span>                digits.erase(digits.begin(), digits.begin() + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(power));</div>
+<div class="line"><a id="l00923" name="l00923"></a><span class="lineno">  923</span>            }</div>
+<div class="line"><a id="l00924" name="l00924"></a><span class="lineno">  924</span>            removeLeadingZeros(); <span class="comment">// Just in case leading zeros are created</span></div>
+<div class="line"><a id="l00925" name="l00925"></a><span class="lineno">  925</span>        }</div>
 </div>
-<div class="line"><a id="l00906" name="l00906"></a><span class="lineno">  906</span>}</div>
+<div class="line"><a id="l00926" name="l00926"></a><span class="lineno">  926</span>    };</div>
 </div>
-<div class="line"><a id="l00907" name="l00907"></a><span class="lineno">  907</span> </div>
-<div class="line"><a id="l00908" name="l00908"></a><span class="lineno">  908</span><span class="preprocessor">#endif </span><span class="comment">// BIG_INTEGER_H</span></div>
+<div class="line"><a id="l00927" name="l00927"></a><span class="lineno">  927</span>}</div>
+</div>
+<div class="line"><a id="l00928" name="l00928"></a><span class="lineno">  928</span> </div>
+<div class="line"><a id="l00929" name="l00929"></a><span class="lineno">  929</span><span class="preprocessor">#endif </span><span class="comment">// BIG_INTEGER_H</span></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html">hsc_snippets::BigInteger</a></div><div class="ttdoc">Implements a class for representing and manipulating large integers beyond the native integer range.</div><div class="ttdef"><b>Definition</b> big_integer.hpp:22</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a0db92d7bdfa201456ebbb5dc19a67945"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a0db92d7bdfa201456ebbb5dc19a67945">hsc_snippets::BigInteger::operator&gt;=</a></div><div class="ttdeci">bool operator&gt;=(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:692</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a0db92d7bdfa201456ebbb5dc19a67945"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a0db92d7bdfa201456ebbb5dc19a67945">hsc_snippets::BigInteger::operator&gt;=</a></div><div class="ttdeci">bool operator&gt;=(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:714</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a0e0531e00ec577e7dde87cfbbdf42642"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a0e0531e00ec577e7dde87cfbbdf42642">hsc_snippets::BigInteger::to</a></div><div class="ttdeci">std::optional&lt; T &gt; to() const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:198</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a109b2f5a7752dda542e4bafeae5bccc9"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9">hsc_snippets::BigInteger::lcm</a></div><div class="ttdeci">static BigInteger lcm(const BigInteger &amp;a, const BigInteger &amp;b)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:735</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a138dd15e360d5ea30f1503ac059f01ae"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a138dd15e360d5ea30f1503ac059f01ae">hsc_snippets::BigInteger::operator-=</a></div><div class="ttdeci">BigInteger &amp; operator-=(const BigInteger &amp;other)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:529</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a21592f61d14c40c0183fcb61ba8e2d00"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a21592f61d14c40c0183fcb61ba8e2d00">hsc_snippets::BigInteger::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:687</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a29c3483d4673b32fa2abf59c66fe740b"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a29c3483d4673b32fa2abf59c66fe740b">hsc_snippets::BigInteger::operator%</a></div><div class="ttdeci">BigInteger operator%(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:547</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a33a114672952e92f20b0770e7d8e7ade"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a33a114672952e92f20b0770e7d8e7ade">hsc_snippets::BigInteger::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:663</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a353a8728b40283ce6cb4f7c1bdfab111"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a353a8728b40283ce6cb4f7c1bdfab111">hsc_snippets::BigInteger::operator==</a></div><div class="ttdeci">bool operator==(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:653</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a109b2f5a7752dda542e4bafeae5bccc9"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9">hsc_snippets::BigInteger::lcm</a></div><div class="ttdeci">static BigInteger lcm(const BigInteger &amp;a, const BigInteger &amp;b)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:757</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a138dd15e360d5ea30f1503ac059f01ae"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a138dd15e360d5ea30f1503ac059f01ae">hsc_snippets::BigInteger::operator-=</a></div><div class="ttdeci">BigInteger &amp; operator-=(const BigInteger &amp;other)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:527</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a21592f61d14c40c0183fcb61ba8e2d00"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a21592f61d14c40c0183fcb61ba8e2d00">hsc_snippets::BigInteger::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:709</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a29c3483d4673b32fa2abf59c66fe740b"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a29c3483d4673b32fa2abf59c66fe740b">hsc_snippets::BigInteger::operator%</a></div><div class="ttdeci">BigInteger operator%(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:568</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a33a114672952e92f20b0770e7d8e7ade"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a33a114672952e92f20b0770e7d8e7ade">hsc_snippets::BigInteger::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:685</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a353a8728b40283ce6cb4f7c1bdfab111"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a353a8728b40283ce6cb4f7c1bdfab111">hsc_snippets::BigInteger::operator==</a></div><div class="ttdeci">bool operator==(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:675</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a47dba5230062060b6fcce13b8b0b093f"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a47dba5230062060b6fcce13b8b0b093f">hsc_snippets::BigInteger::getMaxValueInstance</a></div><div class="ttdeci">static const BigInteger &amp; getMaxValueInstance()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:312</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a50bbbc9e63f5ac20c78ab6cf78810990"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a50bbbc9e63f5ac20c78ab6cf78810990">hsc_snippets::BigInteger::operator+=</a></div><div class="ttdeci">BigInteger &amp; operator+=(const BigInteger &amp;other)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:512</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a5854b777ed3c6a5596c375f40c73ec0b"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a5854b777ed3c6a5596c375f40c73ec0b">hsc_snippets::BigInteger::factorial</a></div><div class="ttdeci">static BigInteger factorial(unsigned int n)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:753</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a50bbbc9e63f5ac20c78ab6cf78810990"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a50bbbc9e63f5ac20c78ab6cf78810990">hsc_snippets::BigInteger::operator+=</a></div><div class="ttdeci">BigInteger &amp; operator+=(const BigInteger &amp;other)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:510</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a5854b777ed3c6a5596c375f40c73ec0b"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a5854b777ed3c6a5596c375f40c73ec0b">hsc_snippets::BigInteger::factorial</a></div><div class="ttdeci">static BigInteger factorial(unsigned int n)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:775</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a5ab2386bef45b0f583c54b29e278a097"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a5ab2386bef45b0f583c54b29e278a097">hsc_snippets::BigInteger::to_string</a></div><div class="ttdeci">std::string to_string() const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:170</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a7162ee8f5c80a38a361f54bb9b725f1c"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a7162ee8f5c80a38a361f54bb9b725f1c">hsc_snippets::BigInteger::operator+</a></div><div class="ttdeci">BigInteger operator+(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:367</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a8151b30cffb0e75317135d361887eb7f"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a8151b30cffb0e75317135d361887eb7f">hsc_snippets::BigInteger::operator--</a></div><div class="ttdeci">BigInteger operator--(int)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:641</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a87932920cef7f6e66a1c4e539ed15f19"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a87932920cef7f6e66a1c4e539ed15f19">hsc_snippets::BigInteger::operator++</a></div><div class="ttdeci">BigInteger operator++(int)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:628</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a8151b30cffb0e75317135d361887eb7f"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a8151b30cffb0e75317135d361887eb7f">hsc_snippets::BigInteger::operator--</a></div><div class="ttdeci">BigInteger operator--(int)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:663</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a87932920cef7f6e66a1c4e539ed15f19"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a87932920cef7f6e66a1c4e539ed15f19">hsc_snippets::BigInteger::operator++</a></div><div class="ttdeci">BigInteger operator++(int)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:650</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a8b4676297d49d99a255513a622f02c89"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a8b4676297d49d99a255513a622f02c89">hsc_snippets::BigInteger::operator/</a></div><div class="ttdeci">BigInteger operator/(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:464</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a8c596325505a6d1b92e455cb8ee40bdd"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a8c596325505a6d1b92e455cb8ee40bdd">hsc_snippets::BigInteger::getMinValueInstance</a></div><div class="ttdeci">static const BigInteger &amp; getMinValueInstance()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:277</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a90235a0cca66eec26423b00fba63a67b"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a90235a0cca66eec26423b00fba63a67b">hsc_snippets::BigInteger::log2</a></div><div class="ttdeci">static BigInteger log2(const BigInteger &amp;number)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:833</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a97f37e03980a728d40608abec948d4d5"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a97f37e03980a728d40608abec948d4d5">hsc_snippets::BigInteger::min</a></div><div class="ttdeci">static BigInteger min(const BigInteger &amp;a, const BigInteger &amp;b)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:609</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a9bc2810ede3011ee193b20f602c80d4b"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a9bc2810ede3011ee193b20f602c80d4b">hsc_snippets::BigInteger::operator&lt;=</a></div><div class="ttdeci">bool operator&lt;=(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:682</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_aa202c7a0c71768e8951c57174c9f0289"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#aa202c7a0c71768e8951c57174c9f0289">hsc_snippets::BigInteger::log10</a></div><div class="ttdeci">static BigInteger log10(const BigInteger &amp;number)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:857</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a8fdc284e79f425b418ecb027f07ff7dd"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a8fdc284e79f425b418ecb027f07ff7dd">hsc_snippets::BigInteger::operator/=</a></div><div class="ttdeci">BigInteger &amp; operator/=(const BigInteger &amp;other)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:551</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a90235a0cca66eec26423b00fba63a67b"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a90235a0cca66eec26423b00fba63a67b">hsc_snippets::BigInteger::log2</a></div><div class="ttdeci">static BigInteger log2(const BigInteger &amp;number)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:856</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a97f37e03980a728d40608abec948d4d5"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a97f37e03980a728d40608abec948d4d5">hsc_snippets::BigInteger::min</a></div><div class="ttdeci">static BigInteger min(const BigInteger &amp;a, const BigInteger &amp;b)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:631</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_a9bc2810ede3011ee193b20f602c80d4b"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#a9bc2810ede3011ee193b20f602c80d4b">hsc_snippets::BigInteger::operator&lt;=</a></div><div class="ttdeci">bool operator&lt;=(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:704</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_aa202c7a0c71768e8951c57174c9f0289"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#aa202c7a0c71768e8951c57174c9f0289">hsc_snippets::BigInteger::log10</a></div><div class="ttdeci">static BigInteger log10(const BigInteger &amp;number)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:880</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_aa47a454d390d507ce63946f5f929a6b5"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#aa47a454d390d507ce63946f5f929a6b5">hsc_snippets::BigInteger::operator*</a></div><div class="ttdeci">BigInteger operator*(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:418</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_aaf4586231777fa9601a193e335847ab9"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#aaf4586231777fa9601a193e335847ab9">hsc_snippets::BigInteger::negate</a></div><div class="ttdeci">void negate()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:332</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ab577d5b02c50efdf80e0b2e729993f83"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ab577d5b02c50efdf80e0b2e729993f83">hsc_snippets::BigInteger::operator-</a></div><div class="ttdeci">BigInteger operator-(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:397</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_abd5046a577859f76e521de137ec129e9"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#abd5046a577859f76e521de137ec129e9">hsc_snippets::BigInteger::operator++</a></div><div class="ttdeci">BigInteger &amp; operator++()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:622</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_abd5f509d2ac517e570a84f8421acb233"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#abd5f509d2ac517e570a84f8421acb233">hsc_snippets::BigInteger::gcd</a></div><div class="ttdeci">static BigInteger gcd(const BigInteger &amp;a, const BigInteger &amp;b)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:709</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ac051686f3e35af09b6f6771a6740c68a"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ac051686f3e35af09b6f6771a6740c68a">hsc_snippets::BigInteger::divideByPowerOfTen</a></div><div class="ttdeci">void divideByPowerOfTen(std::size_t power)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:891</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ac287820bd7162de7f9e78005af358b54"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54">hsc_snippets::BigInteger::sqrt</a></div><div class="ttdeci">static BigInteger sqrt(const BigInteger &amp;number)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:795</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_abd5046a577859f76e521de137ec129e9"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#abd5046a577859f76e521de137ec129e9">hsc_snippets::BigInteger::operator++</a></div><div class="ttdeci">BigInteger &amp; operator++()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:644</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_abd5f509d2ac517e570a84f8421acb233"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#abd5f509d2ac517e570a84f8421acb233">hsc_snippets::BigInteger::gcd</a></div><div class="ttdeci">static BigInteger gcd(const BigInteger &amp;a, const BigInteger &amp;b)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:731</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ac051686f3e35af09b6f6771a6740c68a"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ac051686f3e35af09b6f6771a6740c68a">hsc_snippets::BigInteger::divideByPowerOfTen</a></div><div class="ttdeci">void divideByPowerOfTen(std::size_t power)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:914</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ac287820bd7162de7f9e78005af358b54"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54">hsc_snippets::BigInteger::sqrt</a></div><div class="ttdeci">static BigInteger sqrt(const BigInteger &amp;number)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:818</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_acdbe332ef46d1675b2379e956dfd6d55"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#acdbe332ef46d1675b2379e956dfd6d55">hsc_snippets::BigInteger::one</a></div><div class="ttdeci">static const BigInteger &amp; one()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:257</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_aceb8e2df25f14a00b605d3d17bbcad2c"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#aceb8e2df25f14a00b605d3d17bbcad2c">hsc_snippets::BigInteger::parse</a></div><div class="ttdeci">static BigInteger parse(const std::string &amp;number)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:120</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ad14dbc4cc46d5417de6f17b27ca707f4"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ad14dbc4cc46d5417de6f17b27ca707f4">hsc_snippets::BigInteger::operator-</a></div><div class="ttdeci">BigInteger operator-() const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:353</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ad8553df0a5d64f0e7369545d17026872"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ad8553df0a5d64f0e7369545d17026872">hsc_snippets::BigInteger::operator!=</a></div><div class="ttdeci">bool operator!=(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:658</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_adb8ab0726c9b0c06aa406a27b865d0ca"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#adb8ab0726c9b0c06aa406a27b865d0ca">hsc_snippets::BigInteger::max</a></div><div class="ttdeci">static BigInteger max(const BigInteger &amp;a, const BigInteger &amp;b)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:593</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ad8553df0a5d64f0e7369545d17026872"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ad8553df0a5d64f0e7369545d17026872">hsc_snippets::BigInteger::operator!=</a></div><div class="ttdeci">bool operator!=(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:680</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ad8c1dda29ead332eb7fac8ab29d0f478"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ad8c1dda29ead332eb7fac8ab29d0f478">hsc_snippets::BigInteger::operator*=</a></div><div class="ttdeci">BigInteger &amp; operator*=(const BigInteger &amp;other)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:540</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_adb8ab0726c9b0c06aa406a27b865d0ca"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#adb8ab0726c9b0c06aa406a27b865d0ca">hsc_snippets::BigInteger::max</a></div><div class="ttdeci">static BigInteger max(const BigInteger &amp;a, const BigInteger &amp;b)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:615</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ae3f8fbd9cf6232a6aa752f70e36db238"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ae3f8fbd9cf6232a6aa752f70e36db238">hsc_snippets::BigInteger::abs</a></div><div class="ttdeci">BigInteger abs() const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:345</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ae46b4758a2d824d1741f35ebe6e239b8"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ae46b4758a2d824d1741f35ebe6e239b8">hsc_snippets::BigInteger::two</a></div><div class="ttdeci">static const BigInteger &amp; two()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:266</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ae483d7066e7d4eff5a0beb280a581c28"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ae483d7066e7d4eff5a0beb280a581c28">hsc_snippets::BigInteger::pow</a></div><div class="ttdeci">static BigInteger pow(const BigInteger &amp;a, unsigned int n)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:770</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ae960a49512143154a7b4b8a7b9e047b2"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ae960a49512143154a7b4b8a7b9e047b2">hsc_snippets::BigInteger::divmod</a></div><div class="ttdeci">std::pair&lt; BigInteger, BigInteger &gt; divmod(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:575</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_af58829a85a4475202475e54c1225c506"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#af58829a85a4475202475e54c1225c506">hsc_snippets::BigInteger::operator--</a></div><div class="ttdeci">BigInteger &amp; operator--()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:635</div></div>
-<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_af8c70d1992344bd9fdbfbf2e94d9f464"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#af8c70d1992344bd9fdbfbf2e94d9f464">hsc_snippets::BigInteger::multiplyByPowerOfTen</a></div><div class="ttdeci">void multiplyByPowerOfTen(std::size_t power)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:877</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ae483d7066e7d4eff5a0beb280a581c28"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ae483d7066e7d4eff5a0beb280a581c28">hsc_snippets::BigInteger::pow</a></div><div class="ttdeci">static BigInteger pow(const BigInteger &amp;a, unsigned int n)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:792</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_ae960a49512143154a7b4b8a7b9e047b2"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#ae960a49512143154a7b4b8a7b9e047b2">hsc_snippets::BigInteger::divmod</a></div><div class="ttdeci">std::pair&lt; BigInteger, BigInteger &gt; divmod(const BigInteger &amp;other) const</div><div class="ttdef"><b>Definition</b> big_integer.hpp:597</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_af58829a85a4475202475e54c1225c506"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#af58829a85a4475202475e54c1225c506">hsc_snippets::BigInteger::operator--</a></div><div class="ttdeci">BigInteger &amp; operator--()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:657</div></div>
+<div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_af8c70d1992344bd9fdbfbf2e94d9f464"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#af8c70d1992344bd9fdbfbf2e94d9f464">hsc_snippets::BigInteger::multiplyByPowerOfTen</a></div><div class="ttdeci">void multiplyByPowerOfTen(std::size_t power)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:900</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_afe03ef25178043927498952a690c8669"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#afe03ef25178043927498952a690c8669">hsc_snippets::BigInteger::from_integer</a></div><div class="ttdeci">static BigInteger from_integer(T number)</div><div class="ttdef"><b>Definition</b> big_integer.hpp:147</div></div>
 <div class="ttc" id="aclasshsc__snippets_1_1BigInteger_html_aff5e44abb5cc00a826f5f0948df1dcfc"><div class="ttname"><a href="classhsc__snippets_1_1BigInteger.html#aff5e44abb5cc00a826f5f0948df1dcfc">hsc_snippets::BigInteger::zero</a></div><div class="ttdeci">static const BigInteger &amp; zero()</div><div class="ttdef"><b>Definition</b> big_integer.hpp:248</div></div>
 <div class="ttc" id="anamespacehsc__snippets_html"><div class="ttname"><a href="namespacehsc__snippets.html">hsc_snippets</a></div><div class="ttdef"><b>Definition</b> big_integer.hpp:14</div></div>
