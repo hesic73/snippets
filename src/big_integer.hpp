@@ -53,7 +53,8 @@ namespace hsc_snippets {
         BigInteger() = default;
 
         BigInteger(bool isNegative, const std::vector<std::uint8_t> &digits)
-                : digits(digits), isNegative(isNegative) {}
+            : digits(digits), isNegative(isNegative) {
+        }
 
 #pragma endregion
 
@@ -108,7 +109,6 @@ namespace hsc_snippets {
 #pragma endregion
 
     public:
-
 #pragma region conversion
 
         /**
@@ -178,7 +178,7 @@ namespace hsc_snippets {
             }
 
             str.reserve(digits.size() + str.size());
-            for (unsigned char digit : std::ranges::reverse_view(digits)) {
+            for (unsigned char digit: std::ranges::reverse_view(digits)) {
                 str += static_cast<char>('0' + digit);
             }
             return str;
@@ -496,8 +496,6 @@ namespace hsc_snippets {
         }
 
 
-#pragma endregion
-
         /**
          * Adds the value of another BigInteger to this instance and updates this instance with the result.
          *
@@ -534,6 +532,29 @@ namespace hsc_snippets {
 
 
         /**
+         * Multiplies the current BigInteger by another BigInteger and assigns the result to the current object.
+         *
+         * @param other The BigInteger to multiply with the current BigInteger.
+         * @return A reference to the current BigInteger after multiplication.
+         */
+        BigInteger &operator*=(const BigInteger &other) {
+            *this = *this * other;
+            return *this;
+        }
+
+        /**
+         * Divides the current BigInteger by another BigInteger and assigns the result to the current object.
+         *
+         * @param other The BigInteger to divide the current BigInteger by.
+         * @return A reference to the current BigInteger after division.
+         */
+        BigInteger &operator/=(const BigInteger &other) {
+            *this = *this / other;
+            return *this;
+        }
+
+
+        /**
          * Calculates the remainder of division of this BigInteger by another BigInteger.
          *
          * The modular operation follows the standard definition where the remainder of the division
@@ -556,6 +577,7 @@ namespace hsc_snippets {
             return remainder;
         }
 
+#pragma endregion
 
         /**
          * Performs division and modulo operations simultaneously, returning both the quotient and the remainder.
@@ -714,7 +736,7 @@ namespace hsc_snippets {
             while (y != zero) {
                 BigInteger temp = y;
                 y = x % y; // Replace y with the remainder of x divided by y
-                x = temp;  // Replace x with the old value of y
+                x = temp; // Replace x with the old value of y
             }
 
             return x; // x contains the gcd when y becomes zero
@@ -775,7 +797,8 @@ namespace hsc_snippets {
             BigInteger result = BigInteger::from_integer(1);
             BigInteger base = a;
             while (n > 0) {
-                if (n % 2 == 1) { // If n is odd
+                if (n % 2 == 1) {
+                    // If n is odd
                     result = result * base; // Multiply result by current base
                 }
                 base = base * base; // Square the base
@@ -900,8 +923,6 @@ namespace hsc_snippets {
             }
             removeLeadingZeros(); // Just in case leading zeros are created
         }
-
-
     };
 }
 
