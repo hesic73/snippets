@@ -1,7 +1,7 @@
 var searchData=
 [
   ['largestrectangleinhistogram_0',['largestRectangleInHistogram',['../namespacehsc__snippets.html#af1c5f4718fb5c5d24e6b7ef9f1ede860',1,'hsc_snippets']]],
-  ['lcm_1',['lcm',['../classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9',1,'hsc_snippets::BigInteger::lcm()'],['../namespacehsc__snippets.html#a9d31a87aa5ed5297257e6daea49a4c72',1,'hsc_snippets::lcm(T a, T b)']]],
+  ['lcm_1',['lcm',['../classhsc__snippets_1_1BigInteger.html#a109b2f5a7752dda542e4bafeae5bccc9',1,'hsc_snippets::BigInteger']]],
   ['lessthanall_2',['lessThanAll',['../namespacehsc__snippets.html#ac6691641b2d50eca1b2145da55c74f1d',1,'hsc_snippets::lessThanAll(T x, T val)'],['../namespacehsc__snippets.html#ae5c0498b1070c4404daaaf087992758b',1,'hsc_snippets::lessThanAll(T x, T val, Args... args)']]],
   ['lessthanorequaltoall_3',['lessThanOrEqualToAll',['../namespacehsc__snippets.html#a8f9c656f40560cd6141ff708c5937b89',1,'hsc_snippets::lessThanOrEqualToAll(T x, T val)'],['../namespacehsc__snippets.html#a0e874c9c2bfef67800a520d9ccf60805',1,'hsc_snippets::lessThanOrEqualToAll(T x, T val, Args... args)']]],
   ['linked_5flist_5fdelete_4',['linked_list_delete',['../namespacehsc__snippets.html#a00a04f3114efd0152b433b11da85238e',1,'hsc_snippets']]],

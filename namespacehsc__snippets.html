@@ -224,12 +224,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a9dc8f948cda1de6cbdb67bf6680d87f9" id="r_a9dc8f948cda1de6cbdb67bf6680d87f9"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
 <tr class="memitem:a9dc8f948cda1de6cbdb67bf6680d87f9"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9dc8f948cda1de6cbdb67bf6680d87f9">numBits</a> (T num)</td></tr>
 <tr class="separator:a9dc8f948cda1de6cbdb67bf6680d87f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afff61e6f2efed27bc4bbb2a2c6a44328" id="r_afff61e6f2efed27bc4bbb2a2c6a44328"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
-<tr class="memitem:afff61e6f2efed27bc4bbb2a2c6a44328"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afff61e6f2efed27bc4bbb2a2c6a44328">gcd</a> (T a, T b)</td></tr>
-<tr class="separator:afff61e6f2efed27bc4bbb2a2c6a44328"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9d31a87aa5ed5297257e6daea49a4c72" id="r_a9d31a87aa5ed5297257e6daea49a4c72"><td class="memTemplParams" colspan="2">template&lt;std::integral T&gt; </td></tr>
-<tr class="memitem:a9d31a87aa5ed5297257e6daea49a4c72"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9d31a87aa5ed5297257e6daea49a4c72">lcm</a> (T a, T b)</td></tr>
-<tr class="separator:a9d31a87aa5ed5297257e6daea49a4c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63947c3cdde506a8b9d7c658b77c9ce3" id="r_a63947c3cdde506a8b9d7c658b77c9ce3"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63947c3cdde506a8b9d7c658b77c9ce3">SieveOfEratosthenes</a> (int n)</td></tr>
 <tr class="separator:a63947c3cdde506a8b9d7c658b77c9ce3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ca516ac018a2770d79d6fe162f497d1" id="r_a7ca516ac018a2770d79d6fe162f497d1"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7ca516ac018a2770d79d6fe162f497d1">isPerfectSquare</a> (std::int32_t num)</td></tr>
@@ -1094,44 +1088,6 @@ template&lt;typename T , std::integral I = int&gt; </div>
 
 </div>
 </div>
-<a id="afff61e6f2efed27bc4bbb2a2c6a44328" name="afff61e6f2efed27bc4bbb2a2c6a44328"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afff61e6f2efed27bc4bbb2a2c6a44328">&#9670;&#160;</a></span>gcd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::integral T&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T hsc_snippets::gcd </td>
-          <td>(</td>
-          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Calculates the greatest common divisor (GCD) of two numbers using the Euclidean algorithm.</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>A numeric type that should be an integral type (e.g., int, long). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td>The first number. </td></tr>
-    <tr><td class="paramname">b</td><td>The second number. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The greatest common divisor of a and b. </dd></dl>
-
-</div>
-</div>
 <a id="a41d508b22e8ae3deb4ae7b5f75e968f3" name="a41d508b22e8ae3deb4ae7b5f75e968f3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a41d508b22e8ae3deb4ae7b5f75e968f3">&#9670;&#160;</a></span>get_binary_tree_depth()</h2>
 
@@ -1767,44 +1723,6 @@ template&lt;numeric T, numeric... Args&gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The maximum area of the rectangle that can be formed in the histogram. </dd></dl>
-
-</div>
-</div>
-<a id="a9d31a87aa5ed5297257e6daea49a4c72" name="a9d31a87aa5ed5297257e6daea49a4c72"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d31a87aa5ed5297257e6daea49a4c72">&#9670;&#160;</a></span>lcm()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::integral T&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T hsc_snippets::lcm </td>
-          <td>(</td>
-          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Calculates the least common multiple (LCM) of two numbers using the formula: LCM(a, b) = (a * b) / GCD(a, b)</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>A numeric type that should be an integral type (e.g., int, long). </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">a</td><td>The first number. </td></tr>
-    <tr><td class="paramname">b</td><td>The second number. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The least common multiple of a and b. </dd></dl>
 
 </div>
 </div>
