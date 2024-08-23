@@ -48,44 +48,6 @@ namespace hsc_snippets {
 	}
 
 	/**
-	 * Calculates the greatest common divisor (GCD) of two numbers using the Euclidean algorithm.
-	 *
-	 * @tparam T A numeric type that should be an integral type (e.g., int, long).
-	 * @param a The first number.
-	 * @param b The second number.
-	 * @return The greatest common divisor of a and b.
-	 */
-	template<std::integral T>
-	T gcd(T a, T b) {
-		while (b != 0) {
-			T temp = b;
-			b = a % b;
-			a = temp;
-		}
-		return a; // When b becomes 0, a contains the gcd
-	}
-
-	/**
-	 * Calculates the least common multiple (LCM) of two numbers using the formula:
-	 * LCM(a, b) = (a * b) / GCD(a, b)
-	 *
-	 * @tparam T A numeric type that should be an integral type (e.g., int, long).
-	 * @param a The first number.
-	 * @param b The second number.
-	 * @return The least common multiple of a and b.
-	 */
-	template<std::integral T>
-	T lcm(T a, T b) {
-		T gcd_val = gcd(a, b);
-		T tmp = b / gcd_val;
-		// To avoid overflow: check if multiplication a * (b / gcd_val) would overflow
-		if (a > std::numeric_limits<T>::max() / tmp) {
-			throw std::overflow_error("LCM calculation overflowed");
-		}
-		return a * tmp;
-	}
-
-	/**
 	 * Implements the Sieve of Eratosthenes algorithm to find all prime numbers up to a given limit n.
 	 *
 	 * @param n The upper limit (inclusive) up to which prime numbers are to be found.
