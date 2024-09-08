@@ -149,6 +149,23 @@ namespace hsc_snippets {
         }
         return nullptr; // Index out of bounds
     }
+
+    /**
+     * Returns a pointer to the node after taking a specified number of steps in the linked list.
+     *
+     * @param head Pointer to the head of the linked list.
+     * @param step The number of steps to take from the head (0-based).
+     * @return A pointer to the node after the specified number of steps, or nullptr if out of bounds.
+     */
+    static ListNode *linked_list_next(ListNode *head, size_t step) {
+        size_t i = 0;
+        while (head != nullptr && i < step) {
+            head = head->next;
+            i++;
+        }
+
+        return head; // Returns nullptr if step is out of bounds
+    }
 }
 
 #endif // LINKED_LIST_H
