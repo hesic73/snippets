@@ -224,12 +224,25 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; <span class="comment">// Index out of bounds</span></div>
 <div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    }</div>
 </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>}</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="preprocessor">#endif </span><span class="comment">// LINKED_LIST_H</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a19b8d0d19d47eca93cdcd4fb3fbb9cc1">  160</a></span>    <span class="keyword">static</span> <a class="code hl_struct" href="structhsc__snippets_1_1ListNode.html">ListNode</a> *<a class="code hl_function" href="namespacehsc__snippets.html#a19b8d0d19d47eca93cdcd4fb3fbb9cc1">linked_list_next</a>(<a class="code hl_struct" href="structhsc__snippets_1_1ListNode.html">ListNode</a> *head, <span class="keywordtype">size_t</span> step) {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordtype">size_t</span> i = 0;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordflow">while</span> (head != <span class="keyword">nullptr</span> &amp;&amp; i &lt; step) {</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            head = head-&gt;<a class="code hl_variable" href="structhsc__snippets_1_1ListNode.html#a93befde5fdda45fbb14f457d31dd8023">next</a>;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            i++;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keywordflow">return</span> head; <span class="comment">// Returns nullptr if step is out of bounds</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
+</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>}</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="preprocessor">#endif </span><span class="comment">// LINKED_LIST_H</span></div>
 <div class="ttc" id="anamespacehsc__snippets_html"><div class="ttname"><a href="namespacehsc__snippets.html">hsc_snippets</a></div><div class="ttdef"><b>Definition</b> big_integer.hpp:14</div></div>
 <div class="ttc" id="anamespacehsc__snippets_html_a00a04f3114efd0152b433b11da85238e"><div class="ttname"><a href="namespacehsc__snippets.html#a00a04f3114efd0152b433b11da85238e">hsc_snippets::linked_list_delete</a></div><div class="ttdeci">static void linked_list_delete(ListNode *head)</div><div class="ttdef"><b>Definition</b> linked_list.hpp:83</div></div>
 <div class="ttc" id="anamespacehsc__snippets_html_a0c7f423ee4b9024557d8497b2c46755d"><div class="ttname"><a href="namespacehsc__snippets.html#a0c7f423ee4b9024557d8497b2c46755d">hsc_snippets::linked_list_remove</a></div><div class="ttdeci">static ListNode * linked_list_remove(ListNode *head, size_t begin, size_t end)</div><div class="ttdef"><b>Definition</b> linked_list.hpp:104</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a19b8d0d19d47eca93cdcd4fb3fbb9cc1"><div class="ttname"><a href="namespacehsc__snippets.html#a19b8d0d19d47eca93cdcd4fb3fbb9cc1">hsc_snippets::linked_list_next</a></div><div class="ttdeci">static ListNode * linked_list_next(ListNode *head, size_t step)</div><div class="ttdef"><b>Definition</b> linked_list.hpp:160</div></div>
 <div class="ttc" id="anamespacehsc__snippets_html_a5b6a5ac55d0bc6bbef668820bd517111"><div class="ttname"><a href="namespacehsc__snippets.html#a5b6a5ac55d0bc6bbef668820bd517111">hsc_snippets::make_linked_list</a></div><div class="ttdeci">static ListNode * make_linked_list(const std::vector&lt; int &gt; &amp;v)</div><div class="ttdef"><b>Definition</b> linked_list.hpp:42</div></div>
 <div class="ttc" id="anamespacehsc__snippets_html_aa55a2dd20854e1a9cb1b397d7368ee1c"><div class="ttname"><a href="namespacehsc__snippets.html#aa55a2dd20854e1a9cb1b397d7368ee1c">hsc_snippets::get_linked_list_length</a></div><div class="ttdeci">static int get_linked_list_length(ListNode *head)</div><div class="ttdef"><b>Definition</b> linked_list.hpp:27</div></div>
 <div class="ttc" id="anamespacehsc__snippets_html_aa7da9d3241826cfd02621affe06ac4b1"><div class="ttname"><a href="namespacehsc__snippets.html#aa7da9d3241826cfd02621affe06ac4b1">hsc_snippets::get_linked_list_ith_node</a></div><div class="ttdeci">static ListNode * get_linked_list_ith_node(ListNode *head, size_t i)</div><div class="ttdef"><b>Definition</b> linked_list.hpp:141</div></div>

@@ -201,6 +201,8 @@ Functions</h2></td></tr>
 <tr class="separator:a0c7f423ee4b9024557d8497b2c46755d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7da9d3241826cfd02621affe06ac4b1" id="r_aa7da9d3241826cfd02621affe06ac4b1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structhsc__snippets_1_1ListNode.html">ListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7da9d3241826cfd02621affe06ac4b1">get_linked_list_ith_node</a> (<a class="el" href="structhsc__snippets_1_1ListNode.html">ListNode</a> *head, size_t i)</td></tr>
 <tr class="separator:aa7da9d3241826cfd02621affe06ac4b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19b8d0d19d47eca93cdcd4fb3fbb9cc1" id="r_a19b8d0d19d47eca93cdcd4fb3fbb9cc1"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structhsc__snippets_1_1ListNode.html">ListNode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a19b8d0d19d47eca93cdcd4fb3fbb9cc1">linked_list_next</a> (<a class="el" href="structhsc__snippets_1_1ListNode.html">ListNode</a> *head, size_t step)</td></tr>
+<tr class="separator:a19b8d0d19d47eca93cdcd4fb3fbb9cc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7c058184d3bf4b4028ac27888f891666" id="r_a7c058184d3bf4b4028ac27888f891666"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7c058184d3bf4b4028ac27888f891666">modular_add</a> (int x, int y)</td></tr>
 <tr class="separator:a7c058184d3bf4b4028ac27888f891666"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a795dc74a07970f538ab222b31f874271" id="r_a795dc74a07970f538ab222b31f874271"><td class="memItemLeft" align="right" valign="top">constexpr int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a795dc74a07970f538ab222b31f874271">additive_inverse</a> (int x)</td></tr>
@@ -1859,6 +1861,44 @@ template&lt;numeric T, numeric... Args&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a19b8d0d19d47eca93cdcd4fb3fbb9cc1" name="a19b8d0d19d47eca93cdcd4fb3fbb9cc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19b8d0d19d47eca93cdcd4fb3fbb9cc1">&#9670;&#160;</a></span>linked_list_next()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structhsc__snippets_1_1ListNode.html">ListNode</a> * hsc_snippets::linked_list_next </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structhsc__snippets_1_1ListNode.html">ListNode</a> *</td>          <td class="paramname"><span class="paramname"><em>head</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>step</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Returns a pointer to the node after taking a specified number of steps in the linked list.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">head</td><td>Pointer to the head of the linked list. </td></tr>
+    <tr><td class="paramname">step</td><td>The number of steps to take from the head (0-based). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A pointer to the node after the specified number of steps, or nullptr if out of bounds. </dd></dl>
 
 </div>
 </div>
