@@ -8,11 +8,10 @@
 #include <set>
 
 namespace hsc_snippets {
-
     template<std::integral T>
     struct Interval {
-        T left;  // inclusive
-        T right; // exclusize
+        T left; // inclusive
+        T right; // exclusive
     };
 
     /*
@@ -62,35 +61,30 @@ namespace hsc_snippets {
     };
 
     /**
-     * A data structure for efficiently managing intervals and their associated values.
-     * It allows for adding new intervals with specified values, querying the value at any given point within the intervals,
-     * and consolidating adjacent intervals with identical values to minimize fragmentation.
-     * The behavior of overlapping intervals during updates can be customized through a user-defined update policy.
+     * Manages intervals with associated values, allowing efficient updates and queries.
      *
      * Template Parameters:
-     * - T: The type of the endpoints of the intervals, required to be an integral type (e.g., int, long).
-     * - V: The type of the values associated with each interval.
-     * - update_policy_t: A struct that defines the policy for resolving values of overlapping intervals.
-     *   It must be a callable that takes two arguments of type V (the existing and new values) and returns a resolved value of type V.
+     * - T: Integral type for interval endpoints.
+     * - V: Integral type for values associated with intervals.
+     * - update_policy_t: Callable that resolves value conflicts during updates.
      *
-     * The class uses a balanced binary search tree (std::map) internally to store intervals in a non-overlapping manner,
-     * ensuring efficient queries and updates. The update and query operations are expected to perform in O(log n) time complexity,
-     * where n is the number of intervals in the map.
+     * Uses `std::map` to store non-overlapping intervals. Supports adding intervals,
+     * querying values at points, and defragmenting adjacent intervals with identical values.
      */
-    template<std::integral T, std::integral V, typename update_policy_t = Override<T>>
+
+    template<std::integral T, std::integral V, typename update_policy_t = Override<T> >
     // update_policy_t is a callable with a signature of  V(V old_value, V new_value)
     class IntervalMap {
     public:
         explicit IntervalMap() = default;
 
         /**
-         * Updates the interval map by adding a new interval specified by left (inclusive) and right (exclusive) boundaries,
-         * associating it with the given value.
-         * If the new interval overlaps with existing intervals, the provided update_policy is applied to resolve the value conflicts.
+         * Adds or updates an interval [left, right) with the specified value.
+         * Merges overlapping intervals using the update policy.
          *
-         * @param left The starting boundary of the interval to add, inclusive.
-         * @param right The ending boundary of the interval to add, exclusive. Must be greater than left.
-         * @param value The value to associate with the interval.
+         * @param left  Inclusive start of the interval.
+         * @param right Exclusive end of the interval (must be greater than left).
+         * @param value Value to associate with the interval.
          */
         void update(T left, T right, V value) {
             assert(left < right); // or UB
@@ -199,13 +193,10 @@ namespace hsc_snippets {
         }
 
         /**
-         * Queries the value associated with a specific index in the interval tree.
-         * If the index falls within an interval, the value for that interval is returned.
-         * If the index does not fall within any interval, std::nullopt is returned.
+         * Retrieves the value associated with a specific index.
          *
-         * @param index The index to query in the interval tree.
-         * @return An std::optional<V> containing the value associated with the index if it falls within an interval,
-         * or std::nullopt if the index is not covered by any interval.
+         * @param index The index to query.
+         * @return Optional value if the index is within an interval; otherwise, nullopt.
          */
         std::optional<V> query(T index) {
             auto it = map.find(index);
@@ -217,7 +208,7 @@ namespace hsc_snippets {
         }
 
         /**
-         * Consolidates adjacent intervals with the same value into a single interval to reduce fragmentation within the interval tree.
+         * Merges adjacent intervals with identical values to reduce fragmentation.
          */
         void defragment() {
             // We assume that erasion only affects the iterator of the erased element.
@@ -248,7 +239,6 @@ namespace hsc_snippets {
                     value = it->second;
                     next_it = std::next(it);
                 }
-
             } while (next_it != map.end());
 
             assert(no_fragmentation());
@@ -260,8 +250,8 @@ namespace hsc_snippets {
          * @return A std::vector of std::tuple<T, T, V> elements,
          * where each tuple represents an interval with its left and right boundaries and its associated value.
          */
-        std::vector<std::tuple<T, T, V>> getIntervals() const {
-            std::vector<std::tuple<T, T, V>> intervals;
+        std::vector<std::tuple<T, T, V> > getIntervals() const {
+            std::vector<std::tuple<T, T, V> > intervals;
             intervals.reserve(map.size());
 
             for (const auto &entry: map) {
@@ -298,7 +288,7 @@ namespace hsc_snippets {
             return true;
         }
 
-        std::map<Interval<T>, V, std::less<>> map;
+        std::map<Interval<T>, V, std::less<> > map;
         update_policy_t update_policy;
     };
 
@@ -332,7 +322,6 @@ namespace hsc_snippets {
                     // [right, interval.right)
 
                     s.insert(Interval<T>{interval.left, interval.right});
-
                 } else {
                     // [interval.left, left)
                     // [left, interval.right)
@@ -398,15 +387,55 @@ namespace hsc_snippets {
             }
         }
 
+        /**
+         * Checks if a given index is within any of the intervals in the set.
+         *
+         * @param index The index to query.
+         * @return True if the index is within an interval; otherwise, false.
+         */
+        bool query(T index) const {
+            auto it = s.find(index);
+            return it != s.end();
+        }
 
         /**
- * Retrieves a list of all intervals and their associated values.
- *
- * @return A std::vector of std::tuple<T, T, V> elements,
- * where each tuple represents an interval with its left and right boundaries and its associated value.
- */
-        std::vector<std::pair<T, T>> getIntervals() const {
-            std::vector<std::pair<T, T>> intervals;
+         * Checks if a given interval intersects with any intervals in the set.
+         *
+         * @param interval The interval to check for intersection.
+         * @return True if the interval intersects with any existing intervals; otherwise, false.
+         */
+        bool query(const Interval<T> &interval) const {
+            assert(interval.left < interval.right); // The interval must be valid
+
+            // Find the first interval in the set that is not less than the query interval
+            auto it = s.lower_bound(interval);
+
+            // Check if the previous interval overlaps with the query interval
+            if (it != s.begin()) {
+                auto prev_it = std::prev(it);
+                if (prev_it->right > interval.left) {
+                    // There is an overlap with the previous interval
+                    return true;
+                }
+            }
+
+            // Check if the current interval overlaps with the query interval
+            if (it != s.end() && it->left < interval.right) {
+                // There is an overlap with the current interval
+                return true;
+            }
+
+            // No overlapping intervals found
+            return false;
+        }
+
+        /**
+         * Retrieves all intervals in the set.
+         *
+         * @return A vector of pairs representing intervals [left, right).
+         */
+        std::vector<std::pair<T, T> > getIntervals() const {
+            std::vector<std::pair<T, T> > intervals;
             intervals.reserve(s.size());
 
             for (const auto &interval: s) {
@@ -418,7 +447,7 @@ namespace hsc_snippets {
 
 
         /**
-         * Consolidates adjacent intervals into a single interval to reduce fragmentation within the interval tree.
+         * Merges adjacent intervals to reduce fragmentation.
          */
         void defragment() {
             // We assume that erasion only affects the iterator of the erased element.
@@ -446,12 +475,10 @@ namespace hsc_snippets {
                     right = it->right;
                     next_it = std::next(it);
                 }
-
             } while (next_it != s.end());
 
             assert(no_fragmentation());
         }
-
 
     private:
         /**
@@ -477,7 +504,7 @@ namespace hsc_snippets {
             return true;
         }
 
-        std::set<Interval<T>, std::less<>> s;
+        std::set<Interval<T>, std::less<> > s;
     };
 }
 
