@@ -103,6 +103,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aefb2a5c7f1f4f28cb315c0619d23e2bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45952855d4e1d24afc0d6ef4cf96f610" id="r_a45952855d4e1d24afc0d6ef4cf96f610"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a45952855d4e1d24afc0d6ef4cf96f610">update</a> (T left, T right)</td></tr>
 <tr class="separator:a45952855d4e1d24afc0d6ef4cf96f610"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc51d12129431958c7db07e1f4abab62" id="r_abc51d12129431958c7db07e1f4abab62"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc51d12129431958c7db07e1f4abab62">query</a> (T index) const</td></tr>
+<tr class="separator:abc51d12129431958c7db07e1f4abab62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f116da50526dae5d2c4432beadfe986" id="r_a6f116da50526dae5d2c4432beadfe986"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f116da50526dae5d2c4432beadfe986">query</a> (const <a class="el" href="structhsc__snippets_1_1Interval.html">Interval</a>&lt; T &gt; &amp;interval) const</td></tr>
+<tr class="separator:a6f116da50526dae5d2c4432beadfe986"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb15aefac65c9f6ef434703e8d1aeb45" id="r_abb15aefac65c9f6ef434703e8d1aeb45"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; T, T &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb15aefac65c9f6ef434703e8d1aeb45">getIntervals</a> () const</td></tr>
 <tr class="separator:abb15aefac65c9f6ef434703e8d1aeb45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a411317d617cbe7eea65befdf8b45bb99" id="r_a411317d617cbe7eea65befdf8b45bb99"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a411317d617cbe7eea65befdf8b45bb99">defragment</a> ()</td></tr>
@@ -161,7 +165,7 @@ template&lt;std::integral T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Consolidates adjacent intervals into a single interval to reduce fragmentation within the interval tree. </p>
+<p>Merges adjacent intervals to reduce fragmentation. </p>
 
 </div>
 </div>
@@ -189,8 +193,78 @@ template&lt;std::integral T&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Retrieves a list of all intervals and their associated values.</p>
-<dl class="section return"><dt>Returns</dt><dd>A std::vector of std::tuple&lt;T, T, V&gt; elements, where each tuple represents an interval with its left and right boundaries and its associated value. </dd></dl>
+<p>Retrieves all intervals in the set.</p>
+<dl class="section return"><dt>Returns</dt><dd>A vector of pairs representing intervals [left, right). </dd></dl>
+
+</div>
+</div>
+<a id="a6f116da50526dae5d2c4432beadfe986" name="a6f116da50526dae5d2c4432beadfe986"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f116da50526dae5d2c4432beadfe986">&#9670;&#160;</a></span>query() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::integral T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classhsc__snippets_1_1IntervalSet.html">hsc_snippets::IntervalSet</a>&lt; T &gt;::query </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structhsc__snippets_1_1Interval.html">Interval</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>interval</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Checks if a given interval intersects with any intervals in the set.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">interval</td><td>The interval to check for intersection. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the interval intersects with any existing intervals; otherwise, false. </dd></dl>
+
+</div>
+</div>
+<a id="abc51d12129431958c7db07e1f4abab62" name="abc51d12129431958c7db07e1f4abab62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc51d12129431958c7db07e1f4abab62">&#9670;&#160;</a></span>query() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;std::integral T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="classhsc__snippets_1_1IntervalSet.html">hsc_snippets::IntervalSet</a>&lt; T &gt;::query </td>
+          <td>(</td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Checks if a given index is within any of the intervals in the set.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>The index to query. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the index is within an interval; otherwise, false. </dd></dl>
 
 </div>
 </div>
