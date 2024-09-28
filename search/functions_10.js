@@ -2,7 +2,7 @@ var searchData=
 [
   ['segmenttree_0',['SegmentTree',['../classhsc__snippets_1_1SegmentTree.html#aed68c0b4ee06c2f771a92ddb1db60dc3',1,'hsc_snippets::SegmentTree']]],
   ['sieveoferatosthenes_1',['SieveOfEratosthenes',['../namespacehsc__snippets.html#a63947c3cdde506a8b9d7c658b77c9ce3',1,'hsc_snippets']]],
-  ['size_2',['size',['../classhsc__snippets_1_1SegmentTree.html#ab888b5ebc96b4d7a9fa44bd8c43212da',1,'hsc_snippets::SegmentTree::size()'],['../classhsc__snippets_1_1SlidingWindowMax.html#a74b88c2c536e866afa36ebfe22601e6c',1,'hsc_snippets::SlidingWindowMax::size() const']]],
+  ['size_2',['size',['../classhsc__snippets_1_1CircularDeque.html#ae9e80d7c28df843c38d776b9f17434ed',1,'hsc_snippets::CircularDeque::size()'],['../classhsc__snippets_1_1SegmentTree.html#ab888b5ebc96b4d7a9fa44bd8c43212da',1,'hsc_snippets::SegmentTree::size()'],['../classhsc__snippets_1_1SlidingWindowMax.html#a74b88c2c536e866afa36ebfe22601e6c',1,'hsc_snippets::SlidingWindowMax::size() const']]],
   ['slidingwindowmax_3',['SlidingWindowMax',['../classhsc__snippets_1_1SlidingWindowMax.html#a1ef1c1a9e171567e21696ed1e004ba8d',1,'hsc_snippets::SlidingWindowMax']]],
   ['sortthree_4',['sortThree',['../namespacehsc__snippets.html#adbdb05e51cc5a1ab1a9b3aea8075b2ef',1,'hsc_snippets']]],
   ['sqrt_5',['sqrt',['../classhsc__snippets_1_1BigInteger.html#ac287820bd7162de7f9e78005af358b54',1,'hsc_snippets::BigInteger']]],

@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['interval_0',['Interval',['../structhsc__snippets_1_1Interval.html',1,'hsc_snippets']]],
-  ['intervalmap_1',['IntervalMap',['../classhsc__snippets_1_1IntervalMap.html',1,'hsc_snippets']]],
-  ['intervalset_2',['IntervalSet',['../classhsc__snippets_1_1IntervalSet.html',1,'hsc_snippets']]]
+  ['disjointset_0',['DisjointSet',['../classhsc__snippets_1_1DisjointSet.html',1,'hsc_snippets']]],
+  ['dominanttracker_1',['DominantTracker',['../classhsc__snippets_1_1DominantTracker.html',1,'hsc_snippets']]]
 ];

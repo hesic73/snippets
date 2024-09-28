@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rational_5fnumber_2ehpp_0',['rational_number.hpp',['../rational__number_8hpp.html',1,'']]]
+  ['prefix_5fsuffix_2ehpp_0',['prefix_suffix.hpp',['../prefix__suffix_8hpp.html',1,'']]]
 ];

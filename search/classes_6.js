@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rationalnumber_0',['RationalNumber',['../classhsc__snippets_1_1RationalNumber.html',1,'hsc_snippets']]]
+  ['override_0',['Override',['../structhsc__snippets_1_1Override.html',1,'hsc_snippets']]]
 ];

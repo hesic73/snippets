@@ -3,7 +3,7 @@ var searchData=
   ['segment_5ftree_2ehpp_0',['segment_tree.hpp',['../segment__tree_8hpp.html',1,'']]],
   ['segmenttree_1',['SegmentTree',['../classhsc__snippets_1_1SegmentTree.html',1,'hsc_snippets::SegmentTree&lt; T &gt;'],['../classhsc__snippets_1_1SegmentTree.html#aed68c0b4ee06c2f771a92ddb1db60dc3',1,'hsc_snippets::SegmentTree::SegmentTree()']]],
   ['sieveoferatosthenes_2',['SieveOfEratosthenes',['../namespacehsc__snippets.html#a63947c3cdde506a8b9d7c658b77c9ce3',1,'hsc_snippets']]],
-  ['size_3',['size',['../classhsc__snippets_1_1SegmentTree.html#ab888b5ebc96b4d7a9fa44bd8c43212da',1,'hsc_snippets::SegmentTree::size()'],['../classhsc__snippets_1_1SlidingWindowMax.html#a74b88c2c536e866afa36ebfe22601e6c',1,'hsc_snippets::SlidingWindowMax::size()']]],
+  ['size_3',['size',['../classhsc__snippets_1_1CircularDeque.html#ae9e80d7c28df843c38d776b9f17434ed',1,'hsc_snippets::CircularDeque::size()'],['../classhsc__snippets_1_1SegmentTree.html#ab888b5ebc96b4d7a9fa44bd8c43212da',1,'hsc_snippets::SegmentTree::size()'],['../classhsc__snippets_1_1SlidingWindowMax.html#a74b88c2c536e866afa36ebfe22601e6c',1,'hsc_snippets::SlidingWindowMax::size()']]],
   ['sliding_5fwindow_2ehpp_4',['sliding_window.hpp',['../sliding__window_8hpp.html',1,'']]],
   ['slidingwindowmax_5',['SlidingWindowMax',['../classhsc__snippets_1_1SlidingWindowMax.html',1,'hsc_snippets::SlidingWindowMax&lt; T &gt;'],['../classhsc__snippets_1_1SlidingWindowMax.html#a1ef1c1a9e171567e21696ed1e004ba8d',1,'hsc_snippets::SlidingWindowMax::SlidingWindowMax()']]],
   ['sorted_5futils_2ehpp_6',['sorted_utils.hpp',['../sorted__utils_8hpp.html',1,'']]],
