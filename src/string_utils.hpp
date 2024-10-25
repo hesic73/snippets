@@ -258,6 +258,26 @@ namespace hsc_snippets {
         return result;
     }
 
+    /**
+     * Joins a vector of strings into a single string, using a specified delimiter between each string.
+     *
+     * @param strings The vector of strings to be joined.
+     * @param delimiter The string used as the delimiter between each element in the vector.
+     * @return A new string consisting of the elements in `strings`, joined by `delimiter`.
+     */
+    static std::string string_join(const std::vector<std::string> &strings, const std::string &delimiter) {
+        if (strings.empty()) return "";
+
+        std::ostringstream result;
+        auto iter = strings.begin();
+        result << *iter++; // Add the first element without the delimiter
+
+        while (iter != strings.end()) {
+            result << delimiter << *iter++;
+        }
+
+        return result.str();
+    }
 }
 
 #endif // STRING_UTILS_H
