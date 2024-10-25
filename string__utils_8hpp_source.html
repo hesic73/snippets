@@ -290,10 +290,26 @@ $(function(){ initResizable(false); });
 <div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    }</div>
 </div>
 <div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>}</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="preprocessor">#endif </span><span class="comment">// STRING_UTILS_H</span></div>
+<div class="foldopen" id="foldopen00268" data-start="{" data-end="}">
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="namespacehsc__snippets.html#a1e67435a2ae5f181a94710d7f4eb879a">  268</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="namespacehsc__snippets.html#a1e67435a2ae5f181a94710d7f4eb879a">string_join</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt; &amp;strings, <span class="keyword">const</span> std::string &amp;delimiter) {</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordflow">if</span> (strings.empty()) <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        std::ostringstream result;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <span class="keyword">auto</span> iter = strings.begin();</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        result &lt;&lt; *iter++; <span class="comment">// Add the first element without the delimiter</span></div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordflow">while</span> (iter != strings.end()) {</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>            result &lt;&lt; delimiter &lt;&lt; *iter++;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>        }</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span> </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keywordflow">return</span> result.str();</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    }</div>
+</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>}</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span><span class="preprocessor">#endif </span><span class="comment">// STRING_UTILS_H</span></div>
 <div class="ttc" id="anamespacehsc__snippets_html"><div class="ttname"><a href="namespacehsc__snippets.html">hsc_snippets</a></div><div class="ttdef"><b>Definition</b> big_integer.hpp:14</div></div>
+<div class="ttc" id="anamespacehsc__snippets_html_a1e67435a2ae5f181a94710d7f4eb879a"><div class="ttname"><a href="namespacehsc__snippets.html#a1e67435a2ae5f181a94710d7f4eb879a">hsc_snippets::string_join</a></div><div class="ttdeci">static std::string string_join(const std::vector&lt; std::string &gt; &amp;strings, const std::string &amp;delimiter)</div><div class="ttdef"><b>Definition</b> string_utils.hpp:268</div></div>
 <div class="ttc" id="anamespacehsc__snippets_html_a498a70a6f910f3190ec86a937da07225"><div class="ttname"><a href="namespacehsc__snippets.html#a498a70a6f910f3190ec86a937da07225">hsc_snippets::string_repeat</a></div><div class="ttdeci">static std::string string_repeat(const std::string &amp;s, size_t n)</div><div class="ttdef"><b>Definition</b> string_utils.hpp:226</div></div>
 <div class="ttc" id="anamespacehsc__snippets_html_a53b3bf79c6d5c2413f3bd31b909b21ba"><div class="ttname"><a href="namespacehsc__snippets.html#a53b3bf79c6d5c2413f3bd31b909b21ba">hsc_snippets::isPalindrome</a></div><div class="ttdeci">static bool isPalindrome(const std::string &amp;s)</div><div class="ttdef"><b>Definition</b> string_utils.hpp:80</div></div>
 <div class="ttc" id="anamespacehsc__snippets_html_a8923ef291cc64772c5cd13426cfa2091"><div class="ttname"><a href="namespacehsc__snippets.html#a8923ef291cc64772c5cd13426cfa2091">hsc_snippets::string_split</a></div><div class="ttdeci">static std::vector&lt; std::string &gt; string_split(const std::string &amp;s, char delimiter)</div><div class="ttdef"><b>Definition</b> string_utils.hpp:205</div></div>

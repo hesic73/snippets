@@ -308,6 +308,8 @@ Functions</h2></td></tr>
 <tr class="separator:a498a70a6f910f3190ec86a937da07225"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adaa6180d399b5d52efaa38f0d5cbdacb" id="r_adaa6180d399b5d52efaa38f0d5cbdacb"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adaa6180d399b5d52efaa38f0d5cbdacb">string_repeat</a> (char c, size_t n)</td></tr>
 <tr class="separator:adaa6180d399b5d52efaa38f0d5cbdacb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e67435a2ae5f181a94710d7f4eb879a" id="r_a1e67435a2ae5f181a94710d7f4eb879a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e67435a2ae5f181a94710d7f4eb879a">string_join</a> (const std::vector&lt; std::string &gt; &amp;strings, const std::string &amp;delimiter)</td></tr>
+<tr class="separator:a1e67435a2ae5f181a94710d7f4eb879a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac6691641b2d50eca1b2145da55c74f1d" id="r_ac6691641b2d50eca1b2145da55c74f1d"><td class="memTemplParams" colspan="2">template&lt;numeric T&gt; </td></tr>
 <tr class="memitem:ac6691641b2d50eca1b2145da55c74f1d"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ac6691641b2d50eca1b2145da55c74f1d">lessThanAll</a> (T x, T val)</td></tr>
 <tr class="separator:ac6691641b2d50eca1b2145da55c74f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2685,6 +2687,44 @@ template&lt;std::integral T&gt; </div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a1e67435a2ae5f181a94710d7f4eb879a" name="a1e67435a2ae5f181a94710d7f4eb879a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e67435a2ae5f181a94710d7f4eb879a">&#9670;&#160;</a></span>string_join()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string hsc_snippets::string_join </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>strings</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>delimiter</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Joins a vector of strings into a single string, using a specified delimiter between each string.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">strings</td><td>The vector of strings to be joined. </td></tr>
+    <tr><td class="paramname">delimiter</td><td>The string used as the delimiter between each element in the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new string consisting of the elements in <code>strings</code>, joined by <code>delimiter</code>. </dd></dl>
 
 </div>
 </div>
