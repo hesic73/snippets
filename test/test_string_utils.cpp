@@ -182,10 +182,10 @@ TEST_CASE("string_join function", "[string_utils][string_join]") {
             }
 
             std::string delimiter = ",";
-            std::string expected = std::accumulate(strings.begin(), strings.end(), std::string(),
-                                                   [&](const std::string &a, const std::string &b) {
-                                                       return a.empty() ? b : a + delimiter + b;
-                                                   });
+            std::string expected = strings.empty() ? "" : strings[0]; // Handle the first string separately
+            for (size_t k = 1; k < strings.size(); ++k) {
+                expected += delimiter + strings[k]; // Add delimiter before subsequent strings
+            }
 
             std::string result = string_join(strings, delimiter);
             REQUIRE(result == expected);
